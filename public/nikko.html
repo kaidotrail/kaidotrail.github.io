@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="kagaorange" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>旧街道足跡マップ α版 &ndash; 日光街道</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.1.2/gpx.min.js"></script>
+    <link rel="stylesheet" href="map_style.css" />
+    <script src="map_helper.js"></script>
+  </head>
+  <body>
+    <h1>
+      <a href="./"><span class="logo-font">旧街道足跡マップ</span> α版</a>
+      <span class="sep">&gt;</span>
+      日光街道
+    </h1>
+    <div id="map"></div>
+    <script>
+      const map = L.map("map");
+      const stationOverlay = L.layerGroup();
+      stationOverlay.addTo(map);
+      const gpxOverlay = L.layerGroup();
+      gpxOverlay.addTo(map);
+      initMap(L, map, {
+        宿場: stationOverlay,
+        "kagaorange の軌跡": gpxOverlay,
+      });
+
+      // Stations
+      const markers = [
+        { name: "日本橋", lat: "35.6839621", lng: "139.7743418" },
+        { name: "日光東照宮", lat: "36.757875", lng: "139.598757" },
+      ];
+      const iconMarkers = L.featureGroup();
+      setMarkers(L, stationOverlay, iconMarkers, markers);
+      map.fitBounds(iconMarkers.getBounds());
+
+      // GPX
+      setGpx(L, gpxOverlay, "gpx/kagaorange_2024-09-21.gpx", "blue"); // #1 日本橋→北越谷
+      setGpx(L, gpxOverlay, "gpx/kagaorange_2024-10-12.gpx", "blue"); // #2 北越谷→古河
+      setGpx(L, gpxOverlay, "gpx/kagaorange_2024-10-26.gpx", "blue"); // #3 古河→石橋
+      setGpx(L, gpxOverlay, "gpx/kagaorange_2024-11-03.gpx", "blue"); // #4-5 石橋→大沢, 大沢→日光
+    </script>
+  </body>
+</html>
