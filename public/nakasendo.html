@@ -46,14 +46,12 @@
       });
 
       // Stations
-      const markers = nakasendoStations();
       const iconMarkers = L.featureGroup();
-      setMarkers(L, stationOverlay, iconMarkers, markers);
+      setMarkers(L, stationOverlay, iconMarkers, nakasendoStations);
       map.fitBounds(iconMarkers.getBounds());
 
       // Route
-      const route = nakasendoRoute();
-      L.polyline(route, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(nakasendoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2022-11-03.gpx", "blue"); // 鳥居峠ハイキング
