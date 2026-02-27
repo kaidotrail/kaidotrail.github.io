@@ -58,9 +58,13 @@
       });
 
       // Stations
+      const markers = [
+        { name: "日本橋", lat: "35.6839621", lng: "139.7743418" },
+        { name: "三条大橋", lat: "35.0082961", lng: "135.7712051" },
+      ];
       const iconMarkers = L.featureGroup();
       setMarkers(L, stationOverlay, iconMarkers, nakasendoStations);
-      map.fitBounds(iconMarkers.getBounds());
+      initQueryParamUpdater(map, () => map.fitBounds(iconMarkers.getBounds()));
 
       // Route
       L.polyline(nakasendoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);

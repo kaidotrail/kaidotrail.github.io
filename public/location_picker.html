@@ -70,7 +70,7 @@
       inputLocation.addEventListener("focus", () => inputLocation.select());
       const map = L.map("map");
       initMap(L, map);
-      map.setView([35.6839621, 139.7743418], 13); // 初期状態の中心を日本橋に設定
+      initQueryParamUpdater(map, () => map.setView([35.6839621, 139.7743418], 13));
       map.on("click", (e) => {
         const lat = Math.round(e.latlng.lat * 10000000) / 10000000;
         const lng = Math.round(e.latlng.lng * 10000000) / 10000000;

@@ -43,6 +43,32 @@ const initMap = (leaflet, map, overlays) => {
 };
 
 /**
+ * ドラッグやズームをした際にその後の位置座標をクエリーパラメーター lat, lng, z にそれぞれ格納します。
+ *
+ * @param map 地図インスタンス
+ * @param defaultFunc パラメーターがなかった場合の初期座標を設定する処理
+ */
+const initQueryParamUpdater = (map, defaultFunc) => {
+  const q = new URLSearchParams(location.search);
+  if (q.get("lat") && q.get("lng")) {
+    map.setView([q.get("lat"), q.get("lng")], q.get("z") ?? 13);
+  } else if (defaultFunc) {
+    defaultFunc();
+  }
+  map.on("moveend", () => {
+    const url = new URL(window.location);
+    url.searchParams.set("lat", map.getCenter().lat);
+    url.searchParams.set("lng", map.getCenter().lng);
+    history.replaceState(null, document.title, url);
+  });
+  map.on("zoomend", () => {
+    const url = new URL(window.location);
+    url.searchParams.set("z", map.getZoom());
+    history.replaceState(null, document.title, url);
+  });
+};
+
+/**
  * マーカー一覧をマップに配置します。
  *
  * @param leaflet Leaflet 本体

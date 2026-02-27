@@ -57,7 +57,7 @@
       ];
       const iconMarkers = L.featureGroup();
       setMarkers(L, stationOverlay, iconMarkers, markers);
-      map.fitBounds(iconMarkers.getBounds());
+      initQueryParamUpdater(map, () => map.fitBounds(iconMarkers.getBounds()));
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2025-01-24.gpx", "blue"); // #1-3 宇都宮→喜連川, 喜連川→鍋掛, 鍋掛→白河
