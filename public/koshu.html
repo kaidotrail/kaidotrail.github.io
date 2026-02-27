@@ -4,6 +4,17 @@
     <meta charset="utf-8" />
     <meta name="author" content="kagaorange" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHV6TYCEL3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-BHV6TYCEL3");
+    </script>
     <title>旧街道足跡マップ α版 &ndash; 甲州街道</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,6 +32,7 @@
     <script src="map_helper.js"></script>
   </head>
   <body>
+    <img src="logo160.png" alt="旧街道足跡マップ" />
     <h1>
       <a href="./"><span class="logo-font">旧街道足跡マップ</span> α版</a>
       <span class="sep">&gt;</span>
@@ -40,7 +52,7 @@
 
       // Stations
       const markers = [
-        { name: "日本橋", lat: "35.6839621", lng: "139.7743418" },
+        { name: "日本橋", lat: "35.684112", lng: "139.774533" },
         { name: "下諏訪宿", lat: "36.076148", lng: "138.089988" },
       ];
       const iconMarkers = L.featureGroup();

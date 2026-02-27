@@ -2,7 +2,17 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <meta name="author" content="kagaorange" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHV6TYCEL3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-BHV6TYCEL3");
+    </script>
     <title>旧街道足跡マップ α版</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,10 +23,13 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h1><span class="logo-font">旧街道足跡マップ</span> α版</h1>
+    <h1>
+      <img src="logo160.png" width="160" height="107" alt="旧街道足跡マップ" />
+      <span class="logo-font">旧街道足跡マップ</span> α版
+    </h1>
     <p>
-      <a href="https://x.com/kagaorange" target="_blank">@kagaorange</a> が歩いた旧街道の GPS データ
-      (GPX) を公開するページです。
+      東海道53次や中山道69次といった旧街道ウォーキングの魅力を実際に歩いた GPS
+      軌跡データを添えて紹介するページです。
     </p>
     <h2>五街道</h2>
     <ul>
@@ -61,6 +74,10 @@
       </li>
     </ul>
     <h2>ご案内</h2>
+    <h3>更新履歴</h3>
+    <ul>
+      <li>2026/02/25 サイト立ち上げ、五街道、中原街道、川越街道の GPX データの公開開始</li>
+    </ul>
     <h3>開発ロードマップ</h3>
     <ol>
       <li><s>五街道 GPX データの公開</s> <strong>✔️</strong></li>
@@ -70,7 +87,9 @@
       <li>各街道の宿場紹介データの作成</li>
       <li>各街道の一里塚紹介データの作成</li>
       <li>各街道のその他見どころ・注意点等の執筆</li>
+      <li>この殺風景なトップページをなんとかする</li>
     </ol>
+    <p>推奨歩行ルートに誤りを見つけたり恒久的に通行できなくなったりした際はお知らせください。</p>
     <p>
       情報や GPX データ等を寄贈してくれる方がいましたらお知らせください。
       将来的にはたくさんの方の足跡を集合させたヒートマップを作ってみたいと考えています。
@@ -84,11 +103,40 @@
       掲載している情報についてお気づきの点がありましたら、お知らせください。
       なお、本サイトの経路は江戸時代のルートになるべく近くなるように辿っていますが、さまざまな要因から完全に再現しているわけではありません。
     </p>
+    <h3>ツール</h3>
+    <ul>
+      <li>
+        <a href="location_picker.html">地図座標取得ツール</a> &ndash;
+        地図から緯度経度を効率よく取得するツール
+      </li>
+    </ul>
     <h3>連絡先</h3>
     <ul>
       <li>X: <a href="https://x.com/kagaorange" target="_blank">@kagaorange</a></li>
       <li>YAMAP: <a href="https://yamap.com/users/1655422" target="_blank">mikan</a></li>
       <li>Email: <code>mikan@aomikan.org</code></li>
     </ul>
+    <h3>謝辞</h3>
+    <ul>
+      <li>
+        <a href="https://yamap.com/" target="_blank">YAMAP</a> &ndash; GPS
+        データの記録や主要街道のルート案内を便利に使わせて頂いております
+      </li>
+      <li>
+        <a href="https://hgis.pref.miyazaki.lg.jp/hinata/" target="_blank">ひなた GIS</a> &amp;
+        <a href="https://ktgis.net/kjmapw/" target="_blank">今昔マップ on the web</a> &ndash;
+        古地図参照の決定版、ルートの下調べに活用しております
+      </li>
+      <li>
+        <a href="https://maps.gsi.go.jp/" target="_blank">地理院地図</a> &ndash;
+        未舗装路歩きの強い味方、本サイトでの地図活用についてはリアルタイム読込なら利用申請不要との回答を国土地理院より頂きました
+      </li>
+      <li>
+        <a href="https://leafletjs.com/" target="_blank">Leaflet</a> &amp;
+        <a href="https://github.com/mpetazzoni/leaflet-gpx" target="_blank">leaflet-gpx</a> &ndash;
+        地図描画ライブラリとして本サイトで活用しております
+      </li>
+    </ul>
+    <p>日本全国の素晴らしい街道を支える皆様に心より感謝いたします。</p>
   </body>
 </html>
