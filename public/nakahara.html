@@ -58,7 +58,7 @@
       ];
       const iconMarkers = L.featureGroup();
       setMarkers(L, stationOverlay, iconMarkers, markers);
-      map.fitBounds(iconMarkers.getBounds());
+      initQueryParamUpdater(map, () => map.fitBounds(iconMarkers.getBounds()));
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2024-06-29.gpx", "blue"); // #1 虎ノ門→中山

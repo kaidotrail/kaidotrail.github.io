@@ -57,7 +57,7 @@
       ];
       const iconMarkers = L.featureGroup();
       setMarkers(L, stationOverlay, iconMarkers, markers);
-      map.fitBounds(iconMarkers.getBounds());
+      initQueryParamUpdater(map, () => map.fitBounds(iconMarkers.getBounds()));
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2023-10-14.gpx", "blue"); // #1 日本橋→横浜
