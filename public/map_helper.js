@@ -32,8 +32,8 @@ const initMap = (leaflet, map, overlays) => {
   leaflet.control
     .layers(
       {
-        //        "国土地理院 標準地図": tileLayers[0],
-        //        "国土地理院 写真": tileLayers[1],
+        "国土地理院 標準地図": tileLayers[0],
+        "国土地理院 写真": tileLayers[1],
         "Google マップ": tileLayers[2],
         "Esri 地形図": tileLayers[3],
       },

@@ -32,13 +32,13 @@
   </head>
   <body>
     <img src="logo160.png" alt="旧街道足跡マップ" />
-    <h1>
+    <h1 style="padding-top: 3px">
       <a href="./"><span class="logo-font">旧街道足跡マップ</span> α版</a>
       <span class="sep">&gt;</span>
       地図座標取得ツール
       <label style="margin-left: 10px; color: green; font-family: monospace">
         座標:
-        <input id="location" size="24" />
+        <input id="location" size="24" class="padding-top: 0" />
       </label>
       <button id="history" style="height: 24px">履歴</button>
     </h1>
@@ -69,38 +69,8 @@
       const inputLocation = document.getElementById("location");
       inputLocation.addEventListener("focus", () => inputLocation.select());
       const map = L.map("map");
-      const tileLayers = [];
-      tileLayers[0] = L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png", {
-        attribution:
-          "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>",
-      });
-      tileLayers[1] = L.tileLayer(
-        "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg",
-        {
-          attribution:
-            "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>",
-        },
-      );
-      tileLayers[2] = L.tileLayer("https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}", {
-        attribution:
-          "<a href='https://developers.google.com/maps/documentation' target='_blank'>Google Maps</a>",
-      });
-      tileLayers[3] = L.tileLayer(
-        "http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
-        {
-          attribution: 'Tiles &copy; <a href="http://www.esrij.com/"> Esri Japan </a>',
-        },
-      );
-      tileLayers[2].addTo(map);
-      L.control
-        .layers({
-          "国土地理院 標準地図": tileLayers[0],
-          "国土地理院 写真": tileLayers[1],
-          "Google マップ": tileLayers[2],
-          "Esri 地形図": tileLayers[3],
-        })
-        .addTo(map);
-      map.setView([35.6839621, 139.7743418], 13);
+      initMap(L, map);
+      map.setView([35.6839621, 139.7743418], 13); // 初期状態の中心を日本橋に設定
       map.on("click", (e) => {
         const lat = Math.round(e.latlng.lat * 10000000) / 10000000;
         const lng = Math.round(e.latlng.lng * 10000000) / 10000000;
