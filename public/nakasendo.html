@@ -30,6 +30,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.1.2/gpx.min.js"></script>
     <link rel="stylesheet" href="map_style.css" />
     <script src="map_helper.js"></script>
+    <script src="nakasendo.js"></script>
   </head>
   <body>
     <img src="logo160.png" alt="旧街道足跡マップ" />
@@ -41,26 +42,29 @@
     <div id="map"></div>
     <script>
       const map = L.map("map");
+      const routeOverlay = L.layerGroup();
+      routeOverlay.addTo(map);
+      const shokiRouteOverlay = L.layerGroup();
+      shokiRouteOverlay.addTo(map);
       const stationOverlay = L.layerGroup();
       stationOverlay.addTo(map);
       const gpxOverlay = L.layerGroup();
       gpxOverlay.addTo(map);
-      const gpxOverlayShoki = L.layerGroup();
-      gpxOverlayShoki.addTo(map);
       initMap(L, map, {
         宿場: stationOverlay,
+        おすすめ歩行ルート: routeOverlay,
+        初期中山道ルート: shokiRouteOverlay,
         "kagaorange の軌跡": gpxOverlay,
-        "kagaorange の軌跡 (初期中山道)": gpxOverlayShoki,
       });
 
       // Stations
-      const markers = [
-        { name: "日本橋", lat: "35.6839621", lng: "139.7743418" },
-        { name: "三条大橋", lat: "35.0082961", lng: "135.7712051" },
-      ];
       const iconMarkers = L.featureGroup();
-      setMarkers(L, stationOverlay, iconMarkers, markers);
+      setMarkers(L, stationOverlay, iconMarkers, nakasendoStations);
       initQueryParamUpdater(map, () => map.fitBounds(iconMarkers.getBounds()));
+
+      // Route
+      L.polyline(nakasendoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(shokiNakasendoRoute, { color: "lightcoral", weight: 5 }).addTo(shokiRouteOverlay);
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2022-11-03.gpx", "blue"); // 鳥居峠ハイキング
@@ -74,7 +78,7 @@
       setGpx(L, gpxOverlay, "gpx/kagaorange_2023-04-30.gpx", "blue"); // #9-11 上松→大妻籠, 大妻籠→恵那, 恵那→伏見
       setGpx(L, gpxOverlay, "gpx/kagaorange_2023-05-27.gpx", "blue"); // #12-13 伏見→美江寺, 美江寺→醒井
       setGpx(L, gpxOverlay, "gpx/kagaorange_2023-07-15.gpx", "blue"); // #14-16 醒井→武佐, 武佐→大津, 大津→三条大橋
-      setGpx(L, gpxOverlayShoki, "gpx/kagaorange_2024-09-14.gpx", "darkblue"); // 初期中山道
+      setGpx(L, gpxOverlay, "gpx/kagaorange_2024-09-14.gpx", "blue"); // 初期中山道
     </script>
   </body>
 </html>

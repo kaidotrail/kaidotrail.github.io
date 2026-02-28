@@ -100,7 +100,7 @@ const setMarkers = (leaflet, overlay, iconMarkers, markers) => {
 const setGpx = (leaflet, overlay, path, color) => {
   new leaflet.GPX(path, {
     async: true,
-    polyline_options: { color: color },
+    polyline_options: { color: color, weight: 2 },
     markers: { startIcon: null, endIcon: null },
   }).addTo(overlay);
 };
