@@ -89,9 +89,9 @@ const setMarkers = (leaflet, overlay, iconMarkers, markers) => {
       iconSize: [0, 0],
     });
     iconMarkers.addLayer(
-      leaflet.marker([markers[i].lat, markers[i].lng]).addTo(overlay).bindPopup(markers[i].name),
+      leaflet.marker(markers[i].coordinate).addTo(overlay).bindPopup(markers[i].name),
     );
-    leaflet.marker([markers[i].lat, markers[i].lng], { icon: divIcon }).addTo(overlay);
+    leaflet.marker(markers[i].coordinate, { icon: divIcon }).addTo(overlay);
   }
 };
 
