@@ -15,7 +15,7 @@
       gtag("js", new Date());
       gtag("config", "G-BHV6TYCEL3");
     </script>
-    <title>旧街道足跡マップ α版 &ndash; 東海道53次</title>
+    <title>旧街道足跡マップ α版 &ndash; 東海道53次+佐屋街道</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -63,13 +63,15 @@
     <h1>
       <a href="./"><span class="logo-font">旧街道足跡マップ</span> α版</a>
       <span class="sep">&gt;</span>
-      東海道53次
+      東海道53次+佐屋街道
     </h1>
     <div id="map"></div>
     <script>
       const map = L.map("map");
       const routeOverlay = L.layerGroup();
       routeOverlay.addTo(map);
+      const sayaRouteOverlay = L.layerGroup();
+      sayaRouteOverlay.addTo(map);
       const stationOverlay = L.layerGroup();
       stationOverlay.addTo(map);
       const gpxOverlay = L.layerGroup();
@@ -77,6 +79,7 @@
       initMap(L, map, {
         宿場: stationOverlay,
         おすすめ歩行ルート: routeOverlay,
+        佐屋街道ルート: sayaRouteOverlay,
         "kagaorange の軌跡": gpxOverlay,
       });
 
@@ -86,7 +89,9 @@
       initQueryParamUpdater(map, () => map.fitBounds(iconMarkers.getBounds()));
 
       // Route
-      L.polyline(tokaidoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(tokaidoEastRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(tokaidoWestRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(sayaRoute, { color: "lightcoral", weight: 5 }).addTo(sayaRouteOverlay);
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2023-10-14.gpx", "blue"); // #1 日本橋→横浜
