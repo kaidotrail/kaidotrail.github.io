@@ -56,6 +56,7 @@
     ></script>
     <link rel="stylesheet" href="map_style.css" />
     <script src="map_helper.js"></script>
+    <script src="nikko.js"></script>
   </head>
   <body>
     <img src="logo160.png" alt="旧街道足跡マップ" />
@@ -67,23 +68,25 @@
     <div id="map"></div>
     <script>
       const map = L.map("map");
+      const routeOverlay = L.layerGroup();
+      routeOverlay.addTo(map);
       const stationOverlay = L.layerGroup();
       stationOverlay.addTo(map);
       const gpxOverlay = L.layerGroup();
       gpxOverlay.addTo(map);
       initMap(L, map, {
         宿場: stationOverlay,
+        おすすめ歩行ルート: routeOverlay,
         "kagaorange の軌跡": gpxOverlay,
       });
 
       // Stations
-      const markers = [
-        { name: "日本橋", coordinate: [35.684112, 139.774533] },
-        { name: "日光東照宮", coordinate: [36.757875, 139.598757] },
-      ];
       const iconMarkers = L.featureGroup();
-      setMarkers(L, stationOverlay, iconMarkers, markers);
+      setMarkers(L, stationOverlay, iconMarkers, nikkoStations);
       initQueryParamUpdater(map, () => map.fitBounds(iconMarkers.getBounds()));
+
+      // Route
+      L.polyline(nikkoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2024-09-21.gpx", "blue"); // #1 日本橋→北越谷
