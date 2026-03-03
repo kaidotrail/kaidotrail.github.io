@@ -56,6 +56,7 @@
     ></script>
     <link rel="stylesheet" href="map_style.css?v=1" />
     <script src="map_helper.js?v=1"></script>
+    <script src="nakahara.js?v=1"></script>
   </head>
   <body>
     <img src="logo160.png" alt="旧街道足跡マップ" />
@@ -67,24 +68,25 @@
     <div id="map"></div>
     <script>
       const map = L.map("map");
+      const routeOverlay = L.layerGroup();
+      routeOverlay.addTo(map);
       const stationOverlay = L.layerGroup();
       stationOverlay.addTo(map);
       const gpxOverlay = L.layerGroup();
       gpxOverlay.addTo(map);
       initMap(L, map, {
         宿場: stationOverlay,
+        おすすめ歩行ルート: routeOverlay,
         "kagaorange の軌跡": gpxOverlay,
       });
 
       // Stations
-      const markers = [
-        { name: "虎ノ門", coordinate: [35.671, 139.74963] },
-        { name: "中原御殿", coordinate: [35.34383, 139.33061] },
-        { name: "平塚宿", coordinate: [35.327507, 139.337769] },
-      ];
       const iconMarkers = L.featureGroup();
-      setMarkers(L, stationOverlay, iconMarkers, markers);
+      setMarkers(L, stationOverlay, iconMarkers, nakaharaStations);
       initQueryParamUpdater(map, () => map.fitBounds(iconMarkers.getBounds()));
+
+      // Route
+      L.polyline(nakaharaRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2024-06-29.gpx", "blue"); // #1 虎ノ門→中山
