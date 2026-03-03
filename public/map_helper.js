@@ -74,6 +74,16 @@ const initQueryParamUpdater = (map, defaultFunc) => {
   });
 };
 
+/**
+ * ズームレベルに応じてアイコンを切り替える機能を設定します。
+ *
+ * @param leaflet Leaflet 本体
+ * @param map 地図インスタンス
+ * @param mainLayer 深いズームレベルではアイコンを非表示にするレイヤー
+ * @param subLayer 浅いズームレベルでは点のようにしておき、深いズームレベルでアイコンを表示するレイヤー
+ * @param subLayerIcons 深いズームレベルで表示するアイコンの情報が格納された配列
+ * @param zoomThreshold アイコンを切り替えるズームレベル
+ */
 const initIconUpdater = (leaflet, map, mainLayer, subLayer, subLayerIcons, zoomThreshold = 14) => {
   const toggle = () => {
     if (map.getZoom() >= zoomThreshold) {
