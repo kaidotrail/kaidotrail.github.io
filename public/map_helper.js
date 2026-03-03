@@ -201,7 +201,10 @@ const buildPopupContent = (markerData) => {
     for (let i = 0; i < markerData.pictures.length; i++) {
       content += `<div id="popup-pic-${i}" style="display:${i === 0 ? "block" : "none"}">`;
       content += `<img src="${markerData.pictures[i].url}" width="300" alt="${markerData.pictures[i].comment}"/>`;
-      content += `<div class="popup-text">${i + 1}/${markerData.pictures.length} ${markerData.pictures[i].comment}<br/><span class="credit">${markerData.pictures[i].date} ${markerData.pictures[i].author}</span></div>`;
+      content += `<div class="popup-text">`;
+      content += `${i + 1}/${markerData.pictures.length} ${markerData.pictures[i].comment ?? ""}<br/>`;
+      content += `<span class="credit">${markerData.pictures[i].date} ${markerData.pictures[i].author}</span>`;
+      content += `</div>`;
       content += `</div>`;
     }
     if (markerData.pictures.length > 1) {
