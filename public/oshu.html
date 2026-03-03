@@ -56,6 +56,7 @@
     ></script>
     <link rel="stylesheet" href="map_style.css?v=1" />
     <script src="map_helper.js?v=1"></script>
+    <script src="oshu.js?v=1"></script>
   </head>
   <body>
     <img src="logo160.png" alt="旧街道足跡マップ" />
@@ -67,6 +68,8 @@
     <div id="map"></div>
     <script>
       const map = L.map("map");
+      const routeOverlay = L.layerGroup();
+      routeOverlay.addTo(map);
       const stationOverlay = L.layerGroup();
       stationOverlay.addTo(map);
       const gpxOverlay = L.layerGroup();
@@ -77,13 +80,12 @@
       });
 
       // Stations
-      const markers = [
-        { name: "宇都宮宿", coordinate: [36.56177, 139.877192] },
-        { name: "白河宿", coordinate: [37.126858, 140.215489] },
-      ];
       const iconMarkers = L.featureGroup();
-      setMarkers(L, stationOverlay, iconMarkers, markers);
+      setMarkers(L, stationOverlay, iconMarkers, oshuStations);
       initQueryParamUpdater(map, () => map.fitBounds(iconMarkers.getBounds()));
+
+      // Route
+      L.polyline(oshuRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2025-01-24.gpx", "blue"); // #1-3 宇都宮→喜連川, 喜連川→鍋掛, 鍋掛→白河
