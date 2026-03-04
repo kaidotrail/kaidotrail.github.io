@@ -205,9 +205,13 @@ const buildPopupContent = (markerData) => {
         content += `[${i + 1}/${markerData.pictures.length}] `;
       }
       content += `${markerData.pictures[i].comment ?? ""}<br/>`;
-      const tokens = URL.parse(markerData.pictures[i].url).pathname.split("/");
-      const date = new Date(tokens[3] + "-" + tokens[4]).toLocaleDateString();
-      content += `<span class="credit">${date} ${tokens[2]}</span>`;
+      try {
+        const tokens = URL.parse(markerData.pictures[i].url).pathname.split("/");
+        const date = new Date(tokens[3] + "-" + tokens[4]).toLocaleDateString();
+        content += `<span class="credit">${date} ${tokens[2]}</span>`;
+      } catch (e) {
+        console.error("写真の URL から日付と作者を解析できません: ", String(e));
+      }
       content += `</div>`;
       content += `</div>`;
     }
