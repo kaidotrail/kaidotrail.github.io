@@ -201,8 +201,13 @@ const buildPopupContent = (markerData) => {
       content += `<div id="popup-pic-${i}" style="display:${i === 0 ? "block" : "none"}">`;
       content += `<img src="${markerData.pictures[i].url}" width="300" height="225" alt="${markerData.pictures[i].comment}"/>`;
       content += `<div class="popup-text">`;
-      content += `${i + 1}/${markerData.pictures.length} ${markerData.pictures[i].comment ?? ""}<br/>`;
-      content += `<span class="credit">${markerData.pictures[i].date} ${markerData.pictures[i].author}</span>`;
+      if (markerData.pictures.length > 1) {
+        content += `[${i + 1}/${markerData.pictures.length}] `;
+      }
+      content += `${markerData.pictures[i].comment ?? ""}<br/>`;
+      const tokens = URL.parse(markerData.pictures[i].url).pathname.split("/");
+      const date = new Date(tokens[3] + "-" + tokens[4]).toLocaleDateString();
+      content += `<span class="credit">${date} ${tokens[2]}</span>`;
       content += `</div>`;
       content += `</div>`;
     }
