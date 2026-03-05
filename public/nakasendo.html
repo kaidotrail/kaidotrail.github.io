@@ -62,7 +62,9 @@
       referrerpolicy="no-referrer"
     ></script>
     <link rel="stylesheet" href="map_style.css?v=3" />
+    <link rel="stylesheet" href="spot_list.css?v=1" />
     <script src="map_helper.js?v=3"></script>
+    <script src="spot_list.js?v=1"></script>
     <script src="nakasendo.js?v=2"></script>
   </head>
   <body>
@@ -71,8 +73,12 @@
       <a href="./"><span class="logo-font">旧街道足跡マップ</span> α版</a>
       <span class="sep">&gt;</span>
       中山道69次+初期中山道
+      <button id="spot-list-open" style="color: transparent">
+        <i class="fa-solid fa-database"></i>
+      </button>
     </h1>
     <div id="map"></div>
+    <div id="spot-list"></div>
     <script>
       const map = L.map("map");
       const routeOverlay = L.layerGroup();
@@ -196,6 +202,9 @@
       setGpx(L, gpxOverlay, "gpx/kagaorange_2023-05-27.gpx", "blue"); // #12-13 伏見→美江寺, 美江寺→醒井
       setGpx(L, gpxOverlay, "gpx/kagaorange_2023-07-15.gpx", "blue"); // #14-16 醒井→武佐, 武佐→大津, 大津→三条大橋
       setGpx(L, gpxOverlay, "gpx/kagaorange_2024-09-14.gpx", "blue"); // 初期中山道
+
+      // Spot list
+      initSpotList(spots);
     </script>
   </body>
 </html>

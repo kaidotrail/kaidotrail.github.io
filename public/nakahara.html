@@ -62,7 +62,9 @@
       referrerpolicy="no-referrer"
     ></script>
     <link rel="stylesheet" href="map_style.css?v=4" />
+    <link rel="stylesheet" href="spot_list.css?v=1" />
     <script src="map_helper.js?v=5"></script>
+    <script src="spot_list.js?v=1"></script>
     <script src="nakahara.js?v=4"></script>
   </head>
   <body>
@@ -71,9 +73,13 @@
       <a href="./"><span class="logo-font">旧街道足跡マップ</span> α版</a>
       <span class="sep">&gt;</span>
       中原街道
+      <button id="spot-list-open" title="見どころ一覧">
+        <i class="fa-solid fa-list"></i>
+      </button>
     </h1>
     <div id="zoom-in-message"><span>ズームインすると見どころが表示されます</span></div>
     <div id="map"></div>
+    <div id="spot-list"></div>
     <script>
       const map = L.map("map");
       const routeOverlay = L.layerGroup();
@@ -1874,6 +1880,9 @@
       setGpx(L, gpxOverlay, "gpx/kagaorange_2024-06-29.gpx", "blue"); // #1 虎ノ門→中山
       setGpx(L, gpxOverlay, "gpx/kagaorange_2024-07-20.gpx", "blue"); // #2 中山→寒川
       setGpx(L, gpxOverlay, "gpx/kagaorange_2024-07-27.gpx", "blue"); // #3 寒川→平塚
+
+      // Spot list
+      initSpotList(spots, iconTypes);
     </script>
   </body>
 </html>
