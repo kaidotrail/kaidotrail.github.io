@@ -92,8 +92,13 @@ const initSpotList = (spots, iconTypes) => {
   if (otherList.length > 0) {
     buildTable(otherList, "その他", spotList, iconTypes);
   }
+  const picCount = spots
+    .map((spot) => (spot.pictures ? spot.pictures.length : 0))
+    .reduce((acc, v) => acc + v, 0);
+  const counter = document.createElement("p");
+  counter.innerHTML = `全 ${spots.length} 地点 (写真 ${picCount} 枚)`;
+  spotList.appendChild(counter);
   const btm2 = createBackToMapButton();
-  btm2.style.marginTop = "10px";
   btm2.style.marginBottom = "10px";
   spotList.appendChild(btm2);
   const q = new URLSearchParams(location.search);
