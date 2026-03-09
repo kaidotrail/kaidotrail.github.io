@@ -139,8 +139,8 @@
         { name: "21. 小田井宿", coordinate: [36.306186, 138.497008] },
         { name: "22. 岩村田宿", coordinate: [36.270977, 138.478208] },
         { name: "23. 塩名田宿", coordinate: [36.271224, 138.422377] },
-        { name: "24. 八幡宿", coordinate: [36.2739598, 138.3953708] },
-        { name: "25. 望月宿", coordinate: [36.265857, 138.362057] },
+        { name: "24. 八幡宿", coordinate: [36.273885, 138.395358] },
+        { name: "25. 望月宿", coordinate: [36.265717, 138.362172] },
         { name: "26. 芦田宿", coordinate: [36.273223, 138.314613] },
         { name: "27. 長久保宿", coordinate: [36.253414, 138.269365] },
         { name: "28. 和田宿", coordinate: [36.208131, 138.212212] },
@@ -1516,7 +1516,7 @@
           icon: "honjin",
           description:
             "公民館の入口に標柱や駕籠 (かご) 風の石碑があります。" +
-            "板鼻宿は碓氷峠の川止めに備えるため、本陣1軒、脇本陣1軒のほかに旅籠が54軒もあったそうです。",
+            "板鼻宿は碓氷川の川留めに備えるため、本陣1軒、脇本陣1軒のほかに旅籠が54軒もあったそうです。",
           pictures: [
             {
               url: "https://kaidotrail.github.io/img/kagaorange/2023/01-29/IMG_20230129_085135.webp",
@@ -2572,7 +2572,9 @@
           kana: "しおなだしゅくといや・まるやまほんじんあと",
           coordinate: [36.271254, 138.421905],
           icon: "honjin",
-          description: "丸山家の同族が問屋と本陣を勤めたそうです。",
+          description:
+            "丸山家の同族が問屋と本陣を勤めたそうです。<br/>" +
+            "道の反対側には宿内の絵地図が描かれた巨大な案内板があり、明治後期から昭和初期にかけて花街として賑わったことなども紹介されています。",
           pictures: [
             {
               url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_140118.webp",
@@ -2582,23 +2584,388 @@
               url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_140105.webp",
               comment: "説明板",
             },
-          ],
-        },
-        {
-          name: "滝の湧き水",
-          coordinate: [36.270771, 138.420006],
-          icon: "monument",
-          description: "脇道を下ると塩名田宿お滝通りと書かれた大きな石碑と休憩所があります。",
-          pictures: [
             {
-              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_141556.webp",
-              comment: "滝の湧き水",
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_141248.webp",
+              comment: "塩名田宿案内板",
             },
           ],
         },
+        {
+          name: "お滝",
+          coordinate: [36.270771, 138.420006],
+          icon: "monument",
+          description:
+            "河原宿の東端部にお滝という湧水があり、塩名田宿お滝通りと書かれた大きな石碑と休憩所があります。" +
+            "現在では水量は僅かですが、かつては水道の水源だったそうです。" +
+            "周囲には十九夜塔や道祖神もあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_141556.webp",
+              comment: "お滝",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_141627.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "船つなぎ石・千曲川舟橋",
+          coordinate: [36.270982, 138.418801],
+          icon: "bridge",
+          description:
+            "明治時代の中津橋は川に船を並べてその上に板を敷いて作った舟橋で、" +
+            "その船を留めていた「舟つなぎ石」がこの看板の正面から少しだけ下流側の河原にあります。" +
+            "現在の真っ赤な中津橋は昭和6年 (1931) に架けられました。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_141818.webp",
+              comment: "説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_142007.webp",
+              comment: "中津橋から見た八ヶ岳",
+            },
+          ],
+        },
+        {
+          name: "御馬寄一里塚跡",
+          kana: "みまよせいちりづかあと",
+          coordinate: [36.273161, 138.410753],
+          icon: "ichirizuka",
+          description:
+            "日本橋から44里 (約172.8km) の御馬寄一里塚跡で、標柱があります。" +
+            "奥には「信風遠州流家元 信守斎一宇先生碑」と彫られた茶人の記念碑があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_142919.webp",
+              comment: "標柱・石碑",
+            },
+          ],
+        },
+        {
+          name: "御井大神",
+          kana: "みいのおおかみ",
+          coordinate: [36.274178, 138.407537],
+          icon: "monument",
+          description:
+            "旧中山道の案内板の奥に御井大神と彫られた水神様の石塔があります。" +
+            "佐久商工会議所のウェブサイトによると、郎兵衛用水という新田開発で造られた用水路に関連して建立されたそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_143322.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+
         // 24. 八幡宿
+        {
+          name: "八幡神社",
+          kana: "はちまんじんじゃ",
+          coordinate: [36.275375, 138.398203],
+          icon: "monument",
+          description:
+            "八幡 (やわた) 宿の東の枡形跡に鎮座する八幡 (はちまん) 神社です。" +
+            "宿場の由来もこの神社ですが、読み方は異なっています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_084949.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "八幡宿本陣跡",
+          kana: "やわたしゅくほんじんあと",
+          coordinate: [36.273885, 138.395358],
+          icon: "honjin",
+          description:
+            "佐久商工会議所のウェブサイトによると「残されている門は中山道の宿場本陣の中で最古と言われている」とあり、大変貴重です。" +
+            "八幡宿は千曲川の対岸の塩名田宿と共に川留めに備えた体制で、本陣1軒のほか脇本陣が4軒もあったそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_144633.webp",
+              comment: "表門・記念碑",
+            },
+          ],
+        },
+        {
+          name: "祝言道祖神",
+          kana: "しゅうげんどうそじん",
+          coordinate: [36.269355, 138.378005],
+          icon: "monument",
+          description:
+            "百沢集落の曲がり角に鎮座しています。" +
+            "説明板には、宮廷貴族の装いをした男女が酒を酌み交わす華麗な祝言像であると解説されています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_150733.webp",
+              comment: "祝言道祖神・説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_150533.webp",
+              comment: "百沢集落の町並み",
+            },
+          ],
+        },
+        {
+          name: "牧布施道標",
+          kana: "まきぶせみちしるべ",
+          coordinate: [36.26725, 138.375544],
+          icon: "monument",
+          description:
+            "とても古そうな道標があり、中山道は江戸方から見て右手の未舗装の坂道、布施は直進であることを示しています。" +
+            "直進した先には布施温泉という日帰り温泉施設があり、時間があれば立ち寄りたいところです。" +
+            "なお、未舗装の坂道を上った先で道筋が消失しているため、国道を横断して中山道の案内板に従って進みます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_151231.webp",
+              comment: "道標・標柱",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_151357.webp",
+              comment: "未舗装の坂道",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_151728.webp",
+              comment: "坂道を上った先",
+            },
+          ],
+        },
+        {
+          name: "瓜生坂一里塚",
+          kana: "うりゅうざかいちりづか",
+          coordinate: [36.26639, 138.369754],
+          icon: "ichirizuka",
+          description:
+            "日本橋から45里 (約176.7km) の一里塚で、両塚が現存しています。" +
+            "石碑と説明板の立つ南塚で、形はやや崩れています。" +
+            "北塚は道路で半分削り取られたものの斜面上方に確かに残っているそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_152514.webp",
+              comment: "南塚・石碑・説明板",
+            },
+          ],
+        },
+        {
+          name: "瓜生坂",
+          kana: "うりゅうざか",
+          coordinate: [36.266438, 138.367937],
+          icon: "monument",
+          description:
+            "瓜生坂の石碑と百万遍念仏碑が並んでいます。古道の道筋は未舗装の坂道になっています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_152727.webp",
+              comment: "石碑・百万遍念仏碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_152748.webp",
+              comment: "坂上から京方",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_153014.webp",
+              comment: "坂下から江戸方",
+            },
+          ],
+        },
         // 25. 望月宿
+        {
+          name: "山城屋・井出野屋旅館",
+          kana: "やましろや・いでのやりょかん",
+          coordinate: [36.26525, 138.362983],
+          icon: "building",
+          description:
+            "北側に山城屋という江戸時代からの旅籠屋があり、現在の建物も明治時代に建てられたものだそうです。<br/>" +
+            "その向かいには大正時代に建てられた井出野屋旅館の建物があり、大神家一族の映画で那須ホテルとして使用された旅館との説明板もあります。" +
+            "井出野屋旅館は閉店してしまったものの、執筆時点では新しいオーナーが再開に向けて動き出しているそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_153923.webp",
+              comment: "井出野屋旅館 (左)・山城屋 (右)",
+            },
+          ],
+        },
+        {
+          name: "望月宿本陣跡",
+          kana: "もちずきしゅくほんじんあと",
+          coordinate: [36.265717, 138.362172],
+          icon: "honjin",
+          description:
+            "本陣跡は望月歴史民俗資料館となっているほか、隣の大森小児科医院には御本陣との看板が掲げられています。" +
+            "望月宿の本陣は大森家が務めたと記録されているので、子孫の方が土地を受け継いでいるようです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_154059.webp",
+              comment: "望月歴史民俗資料館",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_154123.webp",
+              comment: "大森小児科医院",
+            },
+          ],
+        },
+        {
+          name: "望月宿鷹野脇本陣跡",
+          kana: "もちづきしゅくたかのわきほんじんあと",
+          coordinate: [36.265977, 138.362033],
+          icon: "building",
+          description:
+            "本陣跡の向かいに出桁 (だしげた) 造りの美しい建物があり、脇本陣鷹野との看板が掲げられた建物があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_154143.webp",
+              comment: "脇本陣鷹野",
+            },
+          ],
+        },
+        {
+          name: "大和屋 (真山家)",
+          kana: "やまとや (さなやまけ)",
+          coordinate: [36.266207, 138.361698],
+          icon: "building",
+          description:
+            "国の重要文化財。明和2年 (1765) に旅籠屋兼問屋として建てられた出桁 (だしげた) 造りの建物が現存しています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_154232.webp",
+              comment: "大和屋",
+            },
+          ],
+        },
+        {
+          name: "茂田井神明社",
+          kana: "もたいしんめいしゃ",
+          coordinate: [36.273228, 138.340426],
+          icon: "shrine",
+          description: "茂田井間の宿にある神社です。神明造りの本殿はこの地方では珍しいそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_161429.webp",
+              comment: "茂田井神明社",
+            },
+          ],
+        },
+        {
+          name: "武重本家酒造",
+          kana: "たけしげほんけしゅぞう",
+          coordinate: [36.2734149, 138.3393395],
+          icon: "building",
+          description:
+            "敷地内の建物30棟が国の登録有形文化財になっているそうです。" +
+            "「御園竹」「牧水」という日本酒やどぶろく、焼酎を作っています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_161609.webp",
+              comment: "武重本家酒造",
+            },
+          ],
+        },
+        {
+          name: "石割坂・茂田井村上組高札場跡",
+          kana: "いしわりざか・もたいむらかみぐみこうさつばあと",
+          coordinate: [36.27053, 138.331575],
+          icon: "kosatsuba",
+          description:
+            "石を割って道を作ったことから石割坂と呼ばれている坂道があります。" +
+            "そのすぐ近くには茂田井村上組高札場跡と書かれた説明板もあり、茂田井には2つの名主がいた時代があったため高札場も2箇所あったそうです。" +
+            "下組高札場跡はここから 600m ほど東側にあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_162822.webp",
+              comment: "石割坂 説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_162736.webp",
+              comment: "茂田井村 説明板",
+            },
+          ],
+        },
+        {
+          name: "茂田井一里塚跡",
+          kana: "もたいいちりづかあと",
+          coordinate: [36.270439, 138.330586],
+          icon: "ichirizuka",
+          description:
+            "日本橋から46里 (約180.7km) の一里塚跡で、塚は現存しないそうですが土が盛ってあり雰囲気を再現しているようです。" +
+            "柿本人麿の歌碑や大きな説明板もあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_162956.webp",
+              comment: "茂田井一里塚跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_162947.webp",
+              comment: "案内板・歌碑",
+            },
+          ],
+        },
         // 26. 芦田宿
+        {
+          name: "芦田宿本陣跡 (土屋家住宅)",
+          kana: "あしだしゅくほんじんあと (つちやけじゅうたく)",
+          coordinate: [36.273218, 138.314603],
+          icon: "honjin",
+          description:
+            "「県宝 旧芦田宿本陣土屋家住宅」と記された説明板があり、寛政12年 (1800) 改築の客殿が現存、それが県宝に指定されているとのことです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_164736.webp",
+              comment: "芦田宿本陣跡",
+            },
+          ],
+        },
+        {
+          name: "金丸土屋旅館",
+          kana: "かなまるつちやりょかん",
+          coordinate: [36.2729305, 138.3138639],
+          icon: "building",
+          description:
+            "文化元年 (1804) 創業で現役の旅籠屋です。" +
+            "切妻の大屋根の上に小屋根の乗った櫓 (やぐら) 造、出桁造りの雲形肘木 (ひじき) や左右の飾りうだつが特徴的です。" +
+            "自家栽培のお米が自慢で、地元の食材を使った料理を頂けます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_164851.webp",
+              comment: "金丸土屋旅館",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_170158.webp",
+              comment: "玄関",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_170110.webp",
+              comment: "階段",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_170046.webp",
+              comment: "廊下",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_170041.webp",
+              comment: "中庭",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_165310.webp",
+              comment: "客間",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_201129.webp",
+              comment: "別館にある浴室",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_190154.webp",
+              comment: "夕餉",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_055341.webp",
+              comment: "朝餉",
+            },
+          ],
+        },
+
         // 27. 長久保宿
         // 28. 和田宿
         // 29. 下諏訪宿
