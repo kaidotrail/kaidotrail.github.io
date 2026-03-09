@@ -110,6 +110,20 @@ h1 a {
   color: gray;
 }
 
+.routing {
+  font-weight: bold;
+  color: goldenrod;
+}
+.routing:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f277"; /* fa-signs-post */
+  font-weight: 900;
+  padding-right: 2px;
+}
+.routing:after {
+  content: ": ";
+}
+
 @media (max-width: 768px) {
   .hidden-on-mobile {
     display: none !important;
