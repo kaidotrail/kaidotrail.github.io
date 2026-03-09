@@ -172,7 +172,7 @@ const iconTypes = new Map([
   ["honjin", { icon: "fa-landmark-flag", color: "#8B0000" }],
   ["ichirizuka", { icon: "fa-tree", color: "#228B22" }],
   ["kosatsuba", { icon: "fa-scroll", color: "#A0522D" }],
-  ["pass", { icon: "fa-mountain", color: "#800080" }],
+  ["pass", { icon: "fa-mountain", color: "#006400" }],
   ["watashi", { icon: "fa-ship", color: "#1E90FF" }],
   ["bridge", { icon: "fa-bridge", color: "#808080" }],
   ["guide", { icon: "fa-signs-post", color: "#FF8C00" }],
