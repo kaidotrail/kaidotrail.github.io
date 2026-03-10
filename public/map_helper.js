@@ -182,6 +182,7 @@ const iconTypes = new Map([
   ["temple", { icon: "fa-dharmachakra", color: "#000000" }],
   ["camera", { icon: "fa-camera", color: "#DAA520" }],
   ["food", { icon: "fa-utensils", color: "#20b2aa" }],
+  ["shop", { icon: "fa-shop", color: "#8a2be2" }],
   ["default", { icon: "fa-map-pin", color: "royalblue" }],
 ]);
 

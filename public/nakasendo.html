@@ -73,9 +73,9 @@
     </script>
     <link rel="stylesheet" href="map_style.css?v=5" />
     <link rel="stylesheet" href="spot_list.css?v=1" />
-    <script src="map_helper.js?v=4"></script>
+    <script src="map_helper.js?v=5"></script>
     <script src="spot_list.js?v=1"></script>
-    <script src="nakasendo.js?v=3"></script>
+    <script src="nakasendo.js?v=4"></script>
     <script src="spot_nihonbashi.js?v=1"></script>
     <script src="section_hirao.js?v=1"></script>
     <script src="section_kusatsu.js?v=1"></script>
@@ -86,8 +86,8 @@
       <a href="./"><span class="logo-font">旧街道足跡マップ</span> α版</a>
       <span class="sep">&gt;</span>
       中山道69次+初期中山道
-      <button id="spot-list-open" style="color: transparent">
-        <i class="fa-solid fa-database"></i>
+      <button id="spot-list-open">
+        <i class="fa-solid fa-list"></i>
       </button>
     </h1>
     <div id="zoom-in-message">
@@ -103,6 +103,8 @@
       shokiRouteOverlay.addTo(map);
       const kazunomiyaRouteOverlay = L.layerGroup();
       kazunomiyaRouteOverlay.addTo(map);
+      const wadaOldRouteOverlay = L.layerGroup();
+      wadaOldRouteOverlay.addTo(map);
       const stationOverlay = L.layerGroup();
       stationOverlay.addTo(map);
       const spotOverlay = L.layerGroup();
@@ -115,6 +117,7 @@
         おすすめ歩行ルート: routeOverlay,
         初期中山道ルート: shokiRouteOverlay,
         碓氷峠和宮ルート: kazunomiyaRouteOverlay,
+        和田峠古道ルート: wadaOldRouteOverlay,
         "kagaorange の軌跡": gpxOverlay,
       });
 
@@ -148,7 +151,7 @@
         { name: "25. 望月宿", coordinate: [36.265717, 138.362172] },
         { name: "26. 芦田宿", coordinate: [36.273223, 138.314613] },
         { name: "27. 長久保宿", coordinate: [36.253414, 138.269365] },
-        { name: "28. 和田宿", coordinate: [36.208131, 138.212212] },
+        { name: "28. 和田宿", coordinate: [36.208036, 138.212314] },
         { name: "29. 下諏訪宿", coordinate: [36.076147, 138.089993] },
         { name: "30. 塩尻宿", coordinate: [36.1036204, 137.9749936] },
         { name: "31. 洗馬宿", coordinate: [36.0872918, 137.9158241] },
@@ -2222,10 +2225,10 @@
           coordinate: [36.3694054, 138.6567146],
           icon: "pass",
           description:
-            "碓氷峠には熊野皇大神社が鎮座しています。" +
-            "神社の脇には大名のお休み処だった赤門屋敷跡の説明板があります。<br/>" +
-            "ここは上野国と信濃国の国境でもあり、上信國境の石碑があります。現代では群馬県と長野県の県境です。" +
-            "日本初のマラソン大会とも言われる安政遠足 (あんせいとおあし) の決勝地点でもあり、現代でもこれをモデルにした侍マラソンというイベントが開かれています。",
+            "標高 1,200m の峠で、群馬県と長野県の県境です。" +
+            "上野国と信濃国の国境でもあった場所で、上信國境の石碑があります。<br/>" +
+            "熊野皇大神社が鎮座しており、神社の脇には大名のお休み処だった赤門屋敷跡の説明板があります。" +
+            "神社前が日本初のマラソン大会とも言われる安政遠足 (あんせいとおあし) の決勝地点でもあり、現代でもこれをモデルにした侍マラソンというイベントが開かれています。",
           pictures: [
             {
               url: "https://kaidotrail.github.io/img/kagaorange/2023/01-29/IMG_20230129_172537.webp",
@@ -2258,7 +2261,7 @@
           name: "宮ノ前一里塚跡",
           coordinate: [36.347318, 138.594469],
           icon: "ichirizuka",
-          description: "日本橋から38里 (約149.2km) の一里塚跡は、古い道筋上に石碑があります。",
+          description: "日本橋から38里 (約149.2km) の一里塚跡で、古い道筋上に石碑があります。",
         },
         // 19. 沓掛宿
         {
@@ -2642,7 +2645,7 @@
               comment: "荘山稲荷神社",
             },
             {
-              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_131400.webp",
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230211_131417.webp",
               comment: "由緒",
             },
           ],
@@ -2755,7 +2758,7 @@
           coordinate: [36.273161, 138.410753],
           icon: "ichirizuka",
           description:
-            "日本橋から44里 (約172.8km) の御馬寄一里塚跡で、標柱があります。" +
+            "日本橋から44里 (約172.8km) の一里塚跡で、標柱があります。" +
             "奥には「信風遠州流家元 信守斎一宇先生碑」と彫られた茶人の記念碑があります。",
           pictures: [
             {
@@ -3086,10 +3089,672 @@
             },
           ],
         },
-
+        {
+          name: "笠取峠の松並木",
+          kana: "かさとりとうげのまつなみき",
+          coordinate: [36.268235, 138.300982],
+          icon: "camera",
+          description: "往時の姿を残していると言われている美しい松並木が 1km ほど続いています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230212_070222.webp",
+              comment: "松並木",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230212_065141.webp",
+              comment: "石碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-11/IMG_20230212_070741.webp",
+              comment: "松並木公園常夜燈",
+            },
+          ],
+        },
+        {
+          name: "笠取峠一里塚",
+          kana: "かさとりとうげいちりづか",
+          coordinate: [36.26016, 138.289334],
+          icon: "ichirizuka",
+          description:
+            "日本橋から47里 (約184.6km) の一里塚で、北塚が現存しています。" +
+            "塚木も現存しており、榎ではなく赤松が植わっています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_072456.webp",
+              comment: "北塚",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_072514.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "笠取峠",
+          kana: "かさとりとうげ",
+          coordinate: [36.258146, 138.287667],
+          icon: "pass",
+          description:
+            "標高 900m の峠で、立科町と長和町の境界になっています。" +
+            "国道142号のための改良工事の完成記念碑があります。" +
+            "かつては立場茶屋があり、それを描いた笠取峠立場図版木が展示されています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_073021.webp",
+              comment: "笠取峠",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_072839.webp",
+              comment: "石碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_073447.webp",
+              comment: "笠取峠立場図版木",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_073438.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "笠取峠原道",
+          coordinate: [36.2537821, 138.2864732],
+          icon: "guide",
+          description:
+            "<span class='routing'>京方</span> 階段を下り未舗装路に入ります。<br/>" +
+            "<span class='routing'>江戸方</span> かつての原道は国道を横断した先のガードレールの隙間の奥へと続いていたようですが、" +
+            "現在はほぼ消失しているため国道を歩くのが良いでしょう。",
+        },
+        {
+          name: "笠取峠原道",
+          coordinate: [36.252702, 138.284697],
+          icon: "guide",
+          description: "<span class='routing'>江戸方</span> 未舗装の坂道を上ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_074433.webp",
+              comment: "江戸方",
+            },
+          ],
+        },
+        {
+          name: "笠取峠原道",
+          coordinate: [36.2525362, 138.2836998],
+          icon: "guide",
+          description: "<span class='routing'>京方</span> ガードレールの隙間から山道を下ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_074721.webp",
+              comment: "京方",
+            },
+          ],
+        },
+        {
+          name: "笠取峠原道",
+          coordinate: [36.2520214, 138.2821763],
+          icon: "guide",
+          description:
+            "<span class='routing'>京方</span> 舗装路へ下りるパスが分かりづらいです。" +
+            "国道との分岐まで山道を行ってしまうとコンクリート壁を飛び降りる必要があります (失敗談)。<br/>" +
+            "<span class='routing'>江戸方</span> ここから未舗装路に入ります。",
+        },
         // 27. 長久保宿
+        {
+          name: "吾一庵",
+          kana: "ごいちあん",
+          coordinate: [36.2530121, 138.2709593],
+          icon: "building",
+          description:
+            "江戸末期から明治初期の建物で、資料館になっています。" +
+            "軒下にある車輪のついた物体は「竜吐水」という火事の消火に使う道具だそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_081059.webp",
+              comment: "吾一庵",
+            },
+          ],
+        },
+        {
+          name: "長久保宿本陣跡",
+          kana: "ながくぼしゅくほんじんあと",
+          coordinate: [36.253414, 138.269365],
+          icon: "honjin",
+          description:
+            "幕末に建てられた表門と17世紀後半に建てられた御殿が現存しており、表門は街道筋から見ることができます。" +
+            "表門の横には高札場があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_081325.webp",
+              comment: "本陣跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_081341.webp",
+              comment: "高札場",
+            },
+          ],
+        },
+        {
+          name: "浜田屋旅館",
+          kana: "はまだやりょかん",
+          coordinate: [36.253532, 138.267622],
+          icon: "building",
+          description:
+            "江戸時代から150年以上続く旅籠屋で、現代でも中山道ウォーカーに人気の旅館です。" +
+            "2025年にリノベーションを実施し、昔ながらの雰囲気を維持しつつ耐震工事も済ませたそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_081627.webp",
+              comment: "浜田屋旅館",
+            },
+          ],
+        },
+        {
+          name: "辰野屋",
+          kana: "たつのや",
+          coordinate: [36.25163, 138.266836],
+          icon: "building",
+          description:
+            "枡形の角に出梁 (だしばり) 造りのとても立派な建物があります。" +
+            "辰野屋の看板が掲げられており、旅籠屋だったそうです。現在は歴史資料館になっています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_081924.webp",
+              comment: "辰野屋",
+            },
+          ],
+        },
+        {
+          name: "四泊一里塚跡",
+          kana: "しどまりいちりづかあと",
+          coordinate: [36.244285, 138.258636],
+          icon: "ichirizuka",
+          description:
+            "日本橋から48里 (188.5km) の一里塚跡で、説明板があります。" +
+            "榎が植っていたが、昭和35年 (1960) の道路改修で伐採されてしまい現存していないとのことです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_083554.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "セブン-イレブン 長和町店",
+          coordinate: [36.242538, 138.257452],
+          icon: "shop",
+          description:
+            "<span class='routing'>京方</span> この先下諏訪宿までコンビニはありません。" +
+            "和田峠越えに備えて水や行動食等が足りていないか確認し、ここで適宜補給することをおすすめします。",
+        },
+        {
+          name: "のみ水",
+          coordinate: [36.227769, 138.241732],
+          icon: "monument",
+          description: "「のみ水」と彫られた石柱の横でこんこんと水が湧いています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_091116.webp",
+              comment: "のみ水",
+            },
+          ],
+        },
+        {
+          name: "三千僧接待碑",
+          coordinate: [36.227251, 138.24104],
+          icon: "monument",
+          description:
+            "たくさんの石碑が並んでいます。諸国遍歴の僧侶を供養接待するために建てられた石碑だそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_091255.webp",
+              comment: "三千僧接待碑・説明板",
+            },
+          ],
+        },
+        {
+          name: "芹沢一里塚跡",
+          kana: "せりざわいちりづかあと",
+          coordinate: [36.219874, 138.232033],
+          icon: "ichirizuka",
+          description: "日本橋から49里 (約192.4km) の一里塚跡で、大きな石碑が建っています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_093156.webp",
+              comment: "芹沢一里塚跡",
+            },
+          ],
+        },
         // 28. 和田宿
+        {
+          name: "かわちや",
+          coordinate: [36.208976, 138.212787],
+          icon: "building",
+          description:
+            "出桁 (だしげたづくり) の美しい旅籠屋で、現在は歴史の道資料館となっており、国指定史跡に登録されているそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_100007.webp",
+              comment: "かわちや",
+            },
+          ],
+        },
+        {
+          name: "羽田野",
+          coordinate: [36.208339, 138.21213],
+          icon: "building",
+          description:
+            "文久元年 (1861) に建てられた町家で、本陣の向かいにあります。" +
+            "コワーキングやセミナー、研修会場として活用しているほか、民泊も始めたそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_100206.webp",
+              comment: "羽田野",
+            },
+          ],
+        },
+        {
+          name: "和田宿本陣",
+          kana: "わだしゅくほんじん",
+          coordinate: [36.208036, 138.212314],
+          icon: "honjin",
+          description:
+            "皇女和宮が宿泊した和田宿本陣で、冠木門と大きな母屋があります。" +
+            "平成元年 (1989) に再建され、国指定史跡にも登録されたそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_100239.webp",
+              comment: "本陣",
+            },
+          ],
+        },
+        {
+          name: "和田宿脇本陣 (翠川家)",
+          kana: "わだしゅくわきほんじん (みどりかわけ)",
+          coordinate: [36.207627, 138.211578],
+          icon: "building",
+          description:
+            "文久元年 (1861) の大火による消失後すぐに再建された建物の一部が残っています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_100628.webp",
+              comment: "脇本陣",
+            },
+          ],
+        },
+        {
+          name: "高札場跡",
+          kana: "こうさつばあと",
+          coordinate: [36.205433, 138.210759],
+          icon: "kosatsuba",
+          description:
+            "上町中バス停の前に高札場跡の説明板があり、当時の記録の一部が紹介されています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_101513.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "鍛冶足一里塚跡",
+          kana: "かじあしいちりづかあと",
+          coordinate: [36.19873, 138.207792],
+          icon: "ichirizuka",
+          description:
+            "日本橋から50里 (約196.4km) の一里塚跡で、石碑があります。" +
+            "「右 諏訪街道 左 松澤歩道」と彫られた道標もあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_102553.webp",
+              comment: "鍛冶足一里塚跡",
+            },
+          ],
+        },
+        {
+          name: "唐沢古道入口",
+          coordinate: [36.1796963, 138.1832832],
+          icon: "guide",
+          description:
+            "<span class='routing'>京方</span> 中山道の道筋はかつてここから左手に伸びる山道でした。" +
+            "この先にある唐沢一里塚の説明板によると、少なくとも天保2年 (1831) の絵図面では路線から外されていることがわかっています。" +
+            "なお、出口が急階段のため積雪期は通り抜けが困難になります。",
+        },
+        {
+          name: "唐沢一里塚",
+          kana: "からさわいちりづか",
+          coordinate: [36.175413, 138.178464],
+          icon: "ichirizuka",
+          description:
+            "日本橋から51里 (約200.3km) の一里塚で、経路変更される前の古中山道上に両塚現存しています。",
+        },
+        {
+          name: "唐沢古道入口",
+          coordinate: [36.1747123, 138.1779939],
+          icon: "guide",
+          description:
+            "<span class='routing'>江戸方</span> 中山道が経路変更される前の古道上に残る唐沢一里塚に行くには、" +
+            "ここから階段を上って山道に入ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_113515.webp",
+              comment: "古道入口",
+            },
+          ],
+        },
+        {
+          name: "旧道跡",
+          coordinate: [36.173741, 138.177246],
+          icon: "guide",
+          description:
+            "旧道跡がここから分岐していますが、和田川に架かる橋が人が通れない橋に変わったため現在は通行できません。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_113833.webp",
+              comment: "行き止まり",
+            },
+          ],
+        },
+        {
+          name: "男女倉口",
+          kana: "おめくらぐち",
+          coordinate: [36.1686973, 138.1707788],
+          icon: "guide",
+          description:
+            "<span class='routing'>京方</span> ここから五街道で最高峰の標高 1,600m まで山道を上ります" +
+            " (男女倉口は約 1,100m です)。" +
+            "十分な体力、装備、そして時間的余裕を確保してください。" +
+            "和田峠は熊の目撃情報も多いほか、2024年には古道に並行する国道の旧道で路肩の崩落が発生しており、自然の脅威に晒されています。" +
+            "通行の際は最新情報をよくお確かめの上、状況に応じて国道や旧国道に迂回してください。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_115107.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "三十三体観音",
+          coordinate: [36.1684, 138.169524],
+          icon: "monument",
+          description: "旧道の廃退とともに荒廃していた石仏群がここに集められているとのことです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_120005.webp",
+              comment: "三十三体観音",
+            },
+          ],
+        },
+        {
+          name: "永代人馬施行所 (接待茶屋)",
+          kana: "えいたいじんばせぎょうしょ (せったいぢゃや)",
+          coordinate: [36.165215, 138.156784],
+          icon: "building",
+          description:
+            "明治3年 (1870) まではここで11月から3月には旅人に粥と焚火を、牛馬には年中桶一杯の煮麦を施行していたそうです。" +
+            "現在の建物は復元されたもので、国指定史跡になっています。" +
+            "東信ジャーナルの記事によると「永代人馬施行所」は「えいたいじんばせぎょうしょ」と読むそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_124103.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "広原一里塚",
+          kana: "ひろはらいちりづか",
+          coordinate: [36.154208, 138.149485],
+          icon: "ichirizuka",
+          description: "日本橋から52里 (約204.2km) の一里塚で、古道上に東塚が現存しています。",
+        },
+        {
+          name: "東餅屋跡",
+          kana: "ひがしもちやあと",
+          coordinate: [36.150858, 138.145915],
+          icon: "monument",
+          description:
+            "旅人や馬が休憩できる茶屋が5件あったが、現在はドライブイン以外家はなく生垣を残すのみとのことです。" +
+            "そのドライブインも閉店になり、今は廃墟と化しています。力餅が名物だったそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_133251.webp",
+              comment: "説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_133255.webp",
+              comment: "ドライブイン跡",
+            },
+          ],
+        },
+        {
+          name: "遊歩道",
+          coordinate: [36.148284, 138.141809],
+          icon: "guide",
+          description: "ビーナスラインを何度も横切りながら街道跡を歩ける遊歩道が整備されています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_135826.webp",
+              comment: "遊歩道",
+            },
+          ],
+        },
+        {
+          name: "和田峠 (古峠)",
+          kana: "わだとうげ (ふるとうげ)",
+          coordinate: [36.145196, 138.1381845],
+          icon: "pass",
+          description:
+            "標高 1,600m の峠で、これは中山道はもちろん五街道の最高地点でもあります。" +
+            "説明板には古峠とあり、トンネルの開通によってここを通る人は殆どいなくなったことにちなんでいます。" +
+            "「冬の和田峠超えの厳しさは想像を絶するものがあったであろう」とも書かれていますが、ここに現代でそれを追体験している人がいるようです (白目)。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_142124.webp",
+              comment: "古峠",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_142124.webp",
+              comment: "中山道案内板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_142124.webp",
+              comment: "古峠説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_142044.webp",
+              comment: "御嶽山坐王大権現・本尊大日大聖不動明王",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_142414.webp",
+              comment: "下諏訪方面",
+            },
+          ],
+        },
+        {
+          name: "石小屋跡",
+          coordinate: [36.14396, 138.13731],
+          icon: "monument",
+          description:
+            "説明板があり、安政2年 (1855) にここに避難小屋が建てられたが現在は石垣のみが残っているとあります。" +
+            "確かに石垣のようなものが確認できます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_143631.webp",
+              comment: "石小屋跡",
+            },
+          ],
+        },
+        {
+          name: "西餅屋一里塚跡",
+          kana: "にしもちやいちりづかあと",
+          coordinate: [36.133275, 138.130191],
+          icon: "ichirizuka",
+          description: "日本橋から53里 (約208.1km) の一里塚跡で、古道上に石碑があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_152438.webp",
+              comment: "国道から見た看板",
+            },
+          ],
+        },
+        {
+          name: "浪人塚",
+          kana: "ろうにんづか",
+          coordinate: [36.125085, 138.105448],
+          icon: "monument",
+          description:
+            "幕末の元治元年 (1864) にここで千人余りの水戸浪士たちと松本・諏訪の連合軍千人余りの戦いがおき、" +
+            "浪士たちが戦士者をこの地に埋めたのち、高島藩がこの塚を造って祀ったそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_161119.webp",
+              comment: "浪人塚",
+            },
+          ],
+        },
+        {
+          name: "樋橋茶屋跡",
+          kana: "とよはしちゃやあと",
+          coordinate: [36.121383, 138.10262],
+          icon: "monument",
+          description:
+            "国道の脇に枡形のような道筋が残っており、その一角に樋橋茶屋跡の看板と樋橋村の今昔と書かれた説明板があります。" +
+            "大名や公家なども利用した茶屋本陣があり、皇女和宮もここで休憩されたそうです。<br/>" +
+            "樋橋バス停からは下諏訪駅行のバス路線が伸びており、和田峠前後の公共交通空白区間の南端ということになります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_163252.webp",
+              comment: "樋橋茶屋跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_163238.webp",
+              comment: "樋橋村の今昔 説明板",
+            },
+          ],
+        },
+        {
+          name: "樋橋一里塚跡",
+          kana: "とよはしいちりづかあと",
+          coordinate: [36.110778, 138.09901],
+          icon: "ichirizuka",
+          description:
+            "日本橋から54里 (212.1km) の一里塚跡で、石碑があります。" +
+            "私有地内にありますが、一里塚碑への案内看板も整備され見学だけなら立ち入れる様子です。" +
+            "一里塚前後の古道跡については分断されており、歩き通すことはできません。",
+        },
+        {
+          name: "地下道",
+          coordinate: [36.104854, 138.095426],
+          icon: "guide",
+          description:
+            "地下道を通って町屋敷集落と国道の西側にある歩道との間を安全に行き来できます。",
+        },
+        {
+          name: "道祖神",
+          kana: "どうそじん",
+          coordinate: [36.102314, 138.094344],
+          icon: "monument",
+          description:
+            "四方を御柱 (おんばしら) で囲まれた道祖神があります。諏訪大社にならった様式です。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_172140.webp",
+              comment: "道祖神",
+            },
+          ],
+        },
+        {
+          name: "木落し坂",
+          kana: "きおとしざか",
+          coordinate: [36.099943, 138.092339],
+          icon: "monument",
+          description:
+            "諏訪大社の御柱祭 (おんばしらさい) の名物の一つ「木落し」の会場で、山で切り出した木をこの坂から落として運びます。" +
+            "ここは下社の木落し坂で、上社の木落し坂は甲州街道沿いの茅野にあります。<br/>" +
+            "<span class='routing'>京方</span> この先、天下の木落し坂碑の奥にある中部北陸自然歩道の案内標柱に従って坂道を下ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_172546.webp",
+              comment: "模擬御柱",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_172623.webp",
+              comment: "天下の木落し坂 石碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_172741.webp",
+              comment: "中部北陸自然歩道 案内標柱",
+            },
+          ],
+        },
         // 29. 下諏訪宿
+        {
+          name: "諏訪大社下社春宮",
+          kana: "すわたいしゃしもしゃはるみや",
+          coordinate: [36.081319, 138.082628],
+          icon: "shrine",
+          description:
+            "諏訪大社を構成する四社のひとつ、下社春宮の境内へと至る脇道が中山道から伸びています。" +
+            "また、このあたりは諏訪湖が一望できるビューポイントでもあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_180014.webp",
+              comment: "看板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_180127.webp",
+              comment: "街道からの眺め",
+            },
+          ],
+        },
+        {
+          name: "下諏訪一里塚跡",
+          kana: "しもすわいちりづかあと",
+          coordinate: [36.0800301, 138.0850661],
+          icon: "ichirizuka",
+          description: "日本橋から55里 (約216km) の一里塚跡で、石碑と看板があります。",
+        },
+        {
+          name: "下諏訪宿本陣跡",
+          kana: "しもすわしゅくほんじんあと",
+          coordinate: [36.076147, 138.089993],
+          icon: "honjin",
+          description:
+            "皇女和宮が宿泊され明治天皇も休憩された本陣で、江戸後期に建てられた母屋等が増改築を受けながらも残っているそうです。" +
+            "美しい庭園のほか建物の一部が一般公開されています。",
+        },
+        {
+          name: "甲州道中・中山道合流之地",
+          coordinate: [36.075909, 138.090156],
+          icon: "monument",
+          description:
+            "甲州街道の道筋と合流する地点に石碑があります。中山道の道筋はここで直角に曲がります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_181613.webp",
+              comment: "甲州道中・中山道合流之地",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_181644.webp",
+              comment: "案内板",
+            },
+          ],
+        },
+        {
+          name: "高札場跡",
+          kana: "こうさつばあと",
+          coordinate: [36.074853, 138.088058],
+          icon: "kosatsuba",
+          description: "復元された大きな高札場があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/02-12/IMG_20230212_182100.webp",
+              comment: "高札場跡",
+            },
+          ],
+        },
+
         // 30. 塩尻宿
         // 31. 洗馬宿
         // 32. 本山宿
@@ -3144,6 +3809,7 @@
       L.polyline(kusatsuToSanjyoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
       L.polyline(shokiNakasendoRoute, { color: "lightcoral", weight: 5 }).addTo(shokiRouteOverlay);
       L.polyline(kazunomiyaRoute, { color: "lightcoral", weight: 5 }).addTo(kazunomiyaRouteOverlay);
+      L.polyline(wadaOldRoute, { color: "lightcoral", weight: 5 }).addTo(wadaOldRouteOverlay);
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2022-11-03.gpx", "blue"); // 鳥居峠ハイキング
