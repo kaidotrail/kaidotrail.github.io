@@ -306,3 +306,95 @@ const setGpx = (leaflet, overlay, path, color) => {
     .on("error", (e) => console.error("GPX の読み込みに失敗しました: " + String(e)))
     .addTo(overlay);
 };
+
+/**
+ * GPX 地図以外の画面に切り替えます。すでに表示している場合は地図表示に戻ります。
+ *
+ * @param target id
+ */
+const toggleNonMapScreen = (target) => {
+  const mapElm = document.getElementById("map");
+  const spotList = document.getElementById(target);
+  if (spotList.style.display === "block") {
+    spotList.style.display = "none";
+    if (mapElm.style.display === "none") {
+      mapElm.style.display = "block";
+    }
+  } else {
+    const nonMapScreens = document.getElementsByClassName("non-map-screen");
+    for (const nonMapScreen of nonMapScreens) {
+      nonMapScreen.style.display = nonMapScreen.id === target ? "block" : "none";
+    }
+    mapElm.style.display = "none";
+  }
+  if (spotList.style.display === "block") {
+    const zoomInMessage = document.getElementById("zoom-in-message");
+    if (zoomInMessage) {
+      zoomInMessage.style.display = "none";
+    }
+  }
+};
+
+/**
+ * GPX 表示機能を表示します。すでに表示している場合は地図表示に戻ります。
+ */
+const toggleOwnGpx = () => {
+  toggleNonMapScreen("own-gpx");
+};
+
+/**
+ * 指定した GPX ファイルを重ねて表示する機能を初期化します。
+ *
+ * @param leaflet Leaflet 本体
+ * @param map 地図インスタンス
+ */
+const initOwnGpx = (leaflet, map) => {
+  const ownGpx = document.getElementById("own-gpx");
+  const backToMap = document.createElement("button");
+  backToMap.innerHTML = "<i class='fa-solid fa-circle-arrow-left'></i> 地図に戻る";
+  backToMap.addEventListener("click", toggleOwnGpx);
+  ownGpx.appendChild(backToMap);
+  const p1 = document.createElement("p");
+  p1.innerText =
+    "GPX ファイルを指定すると、地図に重ねて表示することができます。GPX ファイルの軌跡は緑色の線で表示されます。" +
+    "ファイルは同時に複数指定することができます。";
+  ownGpx.appendChild(p1);
+  const p2 = document.createElement("p");
+  p2.innerText =
+    "備考: ファイルの処理はブラウザ内で完結するため、サーバーにはアップロードしません。ブラウザでページを再読み込みすると表示はリセットされます。";
+  ownGpx.appendChild(p2);
+  const input = document.createElement("input");
+  input.name = "file";
+  input.type = "file";
+  input.multiple = true;
+  input.addEventListener(
+    "change",
+    () => {
+      const bounds = leaflet.latLngBounds();
+      for (const file of input.files) {
+        const url = window.URL.createObjectURL(file);
+        new leaflet.GPX(url, {
+          async: true,
+          polyline_options: { color: "lime", weight: 2 },
+          markers: { startIcon: null, endIcon: null },
+        })
+          .on("error", (e) => console.error("GPX の読み込みに失敗しました: " + String(e)))
+          .on("loaded", async (e) => {
+            window.URL.revokeObjectURL(url);
+            await navigator.locks.request("gpx-files", async () => {
+              bounds.extend(e.target.getBounds());
+              map.fitBounds(bounds);
+            });
+            toggleOwnGpx();
+          })
+          .addTo(map);
+      }
+    },
+    false,
+  );
+  ownGpx.appendChild(input);
+  const q = new URLSearchParams(location.search);
+  if (q.get("landing") === "gpx") {
+    toggleOwnGpx();
+  }
+};

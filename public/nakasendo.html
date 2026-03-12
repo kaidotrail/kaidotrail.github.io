@@ -71,10 +71,10 @@
       gtag("js", new Date());
       gtag("config", "G-BHV6TYCEL3");
     </script>
-    <link rel="stylesheet" href="map_style.css?v=5" />
-    <link rel="stylesheet" href="spot_list.css?v=1" />
-    <script src="map_helper.js?v=6"></script>
-    <script src="spot_list.js?v=1"></script>
+    <link rel="stylesheet" href="map_style.css?v=6" />
+    <link rel="stylesheet" href="spot_list.css?v=2" />
+    <script src="map_helper.js?v=7"></script>
+    <script src="spot_list.js?v=2"></script>
     <script src="nakasendo.js?v=4"></script>
     <script src="spot_nihonbashi.js?v=1"></script>
     <script src="section_hirao.js?v=1"></script>
@@ -94,7 +94,8 @@
       <span>ズームインすると見どころが表示されます<br />(江戸方から順次追加中)</span>
     </div>
     <div id="map"></div>
-    <div id="spot-list"></div>
+    <div id="spot-list" class="non-map-screen"></div>
+    <div id="own-gpx" class="non-map-screen"></div>
     <script>
       const map = L.map("map");
       const routeOverlay = L.layerGroup();
@@ -6666,6 +6667,9 @@
       if (isbot(navigator.userAgent)) {
         toggleSpotList();
       }
+
+      // Own GPX
+      initOwnGpx(L, map);
     </script>
   </body>
 </html>

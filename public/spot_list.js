@@ -1,13 +1,21 @@
-/** スポット一覧の DOM 要素 */
-let spotList;
-
 /**
- * スポット一覧を表示します。
+ * スポット一覧を表示します。すでに表示している場合は地図表示に戻ります。
  */
 const toggleSpotList = () => {
-  spotList.style.display = spotList.style.display === "block" ? "none" : "block";
   const mapElm = document.getElementById("map");
-  mapElm.style.display = mapElm.style.display === "none" ? "block" : "none";
+  const spotList = document.getElementById("spot-list");
+  if (spotList.style.display === "block") {
+    spotList.style.display = "none";
+    if (mapElm.style.display === "none") {
+      mapElm.style.display = "block";
+    }
+  } else {
+    const nonMapScreens = document.getElementsByClassName("non-map-screen");
+    for (const nonMapScreen of nonMapScreens) {
+      nonMapScreen.style.display = nonMapScreen.id === "spot-list" ? "block" : "none";
+    }
+    mapElm.style.display = "none";
+  }
   if (spotList.style.display === "block") {
     const zoomInMessage = document.getElementById("zoom-in-message");
     if (zoomInMessage) {
@@ -75,7 +83,7 @@ const createBackToMapButton = () => {
  */
 const initSpotList = (spots, iconTypes) => {
   const buttonOpenSpotList = document.getElementById("spot-list-open");
-  spotList = document.getElementById("spot-list");
+  const spotList = document.getElementById("spot-list");
   buttonOpenSpotList.addEventListener("click", toggleSpotList);
   const btm1 = createBackToMapButton();
   btm1.style.marginTop = "10px";

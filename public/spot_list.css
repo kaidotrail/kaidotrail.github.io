@@ -6,18 +6,6 @@
   color: silver;
 }
 
-#spot-list {
-  position: absolute;
-  top: 30px;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: 0;
-  padding: 10px;
-  color: black;
-  display: none;
-  font-size: 0.8em;
-}
 #spot-list h2 {
   color: goldenrod;
   font-size: 2em;
