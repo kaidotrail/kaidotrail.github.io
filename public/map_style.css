@@ -124,6 +124,20 @@ h1 a {
   content: ": ";
 }
 
+.warning {
+  font-weight: bold;
+  color: red;
+}
+.warning:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f071"; /* fa-triangle-exclamation */
+  font-weight: 900;
+  padding-right: 2px;
+}
+.warning:after {
+  content: ": ";
+}
+
 @media (max-width: 768px) {
   .hidden-on-mobile {
     display: none !important;

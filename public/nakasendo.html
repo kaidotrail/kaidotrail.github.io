@@ -1968,7 +1968,7 @@
           coordinate: [36.355665, 138.713932],
           icon: "guide",
           description:
-            "国道を横断する必要があります。前後区間の見通しも悪いため、横断の際は細心の注意を払ってください。<br/>" +
+            "<span class='warning'>注意</span> 国道を横断する必要があります。前後区間の見通しも悪いため、横断の際は細心の注意を払ってください。<br/>" +
             "<span class='routing'>京方</span> ここから本格的な山道になります。" +
             "登り口に休憩所があるので、ここで装備を整えるのがよいでしょう。<br/>" +
             "<span class='routing'>江戸方</span> 国道の反対側にあるガードレールの隙間から峠道の続きを歩けます。坂を下った先の突き当りは左折してください。",
@@ -5897,8 +5897,8 @@
           coordinate: [35.9514515, 137.7960044],
           icon: "guide",
           description:
-            "<span class='routing'>京方</span> 階段を下りたら右Vターンして舗装路を 50m ほど進み、熊除けの鐘を鳴らしたら左Vターンして草道に下ります。<br/>" +
-            "<span class='routing'>江戸方</span> 熊除けの鐘を鳴らしたら右Vターンして舗装路を 50m ほど進み、ペイントや案内板がある階段へと左Vターンして上ります。",
+            "<span class='routing'>京方</span> 階段を下りたら右にターンして舗装路を 50m ほど進み、熊除けの鐘を鳴らしたら左にターンして草道に下ります。<br/>" +
+            "<span class='routing'>江戸方</span> 熊除けの鐘を鳴らしたら右にターンして舗装路を 50m ほど進み、ペイントや案内板がある階段へと左にターンして上ります。",
           pictures: [
             {
               url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_005249757.webp",
@@ -6083,7 +6083,9 @@
           name: "焼肉権兵衛",
           coordinate: [35.913363, 137.770722],
           icon: "food",
-          description: "木曽牛や馬肉などが食べられる焼肉店です。",
+          description:
+            "木曽牛や馬肉なども食べられる焼肉店です。お手軽メニューも揃っています。" +
+            "「権兵衛」の店名は、もしかしたら権兵衛街道を開鑿した古畑権兵衛に関係があるかもしれません。",
           pictures: [
             {
               url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_025714304.webp",
@@ -6095,8 +6097,477 @@
             },
           ],
         },
+        {
+          name: "吉田一里塚跡",
+          kana: "よしだいちりづかあと",
+          coordinate: [35.906381, 137.770042],
+          icon: "ichirizuka",
+          description:
+            "日本橋から67里 (約263.1km) の一里塚跡で、石碑と説明板、それに馬頭観音があります。" +
+            "案内板の文字が手書きでちょっとかわいい感じなので左下に目をやると、地元の女子中学生が書いたようです。" +
+            "とても綺麗で読みやすい字ですね。<br/>" +
+            "<span class='warning'>注意</span> 国道を横断して近くで見学する際には、往来する車にくれぐれもご注意ください。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_033550678.webp",
+              comment: "吉田一里塚跡",
+            },
+          ],
+        },
+        {
+          name: "山吹トンネル",
+          coordinate: [35.906026, 137.770827],
+          icon: "guide",
+          description:
+            "かつての中山道はここから木曽川沿いに南下し巴渕へと至っていましたが、現在はほぼ消失しているそうです。" +
+            "ここから伸びている廃道は途中までその道筋と重なりますが、現在この廃道は立入禁止になっています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_033345453.webp",
+              comment: "山吹トンネル",
+            },
+          ],
+        },
+        {
+          name: "巴渕",
+          kana: "ともえぶち",
+          coordinate: [35.899059, 137.768498],
+          icon: "monument",
+          description:
+            "「伝説の残る巴が渕」と書かれた案内板があり、ここに住む龍神が化身した伝説の美女巴 (巴御前) が水浴をした地とのことです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_035858089.webp",
+              comment: "巴橋から木曽川上流方向",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_035843858.webp",
+              comment: "巴橋から木曽川下流方向",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_035249514.webp",
+              comment: "巴橋",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_035229780.webp",
+              comment: "石碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_035808690.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "葵橋の歌碑",
+          coordinate: [35.89302, 137.764246],
+          icon: "monument",
+          description:
+            "葵ばし公園に「義仲や葵巴に山吹も 恋に憧れ木曽川のはし」と彫られた歌碑があります。" +
+            "木曽義仲 (源義仲) の妻妾とされる葵御前、巴御と山吹御前について詠んだようです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_040855792.webp",
+              comment: "歌碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_040910521.webp",
+              comment: "葵ばし公園",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_041801707.webp",
+              comment: "木曽川",
+            },
+          ],
+        },
         // 36. 宮ノ越宿
+        {
+          name: "宮ノ越宿本陣",
+          kana: "みやのこしじゅくほんじん",
+          coordinate: [35.8869118, 137.7604705],
+          icon: "honjin",
+          description: "明治16年の大火で多くを焼失も客殿は消失を免れて公開されているそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_041952431.webp",
+              comment: "宮ノ越宿本陣",
+            },
+          ],
+        },
+        {
+          name: "田中家",
+          coordinate: [35.885146, 137.759461],
+          icon: "building",
+          description:
+            "大火にのまれる宮ノ越宿から救出された建具などを用いて再建された建物で、現在は休憩所兼イベント会場になっています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_042256339.webp",
+              comment: "田中家",
+            },
+          ],
+        },
+        {
+          name: "明治天皇宮ノ越御膳水",
+          kana: "めいじてんのうみやのこしごぜんすい",
+          coordinate: [35.884459, 137.759122],
+          icon: "monument",
+          description:
+            "江戸末期から昭和初期まで飲料水として使われていた井戸で、明治天皇行幸の際にはここの水で点てたお茶を献上されたそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_042357696.webp",
+              comment: "明治天皇宮ノ越御膳水",
+            },
+          ],
+        },
+        {
+          name: "宮越一里塚跡",
+          kana: "みやのこしいちりづかあと",
+          coordinate: [35.879294, 137.753251],
+          icon: "ichirizuka",
+          description:
+            "日本橋から68里 (約267.1km) の一里塚跡で、石碑と説明板があります。" +
+            "説明板は地元女子中学生の手書きで、とても美しい字体です。<br/>" +
+            "なお、中山道の道筋はこのあたりから原野までは今よりも川沿い方面にあったようですが、現在は通行できません。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_043517186.webp",
+              comment: "一里塚跡碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_043454299.webp",
+              comment: "宮ノ越一里塚跡",
+            },
+          ],
+        },
+        {
+          name: "原野の石仏群",
+          kana: "はらののせきぶつぐん",
+          coordinate: [35.869716, 137.741403],
+          icon: "monument",
+          description:
+            "たくさんの石碑が集まっている場所があり、原野の石仏群と呼ばれているようです。" +
+            "手前に石像が、奥に文字碑が集められています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_050848014.webp",
+              comment: "原野の石仏群",
+            },
+          ],
+        },
+        {
+          name: "中山道中間点",
+          coordinate: [35.868118, 137.739065],
+          icon: "monument",
+          description:
+            "多くの街道ウォーカーが「まだ半分なの！」と嘆きの声をあげる名所 (？) です。" +
+            "説明板と石碑、水神碑があります。" +
+            "江戸・京都それぞれここから 67里28町 (約266.2km) になるそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_051220284.webp",
+              comment: "中山道中間点",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_051245703.webp",
+              comment: "石碑左側面",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_051229605.webp",
+              comment: "石碑右側面",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_051255670.webp",
+              comment: "水神",
+            },
+          ],
+        },
+        {
+          name: "石作 駒石",
+          kana: "いしづくり くせき",
+          coordinate: [35.865486, 137.734662],
+          icon: "monument",
+          description:
+            "案内板があり、その奥に立派な石碑があります。" +
+            "駒石氏は地元で学者として活躍された方とのことで、天明の飢饉の際には餓死者を出さないように様々な取り組みを推進し貢献されたそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_052007466.webp",
+              comment: "石作駒石の碑",
+            },
+          ],
+        },
+        {
+          name: "草道入口",
+          coordinate: [35.865443, 137.734016],
+          icon: "guide",
+          description:
+            "<span class='routing'>京方</span> 舗装路の脇から伸びる細い下り坂に入り、草道を進みます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_052105393.webp",
+              comment: "草道入口",
+            },
+          ],
+        },
+        {
+          name: "正沢川の鉄の橋",
+          coordinate: [35.864854, 137.731777],
+          icon: "bridge",
+          description:
+            "少々ワイルドな作りの鉄製の人道橋で正沢川を渡ります。" +
+            "観光連盟のガイドでは、通りにくいと思われる場合は国道に迂回するよう案内しています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_052415424.webp",
+              comment: "京方",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_052440188.webp",
+              comment: "鉄の橋",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_052512086.webp",
+              comment: "江戸方",
+            },
+          ],
+        },
+        {
+          name: "手習天神",
+          kana: "てならいてんじん",
+          coordinate: [35.862979, 137.728202],
+          icon: "shrine",
+          description:
+            "木曽義仲 (源義仲) の養父が学問の神として北野天満宮を迎えて建てた神社とのことです。" +
+            "近くには薬師堂と廿三夜塔 (にじゅうさんやとう) もあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_053901887.webp",
+              comment: "手習天神",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_053835010.webp",
+              comment: "薬師堂",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_053830168.webp",
+              comment: "廿三夜塔",
+            },
+          ],
+        },
+        {
+          name: "上田跨線橋付近の旧道跡",
+          coordinate: [35.861939, 137.724795],
+          icon: "guide",
+          description:
+            "<span class='routing'>京方</span> ここから出尻一里塚までのかつての道筋は一部消失しているため通り抜けができません。" +
+            "旧道側に一歩入ったところに街道ウォーカー向け警告看板もあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_054312410.webp",
+              comment: "中山道ウォーキングの方へ",
+            },
+          ],
+        },
+        {
+          name: "出尻一里塚跡",
+          kana: "いでじりいちりづかあと",
+          coordinate: [35.859563, 137.720724],
+          icon: "ichirizuka",
+          description:
+            "日本橋から69里 (約271km) の一里塚跡で、石碑と説明板があります。" +
+            "説明板は地元女子中学生の手書きのようですが、とても美しいです。<br/>" +
+            "<span class='routing'>京方</span> 石碑の右側の道 (おと坂) を下ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_054927459.webp",
+              comment: "出尻一里塚跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_054933017.webp",
+              comment: "石碑",
+            },
+          ],
+        },
+        {
+          name: "経塚・芭蕉句碑",
+          coordinate: [35.855459, 137.711586],
+          icon: "monument",
+          description:
+            "巡礼記念に造られた塚に建てられたという石碑が右手に、" +
+            "「おもい出す 木曽や四月の さくら狩り」と彫られているらしい芭蕉句碑が左手にあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_060321410.webp",
+              comment: "芭蕉句碑・説明板・経塚",
+            },
+          ],
+        },
         // 37. 福島宿
+        {
+          name: "福島関所跡",
+          coordinate: [35.850937, 137.703031],
+          icon: "monument",
+          description:
+            "言わずと知れた入鉄炮出女の取締拠点。" +
+            "発掘調査をもとに一部復元されており、資料館もあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_061716195.webp",
+              comment: "史跡福島関跡 石碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_061600355.webp",
+              comment: "木曾福島関所跡 石碑",
+            },
+          ],
+        },
+        {
+          name: "福島宿本陣跡",
+          kana: "ふくしまじゅくほんじんあと",
+          coordinate: [35.849803, 137.698403],
+          icon: "honjin",
+          description:
+            "本陣跡は明治半ばに役場に建て替えられ、現在は文化センター兼図書館の建物になっています。" +
+            "建物の前に石碑と説明板があります。",
+        },
+        {
+          name: "行人橋・親水公園足湯",
+          coordinate: [35.849924, 137.695716],
+          icon: "bridge",
+          description:
+            "美しい橋と、橋を眺めながら入れる足湯があります。" +
+            "足湯の湯はなんと二本木の湯という温泉で、木蓋で蓋をしてあるので入るときだけ蓋を外して足を入れる形式です。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2022/11-03/IMG_20221103_150959.webp",
+              comment: "行人橋",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_064151038.webp",
+              comment: "親水公園足湯",
+            },
+          ],
+        },
+        {
+          name: "喜又橋",
+          coordinate: [35.850006, 137.69711],
+          icon: "bridge",
+          description:
+            "江戸時代にあった橋を復元したもののようです。喜又とはこの地を治めたご当主の名前だそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_063824914.webp",
+              comment: "喜又橋",
+            },
+          ],
+        },
+        {
+          name: "高札場",
+          kana: "こうさつば",
+          coordinate: [35.849691, 137.696683],
+          icon: "kosatsuba",
+          description: "少し縮小して復元されているそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_063927358.webp",
+              comment: "高札場",
+            },
+          ],
+        },
+        {
+          name: "上の段",
+          coordinate: [35.849127, 137.696364],
+          icon: "camera",
+          description:
+            "古い町並みが復元・保存されています。" + "戦国時代に引かれたという用水も流れています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_070350229.webp",
+              comment: "上の段",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2022/11-03/IMG_20221103_145941.webp",
+              comment: "上の段用水",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_070538544.webp",
+              comment: "江戸時代に作られた井戸",
+            },
+          ],
+        },
+        {
+          name: "遊歩道入口",
+          coordinate: [35.842458, 137.691963],
+          icon: "guide",
+          description:
+            "<span class='routing'>京方</span> 役場の門のところで右折し、遊歩道を進みます。",
+        },
+        {
+          name: "遊歩道入口",
+          coordinate: [35.840613, 137.69009],
+          icon: "guide",
+          description: "<span class='routing'>江戸方</span> 右手に分岐する坂道を上ります。",
+        },
+        {
+          name: "塩渕一里塚跡",
+          kana: "しょうぶちいちりづか",
+          coordinate: [35.839719, 137.689944],
+          icon: "ichirizuka",
+          description:
+            "日本橋から70里 (約274.9km) の一里塚跡で、石碑と標柱があります。" +
+            "近くに塩渕の名の由来について書かれた説明板があり、塩を運んでいた馬が木曽川の渕に転落し塩をまいてしまったことからきているそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_072629480.webp",
+              comment: "塩渕一里塚跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_072544460.webp",
+              comment: "ここは塩渕です 説明板",
+            },
+          ],
+        },
+        {
+          name: "中平トンネル跡",
+          kana: "なかだいらトンネルあと",
+          coordinate: [35.831313, 137.682509],
+          icon: "guide",
+          description:
+            "中央本線の旧線上のトンネルが道路トンネル化されたものですが、現在は照明が落とされ通行止になっています。" +
+            "2023年にヘッドライトを装着して調査したところ、通り抜けはできたものの南側の道がだいぶ荒廃していました。<br/>" +
+            "<span class='routing'>京方</span> トンネルの右手に伸びる道から国道に上るのが一番お手軽です。" +
+            "別案として、トンネル左手の道を上りY路路を右にターン、鳥居集落を経由して元橋バス停方面に下るルートもあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_074203215.webp",
+              comment: "中平トンネル 北側抗口",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_074503293.webp",
+              comment: "中平トンネル 南側抗口",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_074458104.MP.webp",
+              comment: "中平トンネル 南側抗口の先",
+            },
+          ],
+        },
+        {
+          name: "廃道迂回",
+          coordinate: [35.826307, 137.683417],
+          icon: "guide",
+          description:
+            "<span class='routing'>江戸方</span> 中央本線旧線跡の道が廃道になったため、国道に迂回します。" +
+            "別案として、迂回案内の看板を無視して 150m ほど進み右にターン、そのまま道なりに進んで民宿松尾入口手前で左にターンするルートもあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/03-12/PXL_20230312_075007284.webp",
+              comment: "廃道迂回",
+            },
+          ],
+        },
         // 38. 上松宿
         // 39. 須原宿
         // 40. 野尻宿
