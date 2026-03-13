@@ -67,7 +67,7 @@
       gtag("config", "G-BHV6TYCEL3");
     </script>
     <link rel="stylesheet" href="map_style.css?v=4" />
-    <script src="map_helper.js?v=4"></script>
+    <script src="map_helper.js?v=5"></script>
   </head>
   <body>
     <a href="./" class="logo-link"><img src="logo160.png" alt="旧街道足跡マップ" /></a>
@@ -78,7 +78,7 @@
     </h1>
     <div id="map"></div>
     <script>
-      const map = L.map("map");
+      const map = L.map("map", { zoomControl: false });
       const stationOverlay = L.layerGroup();
       stationOverlay.addTo(map);
       const spotOverlay = L.layerGroup();

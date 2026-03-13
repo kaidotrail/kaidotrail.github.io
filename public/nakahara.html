@@ -73,7 +73,7 @@
     </script>
     <link rel="stylesheet" href="map_style.css?v=8" />
     <link rel="stylesheet" href="spot_list.css?v=2" />
-    <script src="map_helper.js?v=7"></script>
+    <script src="map_helper.js?v=8"></script>
     <script src="spot_list.js?v=2"></script>
     <script src="nakahara.js?v=4"></script>
   </head>
@@ -91,7 +91,7 @@
     <div id="map"></div>
     <div id="spot-list" class="non-map-screen"></div>
     <script>
-      const map = L.map("map");
+      const map = L.map("map", { zoomControl: false });
       const routeOverlay = L.layerGroup();
       routeOverlay.addTo(map);
       const altRouteOverlay = L.layerGroup();

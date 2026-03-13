@@ -67,7 +67,7 @@
       gtag("config", "G-BHV6TYCEL3");
     </script>
     <link rel="stylesheet" href="map_style.css?v=4" />
-    <script src="map_helper.js?v=4"></script>
+    <script src="map_helper.js?v=5"></script>
     <script src="kawagoe.js?v=1"></script>
     <script src="section_hirao.js?v=1"></script>
   </head>
@@ -80,7 +80,7 @@
     </h1>
     <div id="map"></div>
     <script>
-      const map = L.map("map");
+      const map = L.map("map", { zoomControl: false });
       const routeOverlay = L.layerGroup();
       routeOverlay.addTo(map);
       const stationOverlay = L.layerGroup();

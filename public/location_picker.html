@@ -60,7 +60,7 @@
       gtag("config", "G-BHV6TYCEL3");
     </script>
     <link rel="stylesheet" href="map_style.css?v=1" />
-    <script src="map_helper.js?v=2"></script>
+    <script src="map_helper.js?v=3"></script>
   </head>
   <body>
     <a href="./" class="logo-link"><img src="logo160.png" alt="旧街道足跡マップ" /></a>
@@ -134,7 +134,7 @@
       });
       const inputLocation = document.getElementById("location");
       inputLocation.addEventListener("focus", () => inputLocation.select());
-      const map = L.map("map");
+      const map = L.map("map", { zoomControl: false });
       const layerControl = initMap(L, map);
       activateKonjakuMap(L, layerControl, "kanto", "00");
       activateKonjakuMap(L, layerControl, "matsumoto", "00");

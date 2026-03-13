@@ -49,7 +49,8 @@ const initMap = (leaflet, map, overlays) => {
       overlays,
     )
     .addTo(map);
-  leaflet.control.locate().addTo(map);
+  leaflet.control.zoom({ position: "bottomright" }).addTo(map);
+  leaflet.control.locate({ position: "bottomright" }).addTo(map);
 
   // Legend
   if (overlays) {
