@@ -54,7 +54,7 @@ const initMap = (leaflet, map, overlays) => {
   // Legend
   if (overlays) {
     const hasAltRoute = Object.keys(overlays).filter((k) => k.endsWith("ルート")).length > 1;
-    const legend = leaflet.control({ position: "topright" });
+    const legend = leaflet.control({ position: "bottomleft" });
     legend.onAdd = () => {
       const div = leaflet.DomUtil.create("div", "map-legend");
       div.innerHTML =

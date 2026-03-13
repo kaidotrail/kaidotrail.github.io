@@ -38,6 +38,11 @@ h1 a {
   color: green;
   background: #ffffffaa;
 }
+@media (max-width: 768px) {
+  #zoom-in-message span {
+    font-size: 14px;
+  }
+}
 
 .logo-link img {
   margin-right: 10px;
@@ -146,7 +151,6 @@ h1 a {
 }
 
 .map-legend {
-  text-align: right;
   font-weight: bold;
   line-height: 1.2em;
   user-select: none;
