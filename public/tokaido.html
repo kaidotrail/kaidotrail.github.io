@@ -52,47 +52,18 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "220d1e608aaa4f05a137803fedf4de1e"}'
-    ></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHV6TYCEL3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-BHV6TYCEL3");
-    </script>
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        const f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l !== "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-MTM7SMZG");
-    </script>
+    <!--suppress ES6ConvertVarToLetConst, EqualityComparisonWithCoercionJS -->
+    <!-- prettier-ignore -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/map_style.css?v=3" />
     <script src="lib/map_helper.js?v=6"></script>
     <script src="routes/tokaido.js?v=3"></script>
     <script src="routes/section_kusatsu.js?v=1"></script>
   </head>
   <body>
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-MTM7SMZG"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      >
-      </iframe>
-    </noscript>
+    <!-- prettier-ignore -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTM7SMZG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="./" class="logo-link"><img src="lib/logo160.png" alt="旧街道足跡マップ" /></a>
     <h1>
       <a href="./"><span class="logo-font">旧街道足跡マップ</span> α版</a>
