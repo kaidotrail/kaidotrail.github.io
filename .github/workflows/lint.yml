@@ -1,0 +1,21 @@
+name: lint
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+      - name: Corepack enable
+        run: corepack enable pnpm
+      - uses: pnpm/action-setup@v4
+      - run: pnpm i
+      - run: pnpm format:check
+      - run: pnpm lint
+      - run: pnpm build

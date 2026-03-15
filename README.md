@@ -1,5 +1,5 @@
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
-[![GitHub Pages=](https://github.com/kaidotrail/kaidotrail.github.io/actions/workflows/static.yml/badge.svg)](https://github.com/kaidotrail/kaidotrail.github.io/actions/workflows/static.yml)
+[![Deployment Status](https://github.com/kaidotrail/kaidotrail.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/kaidotrail/kaidotrail.github.io/actions/workflows/deploy.yml)
 
 # 旧街道足跡マップ
 
