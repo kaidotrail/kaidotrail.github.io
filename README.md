@@ -14,8 +14,12 @@
 
 タスクランナーは pnpm, フォーマッターは Prettier, リンターは ESLint を採用しています。
 
+- 依存関係解決: `pnpm i`
 - format: `pnpm format`
 - lint: `pnpm lint`
+
+最終成果物の HTML と JS は esbuild を使って minify しています。
+ローカルでこれを実行するには `pnpm build` を実行し、生成された dist ディレクトリを確認してください。
 
 ## License
 
