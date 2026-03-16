@@ -236,6 +236,26 @@ const buildPopupContent = (markerData) => {
   if (markerData.description) {
     content += `<p>${markerData.description}</p>`;
   }
+  if (markerData.url || markerData.x || markerData.instagram) {
+    content += `<p class="link-area">`;
+    if (markerData.url) {
+      const displayUrl = markerData.url.replace("https://", "").replace("http://", "");
+      content +=
+        `<i class="fa-solid fa-globe"></i>` +
+        `<a href="${markerData.url}" target="_blank">${displayUrl}</a> `;
+    }
+    if (markerData.x) {
+      content +=
+        `<i class="fa-brands fa-x-twitter"></i>` +
+        `<a href="https://x.com/${markerData.x}" target="_blank">@${markerData.x}</a> `;
+    }
+    if (markerData.instagram) {
+      content +=
+        `<i class="fa-brands fa-instagram"></i>` +
+        `<a href="https://www.instagram.com/${markerData.instagram}/" target="_blank">${markerData.instagram}</a> `;
+    }
+    content += "</p>";
+  }
   if (markerData.pictures && markerData.pictures.length > 0) {
     for (let i = 0; i < markerData.pictures.length; i++) {
       content += `<div class="popup-pic-${i}" style="display:${i === 0 ? "block" : "none"}">`;

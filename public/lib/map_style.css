@@ -98,7 +98,20 @@ h1 a {
 }
 .popup-content p {
   margin: 0;
-  padding: 5px 0;
+  padding: 5px 0 3px 0;
+}
+.popup-content .link-area {
+  padding-top: 0;
+  word-break: break-all;
+}
+.popup-content .link-area i {
+  padding-right: 2px;
+}
+.popup-content .link-area a {
+  text-decoration: none;
+}
+.popup-content .link-area a:hover {
+  text-decoration: underline;
 }
 .popup-content .popup-text {
   text-align: center;
