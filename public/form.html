@@ -44,16 +44,16 @@
         管理人から折り返し連絡いたします。
       </p>
       <form id="my-form" action="https://formspree.io/f/mzdjjreg" method="POST">
-        <label for="kaido">街道:</label><br />
-        <input id="kaido-h" type="hidden" name="kaido" />
-        <input id="kaido" type="text" disabled /><br />
-        <label for="coordinate">座標:</label><br />
-        <input id="coordinate-h" type="hidden" name="coordinate" />
-        <input id="coordinate" type="text" name="coordinate" disabled /><br />
-        <label for="spot">スポット名:</label><br />
-        <input id="spot-h" type="hidden" name="spot" />
-        <input id="spot" type="text" name="spot" disabled /><br />
-        <label for="message">連絡内容:</label><br />
+        <h3>連絡内容</h3>
+        <p>
+          対象スポット:
+          <b><span id="spot"></span></b>
+          <code>[<span id="coordinate"></span>]</code> (page: <span id="kaido"></span>)<br />
+          <input id="kaido-h" type="hidden" name="kaido" />
+          <input id="coordinate-h" type="hidden" name="coordinate" />
+          <input id="spot-h" type="hidden" name="spot" />
+        </p>
+        <label for="message">メッセージ:</label><br />
         <textarea id="message" name="message" cols="53" rows="8" required></textarea><br />
         <div style="color: gray">
           記入例:
@@ -63,7 +63,12 @@
             <li>4枚目の写真に写り込んでいるナンバープレートを加工で消してください。</li>
           </ul>
         </div>
-        <p>連絡先および投稿が反映された場合のクレジット表記</p>
+        <h3>連絡先およびクレジット表記</h3>
+        <p>
+          投稿が反映された場合、クレジットの表記を行います。 X または GitHub
+          アカウントを指定した場合はアイコン付きで表記します。
+          クレジット表記を希望されない方は、匿名希望を選択してください。
+        </p>
         <div>
           <input type="radio" id="user-type-x" name="user-type" value="x" required />
           <label for="user-type-x">X (Twitter) アカウントを使用</label>
@@ -105,12 +110,13 @@
       </footer>
     </div>
     <script>
+      // アカウント入力欄トグル
       const q = new URLSearchParams(location.search);
-      document.getElementById("kaido").value = q.get("kaido");
+      document.getElementById("kaido").innerText = q.get("kaido");
       document.getElementById("kaido-h").value = q.get("kaido");
-      document.getElementById("coordinate").value = q.get("coordinate");
+      document.getElementById("coordinate").innerText = q.get("coordinate");
       document.getElementById("coordinate-h").value = q.get("coordinate");
-      document.getElementById("spot").value = q.get("spot");
+      document.getElementById("spot").innerText = q.get("spot");
       document.getElementById("spot-h").value = q.get("spot");
       document.getElementById("user-type-x").addEventListener("change", (e) => {
         document.getElementById("social").disabled = !e.target.checked;
@@ -132,6 +138,8 @@
         document.getElementById("name").disabled = e.target.checked;
         document.getElementById("email").disabled = e.target.checked;
       });
+
+      // フォーム送信処理
       const form = document.getElementById("my-form");
       async function handleSubmit(event) {
         event.preventDefault();
