@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="kagaorange" />
+    <title>旧街道足跡マップ α版 &ndash; 街道情報投稿</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--suppress ES6ConvertVarToLetConst, EqualityComparisonWithCoercionJS -->
+    <!-- prettier-ignore -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
+    <link rel="stylesheet" href="lib/map_style.css?v=1" />
+  </head>
+  <body>
+    <!-- prettier-ignore -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTM7SMZG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <h1 style="padding-top: 3px">
+      <span class="hidden-on-mobile" style="margin-right: 6px">
+        <a href="./"><span class="logo-font">旧街道足跡マップ</span> α版</a>
+        <span class="sep">&gt;</span>
+        街道情報投稿
+      </span>
+    </h1>
+    <div class="non-map-screen" style="display: block">
+      <p>このフォームから街道情報の修正や更新をリクエストすることができます。</p>
+      <p>
+        写真の投稿機能は開発中で、現在このフォームからは行えません。
+        写真を寄贈してくださる方は、お手数ですがその旨を連絡内容に記載ください。
+        管理人から折り返し連絡いたします。
+      </p>
+      <form id="my-form" action="https://formspree.io/f/mzdjjreg" method="POST">
+        <label for="kaido">街道:</label><br />
+        <input id="kaido-h" type="hidden" name="kaido" />
+        <input id="kaido" type="text" disabled /><br />
+        <label for="coordinate">座標:</label><br />
+        <input id="coordinate-h" type="hidden" name="coordinate" />
+        <input id="coordinate" type="text" name="coordinate" disabled /><br />
+        <label for="spot">スポット名:</label><br />
+        <input id="spot-h" type="hidden" name="spot" />
+        <input id="spot" type="text" name="spot" disabled /><br />
+        <label for="message">連絡内容:</label><br />
+        <textarea id="message" name="message" cols="80" rows="8" required></textarea><br />
+        <div style="color: gray">
+          記入例:
+          <ul>
+            <li>この石碑は道路改修で駅前に移設されました。</li>
+            <li>掲載されている URL がリンク切れです。新しい URL は...</li>
+            <li>4枚目の写真に写り込んでいるナンバープレートを加工で消してください。</li>
+          </ul>
+        </div>
+        <p>連絡先および投稿が反映された場合のクレジット表記</p>
+        <div>
+          <input type="radio" id="user-type-x" name="user-type" value="x" required />
+          <label for="user-type-x">X (Twitter) アカウントを使用</label>
+          <input type="radio" id="user-type-github" name="user-type" value="github" />
+          <label for="user-type-github">GitHub アカウントを使用</label>
+          <input type="radio" id="user-type-custom" name="user-type" value="custom" />
+          <label for="user-type-custom">どちらも持っていない</label>
+          <input type="radio" id="user-type-anonymous" name="user-type" value="anonymous" />
+          <label for="user-type-anonymous">匿名希望</label>
+        </div>
+        <label for="social">アカウント名</label><br />
+        <input id="social" type="text" name="social" size="40" disabled /><br />
+        <label for="name">ハンドルネーム (公開):</label><br />
+        <input id="name" type="text" name="name" size="40" disabled /><br />
+        <label for="email">メールアドレス (非公開・連絡専用):</label><br />
+        <input id="email" type="email" name="email" size="40" disabled /><br />
+        <button id="my-form-button" style="margin-top: 10px">投稿</button>
+        <p id="my-form-status"></p>
+      </form>
+      <footer>
+        <p>旧街道足跡マップ α版</p>
+        <p>
+          This work is licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">CC BY-SA 4.0</a
+          ><img
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          /><img
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          /><img
+            src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          />
+        </p>
+      </footer>
+    </div>
+    <script>
+      const q = new URLSearchParams(location.search);
+      document.getElementById("kaido").value = q.get("kaido");
+      document.getElementById("kaido-h").value = q.get("kaido");
+      document.getElementById("coordinate").value = q.get("coordinate");
+      document.getElementById("coordinate-h").value = q.get("coordinate");
+      document.getElementById("spot").value = q.get("spot");
+      document.getElementById("spot-h").value = q.get("spot");
+      document.getElementById("user-type-x").addEventListener("change", (e) => {
+        document.getElementById("social").disabled = !e.target.checked;
+        document.getElementById("name").disabled = e.target.checked;
+        document.getElementById("email").disabled = e.target.checked;
+      });
+      document.getElementById("user-type-github").addEventListener("change", (e) => {
+        document.getElementById("social").disabled = !e.target.checked;
+        document.getElementById("name").disabled = e.target.checked;
+        document.getElementById("email").disabled = e.target.checked;
+      });
+      document.getElementById("user-type-custom").addEventListener("change", (e) => {
+        document.getElementById("social").disabled = e.target.checked;
+        document.getElementById("name").disabled = !e.target.checked;
+        document.getElementById("email").disabled = !e.target.checked;
+      });
+      document.getElementById("user-type-anonymous").addEventListener("click", (e) => {
+        document.getElementById("social").disabled = e.target.checked;
+        document.getElementById("name").disabled = e.target.checked;
+        document.getElementById("email").disabled = e.target.checked;
+      });
+      const form = document.getElementById("my-form");
+      async function handleSubmit(event) {
+        event.preventDefault();
+        const status = document.getElementById("my-form-status");
+        const data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              status.style.color = "green";
+              status.innerHTML = "投稿が完了しました。ご協力ありがとうございました。";
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                if (Object.hasOwn(data, "errors")) {
+                  status.style.color = "red";
+                  status.innerHTML = data["errors"].map((error) => error["message"]).join(", ");
+                } else {
+                  status.style.color = "red";
+                  status.innerHTML = "投稿に失敗しました: " + JSON.stringify(data);
+                }
+              });
+            }
+          })
+          .catch((e) => {
+            console.error(e);
+            status.style.color = "red";
+            status.innerHTML = "投稿に失敗しました: " + String(e);
+          });
+      }
+      form.addEventListener("submit", handleSubmit);
+    </script>
+  </body>
+</html>

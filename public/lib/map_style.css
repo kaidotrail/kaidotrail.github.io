@@ -13,6 +13,15 @@ h1 a {
   color: goldenrod;
 }
 
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  border-top: 1px solid goldenrod;
+}
+footer > p {
+  margin: 1px;
+}
+
 #map {
   position: absolute;
   top: 30px;
@@ -118,6 +127,15 @@ h1 a {
 }
 .popup-content .credit {
   color: gray;
+}
+.popup-content .edit-request-link {
+  position: absolute;
+  bottom: 15px;
+  right: 26px;
+  font-size: 0.8em;
+}
+.popup-content .edit-request-link a {
+  text-decoration: none;
 }
 
 .popup-arrows {
