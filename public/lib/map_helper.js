@@ -204,7 +204,7 @@ const createIcon = (leaflet, iconName, color) => {
 /** アイコン種別の定義 */
 const iconTypes = new Map([
   ["honjin", { icon: "fa-landmark-flag", color: "#8B0000" }],
-  ["ichirizuka", { icon: "fa-tree", color: "#228B22" }],
+  ["ichirizuka", { icon: "fa-mound", color: "#228B22" }],
   ["kosatsuba", { icon: "fa-scroll", color: "#A0522D" }],
   ["pass", { icon: "fa-mountain", color: "#006400" }],
   ["watashi", { icon: "fa-ship", color: "#1E90FF" }],
