@@ -281,16 +281,18 @@ const buildPopupContent = (markerData) => {
       content += `<i class="arrow-right fa-solid fa-circle-chevron-right"></i>`;
       content += `</div>`;
     }
-    const formUrl =
-      `form.html?` +
-      `kaido=${location.pathname.split("/").slice(-1)[0].replace(".html", "")}` +
-      `&coordinate=${markerData.coordinate[0]},${markerData.coordinate[1]}` +
-      `&spot=${markerData.name}`;
-    content +=
-      `<div class="edit-request-link">` +
-      `<a href="${formUrl}" target="_blank"><i class="fa-solid fa-pen-to-square"></i> 修正</a>` +
-      `</div>`;
+  } else {
+    content += `<br/>`;
   }
+  const formUrl =
+    `form.html?` +
+    `kaido=${location.pathname.split("/").slice(-1)[0].replace(".html", "")}` +
+    `&coordinate=${markerData.coordinate[0]},${markerData.coordinate[1]}` +
+    `&spot=${markerData.name}`;
+  content +=
+    `<div class="edit-request-link">` +
+    `<a href="${formUrl}" target="_blank"><i class="fa-solid fa-pen-to-square"></i> 修正</a>` +
+    `</div>`;
   content += `</div>`;
   return content;
 };
