@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="kagaorange" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>旧街道足跡マップ α版 &ndash; 連絡フォーム</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"
+      integrity="sha512-xsoiisGNT6Dw2Le1Cocn5305Uje1pOYeSzrpO3RD9K+JTpVH9KqSXksXqur8cobTEKJcFz0COYq4723mzo88/Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!--suppress ES6ConvertVarToLetConst, EqualityComparisonWithCoercionJS -->
+    <!-- prettier-ignore -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
+    <link rel="stylesheet" href="lib/map_style.css?v=1" />
+    <link rel="stylesheet" href="lib/form.css?v=1" />
+  </head>
+  <body>
+    <!-- prettier-ignore -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTM7SMZG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <h1 style="padding-top: 3px">
+      <a href="./"><span class="logo-font">旧街道足跡マップ</span> α版</a>
+      <span class="sep">&gt;</span>
+      街道情報投稿
+    </h1>
+    <div class="non-map-screen" style="display: block">
+      <p>このフォームから管理人にメッセージを送信することができます。</p>
+      <form id="my-form" action="https://formspree.io/f/mjgaaqee" method="POST">
+        <h3><i class="fa-solid fa-message"></i> 連絡内容</h3>
+        <label for="message">メッセージ:</label><br />
+        <textarea id="message" name="message" cols="53" rows="8" required></textarea>
+        <h3><i class="fa-solid fa-user"></i> 連絡先</h3>
+        <div>
+          <input type="radio" id="user-type-x" name="user-type" value="x" required />
+          <label for="user-type-x">X (Twitter) アカウント</label>
+          <input type="radio" id="user-type-github" name="user-type" value="github" />
+          <label for="user-type-github">GitHub アカウント</label>
+          <input type="radio" id="user-type-custom" name="user-type" value="custom" />
+          <label for="user-type-custom">どちらも持っていない</label>
+          <input type="radio" id="user-type-anonymous" name="user-type" value="anonymous" />
+          <label for="user-type-anonymous">匿名希望</label>
+        </div>
+        <label for="social">アカウント名</label><br />
+        <input id="social" type="text" name="social" size="40" disabled /><br />
+        <label for="name">お名前:</label><br />
+        <input id="name" type="text" name="name" size="40" disabled /><br />
+        <label for="email">メールアドレス:</label><br />
+        <input id="email" type="email" name="email" size="40" disabled /><br />
+        <button id="my-form-button" style="margin-top: 10px">投稿</button>
+        <p id="my-form-status"></p>
+      </form>
+      <footer>
+        <p>旧街道足跡マップ α版</p>
+        <p>
+          This work is licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">CC BY-SA 4.0</a
+          ><img
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          /><img
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          /><img
+            src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          />
+        </p>
+      </footer>
+    </div>
+    <script>
+      // アカウント入力欄トグル
+      const inputSocial = document.getElementById("social");
+      const inputName = document.getElementById("name");
+      const inputEmail = document.getElementById("email");
+      document.getElementById("user-type-x").addEventListener("change", (e) => {
+        inputSocial.disabled = !e.target.checked;
+        inputSocial.required = e.target.checked;
+        inputName.disabled = e.target.checked;
+        inputName.required = !e.target.checked;
+        inputEmail.disabled = e.target.checked;
+        inputEmail.required = !e.target.checked;
+      });
+      document.getElementById("user-type-github").addEventListener("change", (e) => {
+        inputSocial.disabled = !e.target.checked;
+        inputSocial.required = e.target.checked;
+        inputName.disabled = e.target.checked;
+        inputName.required = !e.target.checked;
+        inputEmail.disabled = e.target.checked;
+        inputEmail.required = !e.target.checked;
+      });
+      document.getElementById("user-type-custom").addEventListener("change", (e) => {
+        inputSocial.disabled = e.target.checked;
+        inputSocial.required = !e.target.checked;
+        inputName.disabled = !e.target.checked;
+        inputName.required = e.target.checked;
+        inputEmail.disabled = !e.target.checked;
+        inputEmail.required = e.target.checked;
+      });
+      document.getElementById("user-type-anonymous").addEventListener("click", (e) => {
+        inputSocial.disabled = e.target.checked;
+        inputSocial.required = !e.target.checked;
+        inputName.disabled = e.target.checked;
+        inputName.required = !e.target.checked;
+        inputEmail.disabled = e.target.checked;
+        inputEmail.required = !e.target.checked;
+      });
+
+      // フォーム送信処理
+      const form = document.getElementById("my-form");
+      async function handleSubmit(event) {
+        event.preventDefault();
+        const status = document.getElementById("my-form-status");
+        const data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              status.style.color = "green";
+              status.innerHTML = "送信が完了しました。";
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                if (Object.hasOwn(data, "errors")) {
+                  status.style.color = "red";
+                  status.innerHTML = data["errors"].map((error) => error["message"]).join(", ");
+                } else {
+                  status.style.color = "red";
+                  status.innerHTML = "送信に失敗しました: " + JSON.stringify(data);
+                }
+              });
+            }
+          })
+          .catch((e) => {
+            console.error(e);
+            status.style.color = "red";
+            status.innerHTML = "送信に失敗しました: " + String(e);
+          });
+      }
+      form.addEventListener("submit", handleSubmit);
+    </script>
+  </body>
+</html>
