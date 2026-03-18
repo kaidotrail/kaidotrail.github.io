@@ -102,6 +102,8 @@
       kazunomiyaRouteOverlay.addTo(map);
       const wadaOldRouteOverlay = L.layerGroup();
       wadaOldRouteOverlay.addTo(map);
+      const dotaOldRouteOverlay = L.layerGroup();
+      dotaOldRouteOverlay.addTo(map);
       const stationOverlay = L.layerGroup();
       stationOverlay.addTo(map);
       const spotOverlay = L.layerGroup();
@@ -115,6 +117,7 @@
         初期中山道ルート: shokiRouteOverlay,
         碓氷峠和宮ルート: kazunomiyaRouteOverlay,
         和田峠古道ルート: wadaOldRouteOverlay,
+        土田ルート: dotaOldRouteOverlay,
         "kagaorange の軌跡": gpxOverlay,
       });
       activateKonjakuMap(L, layerControl, "kanto", "00");
@@ -9748,7 +9751,7 @@
           name: "権現山一里塚",
           kana: "ごんげんやまいちりづか",
           coordinate: [35.438385, 137.312782],
-          icon: "monument",
+          icon: "ichirizuka",
           description:
             "日本橋から90里 (約353.5km) の一里塚で、両塚現存しています。" +
             "南塚は一部自然地形を利用して造られているようですが、どちらの塚も高さがあり美しい形を保っています。",
@@ -10307,11 +10310,1203 @@
             },
           ],
         },
+        {
+          name: "くじ場址",
+          coordinate: [35.427546, 137.225899],
+          icon: "monument",
+          description:
+            "旧中仙道くじ場址と彫られた標柱があります。" +
+            "駕籠 (かご) を運ぶ人足たちがその役をくじ引きで決めていた場所だそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_041527890.MP.webp",
+              comment: "旧中仙道くじ場址",
+            },
+          ],
+        },
+        {
+          name: "馬水池",
+          kana: "ばすいいけ",
+          coordinate: [35.427497, 137.222282],
+          icon: "monument",
+          description:
+            "陸軍大将福島安正馬水池と書かれた説明板があります。" +
+            "シベリア大陸を偵察のため単騎横断したこともあるという福島大将が中山道を通行中、愛馬に水を与えたと伝わる池とのことです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_041959985.webp",
+              comment: "馬水池",
+            },
+          ],
+        },
+        {
+          name: "秋葉坂の三尊石窟",
+          kana: "あきばさかのさんぞんせっくつ",
+          coordinate: [35.427827, 137.218263],
+          icon: "monument",
+          description:
+            "街道を見下ろすように石窟があり、そこに3基の石仏が鎮座しています。" +
+            "右が明和5年 (1768) に作られた三面六臂 (顔が3つで腕が6本) の馬頭観音像、" +
+            "中央が一面六臂の観音坐像、左は風化の進んだ石仏という構成です。" +
+            "この石窟がある坂道は秋葉坂と呼ばれており、近くに秋葉山の石祠があるようです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_042649132.webp",
+              comment: "秋葉坂の三尊石窟",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_042718616.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "鴨之巣辻の道祖神碑",
+          kana: "こうのすつじのどうそじんひ",
+          coordinate: [35.426451, 137.212697],
+          icon: "monument",
+          description:
+            "山道が交差するところに「鴨之巣辻の道祖神碑」と書かれた標柱があり、" +
+            "右手に「右 旧鎌倉街道迄約一里余」と彫られた道標と「道祖神」と彫られた文字碑があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_043408789.webp",
+              comment: "鴨之巣辻の道祖神碑",
+            },
+          ],
+        },
+        {
+          name: "切られヶ洞",
+          coordinate: [35.426679, 137.209537],
+          icon: "monument",
+          description: "尾根道の道端に標柱があります。ここで人が切られたりしたのでしょうか。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_043846313.webp",
+              comment: "切られヶ洞",
+            },
+          ],
+        },
+        {
+          name: "鴨之巣一里塚",
+          kana: "こうのすいちりづか",
+          coordinate: [35.425825, 137.20693],
+          icon: "ichirizuka",
+          description:
+            "日本橋から93里 (約365.2km) の一里塚で、両塚現存しています。" +
+            "地形の都合で北塚が 16m 東方にずらされているのが特徴です。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_044233820.webp",
+              comment: "北塚",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_044244835.webp",
+              comment: "南塚",
+            },
+          ],
+        },
+        {
+          name: "山内嘉助屋敷跡",
+          kana: "やまうちかすけやしきあと",
+          coordinate: [35.42731, 137.196104],
+          icon: "monument",
+          description:
+            "酒造業を営んだ山内家の屋敷があった地とのことです。" +
+            "石碑の右側に大きな石垣が残っています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_045836858.webp",
+              comment: "山内嘉助屋敷跡",
+            },
+          ],
+        },
+        {
+          name: "津橋村聞道義校跡地",
+          kana: "",
+          coordinate: [35.426262, 137.19041],
+          icon: "monument",
+          description:
+            "中仙道と彫られた石碑のほか「津橋村聞道義校 (学校) 跡地」と書かれた石碑があります。" +
+            "ここから少し離れたところにある上之郷小学校のウェブサイトによると、その小学校のルーツが聞道義校とのことです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_045836858.webp",
+              comment: "山内嘉助屋敷跡",
+            },
+          ],
+        },
+        {
+          name: "馬頭観音",
+          kana: "ばとうかんのん",
+          coordinate: [35.425723, 137.18632],
+          icon: "monument",
+          description:
+            "急斜面に石が積まれて大事に守られている馬頭観音があり、街道を見下ろしています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_052019283.webp",
+              comment: "馬頭観音",
+            },
+          ],
+        },
+        {
+          name: "物見峠",
+          kana: "ものみとうげ",
+          coordinate: [35.428918, 137.182052],
+          icon: "pass",
+          description:
+            "標高 360m の峠で、文久元年 (1861) の皇女和宮の下向の際にはここで休憩するための仮御殿を設営したことから御殿場とも呼ばれています。" +
+            "馬の水飲み場と書かれた説明板があり、奥に水たまりがあります。" +
+            "階段を上ると展望台もあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_053005781.webp",
+              comment: "馬の水飲み場",
+            },
+          ],
+        },
+        {
+          name: "唄清水",
+          kana: "うたしみず",
+          coordinate: [35.42946, 137.177899],
+          icon: "monument",
+          description:
+            "♬唄♪清水と彫られた石碑と水たまりがあるものの、飲用はできないようです。" +
+            "右奥にも唄清水と彫られた石碑があり、よく見ると「馬子唄の 響きに浪たつ 清水かな 五歩」と彫られています。" +
+            "馬子唄 (まごうた) が名前の由来のようです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_054608165.webp",
+              comment: "唄清水",
+            },
+          ],
+        },
+        {
+          name: "一呑の清水",
+          kana: "ひとのみのしみず",
+          coordinate: [35.431229, 137.175638],
+          icon: "monument",
+          description:
+            "江戸時代は旅人や馬の喉を潤していたそうですが、現在は飲用不可となっています。" +
+            "説明板によると、皇女和宮降嫁の際にこの清水を賞味したいそう気に入り、のちに取り寄せたこともあるそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_055021068.webp",
+              comment: "一呑の清水",
+            },
+          ],
+        },
+        {
+          name: "十本木立場跡",
+          kana: "じゅっぽんぎたてばあと",
+          coordinate: [35.432661, 137.174932],
+          icon: "monument",
+          description:
+            "かつて茶屋が建てられ旅人の休憩所になっていたそうです。" +
+            "線形が改良される前の古道の道筋がわずかに残っているようにみえます。" +
+            "なお、説明板では「十本木」の読みを「じゅっぽんぎ」と紹介していますが、" +
+            "観光協会のウェブサイトでは「じっぽんぎ」と紹介しており、複数の読み方があるようです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_055322021.webp",
+              comment: "十本木立場跡",
+            },
+          ],
+        },
+        {
+          name: "謡坂十本木一里塚",
+          kana: "うとうざかじっぽんぎいちりづか",
+          coordinate: [35.433334, 137.173393],
+          icon: "ichirizuka",
+          description:
+            "日本橋から94里 (約369.2km) の一里塚で、昭和48年 (1973) に復元された塚が1基あります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_055615423.webp",
+              comment: "十本木立場跡",
+            },
+          ],
+        },
+        {
+          name: "十本木茶屋跡",
+          kana: "じっぽんぎぢゃやあと",
+          coordinate: [35.433746, 137.173366],
+          icon: "monument",
+          description:
+            "かつて休憩用の茶屋があった地で、かつ広重の木曽海道六拾九次で御嶽を描いたとされる地だそうです。" +
+            "「きちん宿」(木賃宿) と書かれた庶民向けの安宿に集まる旅人を描いており、広重が木賃宿を描くのは大変珍しいそうです。" +
+            "現在は「みたけいろは茶屋」があり、餅やコーヒーなどを提供しています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_055745311.webp",
+              comment: "十本木茶屋跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_055720362.webp",
+              comment: "木曽街道六十九次 御嶽",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_055737084.webp",
+              comment: "みたけいろは茶屋",
+            },
+          ],
+        },
+        {
+          name: "謡坂石畳",
+          kana: "うとうざかいしだたみ",
+          coordinate: [35.434976, 137.171682],
+          icon: "camera",
+          description:
+            "平成9年 (1997) から12年 (2000) にかけて修復整備された石畳があります。" +
+            "説明板によると、「謡坂」は旅人たちが急坂の苦しさを紛らわそうと歌を歌ったことからついた名前だそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_055923595.MP.webp",
+              comment: "謡坂石畳",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_060320320.webp",
+              comment: "京方入口",
+            },
+          ],
+        },
+        {
+          name: "耳神社",
+          kana: "みみじんじゃ",
+          coordinate: [35.433034, 137.16731],
+          icon: "shrine",
+          description:
+            "その名の通り耳の病気にご利益がある神社で、" +
+            "耳が聞こえなくなった大工がこの神社に参拝したところたちまち治ったことが由来とのことです。" +
+            "参道を上ると鳥居と小さな石祠があり、大工道具の錐 (きり) が奉納されています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_060757393.webp",
+              comment: "耳神社",
+            },
+          ],
+        },
+        {
+          name: "牛の鼻欠け坂",
+          kana: "うしのはなかけざか",
+          coordinate: [35.4322988, 137.1623111],
+          icon: "monument",
+          description:
+            "荷物を背に登ってくる牛の鼻がずれて欠けてしまうほどの急な登り坂であることから" +
+            "「牛の鼻欠け坂」と呼ばれるようになったそうです。" +
+            "京方から来るとここが一連の峠道の入口となる場所で、最初の関門とも言えます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_061710301.webp",
+              comment: "京方入口",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_061528946.webp",
+              comment: "説明板",
+            },
+          ],
+        },
         // 49. 御嶽宿
+        {
+          name: "栢森一里塚跡",
+          kana: "かやもりいちりづかあと",
+          coordinate: [35.431039, 137.138994],
+          icon: "ichirizuka",
+          description:
+            "日本橋から95里 (約373.1km) の一里塚跡で、旧道が分岐する交差点の角に標柱があります。",
+        },
+        {
+          name: "御嶽宿本陣跡",
+          kana: "みたけじゅくほんじんあと",
+          coordinate: [35.429924, 137.130463],
+          icon: "honjin",
+          description:
+            "岐阜県のウェブサイトによると、建物は明治・大正期に建て替えられたものだそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_065828600.webp",
+              comment: "御嶽宿本陣跡",
+            },
+          ],
+        },
+        {
+          name: "中山道みたけ館 (脇本陣跡)",
+          coordinate: [35.429966, 137.130217],
+          icon: "monument",
+          description:
+            "脇本陣の跡地に「中山道みたけ館」が建っており、1Fが図書館、2Fが資料館になっています。",
+          url: "https://www.town.mitake.lg.jp/event/mitakekan-kyodo/",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_065838736.webp",
+              comment: "中山道みたけ館",
+            },
+          ],
+        },
+        {
+          name: "鬼の首塚",
+          kana: "おにのくびづか",
+          coordinate: [35.434988, 137.121135],
+          icon: "monument",
+          description:
+            "正治の頃 (1190〜1200) に頗る凶暴で悪行三昧、乱暴狼藉を極めていた男がおり、" +
+            "ある日に女装して祭礼に訪れたところを捉えて首を切るも、" +
+            "運んでいる最中にここで首桶が重くなって動けなくなり、この地に埋めたそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_073013691.webp",
+              comment: "鬼の首塚",
+            },
+          ],
+        },
+        {
+          name: "比衣一里塚跡",
+          kana: "ひえいちりづかあと",
+          coordinate: [35.438106, 137.102883],
+          icon: "ichirizuka",
+          description:
+            "日本橋から96里 (377km) の一里塚跡で、旧道が分岐する交差点の道端に石碑があります。",
+        },
         // 50. 伏見宿
+        {
+          name: "伏見宿本陣跡",
+          kana: "ふしみじゅくほんじんあと",
+          coordinate: [35.439028, 137.086934],
+          icon: "honjin",
+          description:
+            "本陣之碑と彫られた石碑があるほか、西坂から移設されたという「是よ里東尾州藩」の石碑もあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-03/PXL_20230503_081308511.webp",
+              comment: "伏見宿本陣跡",
+            },
+          ],
+        },
+        {
+          name: "浄覚寺",
+          kana: "じょうがくじ",
+          coordinate: [35.438299, 137.086361],
+          icon: "temple",
+          description:
+            "浄土真宗大谷派のお寺で、徳川光友公夫妻菩提所と書かれた石碑があります。" +
+            "徳川光友は尾張藩の2代目の藩主です。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_210942066.webp",
+              comment: "浄覚寺",
+            },
+          ],
+        },
+        {
+          name: "松屋山田家住宅",
+          kana: "まつややまだけじゅうたく",
+          coordinate: [35.438943, 137.084583],
+          icon: "building",
+          description:
+            "国登録有形文化財。明治初期に造られた町家で、東側に和洋折衷な郵便局が隣接しています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_211325030.webp",
+              comment: "松屋山田家住宅",
+            },
+          ],
+        },
+        {
+          name: "上恵土神社",
+          kana: "かみえどじんじゃ",
+          coordinate: [35.438196, 137.074002],
+          icon: "shrine",
+          description: "木曽川が迫る土地に社殿があります。隣接する広場には稲荷神社もあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_212634046.webp",
+              comment: "上恵土神社",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_212451971.webp",
+              comment: "鳥居",
+            },
+          ],
+        },
+        {
+          name: "恵土一里塚跡",
+          kana: "えどいちりづかあと",
+          coordinate: [35.434777, 137.062064],
+          icon: "ichirizuka",
+          description:
+            "日本橋から97里 (約380.9km) の一里塚跡で、石碑があります。" +
+            "石碑は裏側に中山道開宿400周年記念事業とあり、2002年頃に建てられたようです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_214045999.webp",
+              comment: "恵土一里塚跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_214059137.webp",
+              comment: "石碑裏側",
+            },
+          ],
+        },
+        {
+          name: "今渡神社",
+          kana: "いまわたりじんじゃ",
+          coordinate: [35.436685, 137.037026],
+          icon: "shrine",
+          description: "街道筋に鳥居があり、200m ほどある長い参道が伸びています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_221856675.webp",
+              comment: "今渡神社",
+            },
+          ],
+        },
+        {
+          name: "今渡の渡し場跡",
+          kana: "いまわたりのわたしばあと",
+          coordinate: [35.435656, 137.033276],
+          icon: "watashi",
+          description:
+            "木曽川を渡るための渡場跡で、太田川の橋詰に公園が整備されています。" +
+            "実際の渡場跡はここから西に 150m ほどいったところにある今渡神明弘法堂の近くのようです。" +
+            "渡場の変遷や橋の配置などが記された石碑もあり、それによると天明以前はここよりも下流に渡場があったそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_222448322.webp",
+              comment: "今渡の渡し場跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_222523202.webp",
+              comment: "石碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_222537063.MP.webp",
+              comment: "案内碑・太田橋",
+            },
+          ],
+        },
+        // 土田ルート分岐
+        {
+          name: "土田一里塚跡",
+          kana: "どたいちりづかあと",
+          coordinate: [35.433778, 137.019851],
+          icon: "ichirizuka",
+          description: "江戸から土田ルート経由で98里 (384.9km) の一里塚跡で、石碑があります。",
+        },
+        {
+          name: "土田 (大井戸) の渡し場跡",
+          kana: "どた (おおいど) のわたしばあと",
+          coordinate: [35.434647, 137.016151],
+          icon: "watashi",
+          description: "天明以前の中山道のルート上にあった渡場跡で、標柱があります。",
+        },
+        // 土田ルート合流
+        {
+          name: "萬木句碑",
+          kana: "ばんぼくくひ",
+          coordinate: [35.437902, 137.032972],
+          icon: "monument",
+          description:
+            "「萬緑や 木曽川下る 水飛沫」と彫られた歌碑があります。" +
+            "萬木とは、1955年の自民党結成に尽力し衆院議長も務めた大野伴睦のことで、岐阜県を代表する政治家です。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_223600225.webp",
+              comment: "萬木句碑",
+            },
+          ],
+        },
+        {
+          name: "太田の渡し跡",
+          kana: "おおたのわたしあと",
+          coordinate: [35.437782, 137.031639],
+          icon: "watashi",
+          description:
+            "「木曽のかけはし 太田の渡し 碓氷峠がなくばよい」とうたわれた中山道三大難所の一つですが、" +
+            "現在は太田橋でらくらく通過できます。橋の下を潜ったところに説明板があり、当時の石畳が残っているそうです。" +
+            "広重の六拾九次の太田でもこの渡を描いており、説明板に展示されています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_223926957.webp",
+              comment: "太田の渡し跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_224021592.webp",
+              comment: "木曽海道六拾九次 大田",
+            },
+          ],
+        },
+        {
+          name: "太田の渡へ向かう石畳道路の保存",
+          coordinate: [35.438825, 137.030656],
+          icon: "monument",
+          description:
+            "物流倉庫の敷地の角に説明板があり、渡船場への石畳が地下に眠っているそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_224408866.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "古井一里塚跡",
+          kana: "こびいちりづかあと",
+          coordinate: [35.437977, 137.026205],
+          icon: "ichirizuka",
+          description: "日本橋から98里 (約384.9km) の一里塚跡で、標柱があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_225026896.webp",
+              comment: "古井一里塚跡",
+            },
+          ],
+        },
+        {
+          name: "法華経塚と飛騨街道追分",
+          kana: "ほけきょうづかとひだかいどうおいわけ",
+          coordinate: [35.439084, 137.020506],
+          icon: "monument",
+          description:
+            "南無妙法蓮華経と彫られた大きな法華経塚があります。" +
+            "手前にある説明板には飛騨街道追分についても記されており、" +
+            "神明堂交差点が高山方面へ至る飛騨街道と中山道との追分とのことです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_230000440.webp",
+              comment: "法華経塚と飛騨街道追分",
+            },
+          ],
+        },
         // 51. 太田宿
+        {
+          name: "新町木戸門跡",
+          kana: "しんまちきどもんあと",
+          coordinate: [35.438769, 137.01919],
+          icon: "monument",
+          description:
+            "新町木戸門跡と書かれた標柱があります。ここが太田宿の江戸方の入口ということになります。" +
+            "美濃加茂市のウェブサイトによると、新町は渡場が移動した後に太田宿の東側を拡張して成立した町だそうです。" +
+            "渡場が移動する前は祐泉寺が東端でした。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_230149100.webp",
+              comment: "新町木戸門跡",
+            },
+          ],
+        },
+        {
+          name: "祐泉寺",
+          kana: "ゆうせんじ",
+          coordinate: [35.438193, 137.016166],
+          icon: "temple",
+          description:
+            "臨済宗妙心寺派のお寺で、太田宿の東の枡形にあります。" +
+            "入口には祐泉寺と彫られた石碑と美濃西国第二十七番札所の石碑があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_230515868.webp",
+              comment: "祐泉寺",
+            },
+          ],
+        },
+        {
+          name: "小松屋",
+          kana: "こまつや",
+          coordinate: [35.438155, 137.015947],
+          icon: "building",
+          description:
+            "国登録有形文化財。旅籠屋だった建物で、現在は休憩所になっています。" +
+            "説明板では弘化2年 (1845) の絵図で今と変わらない鍵の字になっている枡方の様子が図示されています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_230551495.webp",
+              comment: "小松屋",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_230539163.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "太田宿脇本陣 (林家住宅)",
+          kana: "おおたじゅくわきほんじん (はやしけじゅうたく)",
+          coordinate: [35.43817, 137.013717],
+          icon: "building",
+          description:
+            "国指定重要文化財。大きな本卯建があがっている主屋は明和6年 (1769) に建てられたもので、" +
+            "表門は天保2年 (1831) に建てられたそうです。" +
+            "西側には隠居家が併設されています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_231753913.webp",
+              comment: "太田宿脇本陣 (林家住宅)",
+            },
+          ],
+        },
+        {
+          name: "太田宿中山道会館",
+          kana: "おおたじゅくなかせんどうかいかん",
+          coordinate: [35.438162, 137.013277],
+          icon: "building",
+          description:
+            "宿場の雰囲気を再現した空間や民具などを展示している展示室があるほか、カフェや売店もあります。",
+          url: "https://www.group-sanwa.co.jp/ootajuku/",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_231850281.webp",
+              comment: "太田宿中山道会館",
+            },
+          ],
+        },
+        {
+          name: "太田宿本陣跡",
+          kana: "おおたじゅくほんじんあと",
+          coordinate: [35.43825, 137.01304],
+          icon: "honjin",
+          description: "文久元年 (1861) に皇女和宮の通行にあわせて新築した表門が現存しています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_231921286.webp",
+              comment: "太田宿本陣跡",
+            },
+          ],
+        },
+        {
+          name: "高札場跡と郡上街道追分",
+          kana: "こうさつばあととぐじょうかいどうおいわけ",
+          coordinate: [35.438328, 137.011067],
+          icon: "kosatsuba",
+          description:
+            "高札場跡と郡上街道追分と書かれた案内板があり、小路を挟んで反対側に追分道標があります。" +
+            "道標は「左 西京伊勢道」「右 関上有知道」と彫られています。" +
+            "上有知 (こうずち) とは関の北側の美濃市美濃町のあたりを指す古い地名のようです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_232159387.webp",
+              comment: "追分道標",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_232149143.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "虚空蔵堂",
+          kana: "こくぞうどう",
+          coordinate: [35.436667, 137.009822],
+          icon: "building",
+          description:
+            "虚空蔵堂というお堂と、その手前に常夜灯があります。" +
+            "「虚空蔵堂と承久の乱 古戦場跡」と書かれた説明板もあり、" +
+            "承久の乱ではこのあたりで後鳥羽上皇率いる朝廷軍と鎌倉幕府軍が木曽川を挟んで戦ったそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_232617081.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "兼松嘯風歌碑",
+          kana: "かねまつしょうふうかひ",
+          coordinate: [35.432181, 137.004453],
+          icon: "monument",
+          description:
+            "「山間乃 雪の中ゆく 筏か那」と彫られた歌碑があります。" +
+            "兼松嘯風は江戸初期の歌人だそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_233516378.webp",
+              comment: "兼松嘯風歌碑",
+            },
+          ],
+        },
+        {
+          name: "取組一里塚跡",
+          kana: "とりくみいちりづかあと",
+          coordinate: [35.426676, 136.987805],
+          icon: "ichirizuka",
+          description:
+            "日本橋から99里 (388.8km) の一里塚跡で、標柱があります。" +
+            "古地図を見ると取組村と勝山村の境が近くにあり、勝山一里塚跡とも呼ばれているようです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230526_235632508.webp",
+              comment: "取組一里塚跡",
+            },
+          ],
+        },
+        {
+          name: "行幸巌",
+          kana: "みゆきいわ",
+          coordinate: [35.424785, 136.9818],
+          icon: "monument",
+          description:
+            "昭和2年 (1927) に昭和天皇がここで木曽川を鑑賞されたそうです。" +
+            "そのとき立たれたとされる大きな岩が川辺にあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_000639440.webp",
+              comment: "行幸巌碑",
+            },
+          ],
+        },
+        {
+          name: "木曽川チャート岩",
+          coordinate: [35.423359, 136.971704],
+          icon: "camera",
+          description:
+            "木曽川河床の地層から約2億1500万年前 (三畳紀後期) の巨大隕石衝突の証拠が発見されたそうです。",
+          url: "https://geo-gifu.org/mobile/11_topics/topics_9_injekutasou.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_002407719.webp",
+              comment: "木曽川チャート岩",
+            },
+          ],
+        },
+        {
+          name: "取組渡船場跡",
+          kana: "とりくみとせんばあと",
+          coordinate: [35.42364, 136.970206],
+          icon: "watashi",
+          description:
+            "土手に小さな祠と石碑があり、水神のようです。" +
+            "明治期まではこのあたりから木曽川に渡があったようで、対岸の地名が「古渡」となっています。" +
+            "坂祝町のウェブサイトでは取組渡船場跡という名前で解説されています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_002652507.MP.webp",
+              comment: "水神",
+            },
+          ],
+        },
+        {
+          name: "岩屋観音堂東入口",
+          coordinate: [35.422552, 136.964806],
+          icon: "guide",
+          description:
+            "<span class='routing'>京方</span> 国道沿いに高巻きの草道が分岐しており、そちらに進みます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_003320946.webp",
+              comment: "入口",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_003333697.webp",
+              comment: "橋を渡る",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_003646543.webp",
+              comment: "線路の脇の坂を上る",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_003730791.webp",
+              comment: "木曽川の眺望",
+            },
+          ],
+        },
+        {
+          name: "岩屋観音堂",
+          kana: "いわやかんのんどう",
+          coordinate: [35.421464, 136.963564],
+          icon: "temple",
+          description:
+            "岩の崖にお堂が建っています。創建は推古天皇の時代と伝わり、お堂は19世紀始めのものだそうです。" +
+            "近くには巌屋坂之碑と彫られた石碑もあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_004011342.webp",
+              comment: "岩屋観音堂",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_003835052.webp",
+              comment: "巌屋坂之碑",
+            },
+          ],
+        },
+        {
+          name: "うとう峠東入口",
+          coordinate: [35.414968, 136.959605],
+          icon: "guide",
+          description:
+            "うとう峠の東側の入口のかつての道筋は鉄道と国道の建設により失われています。<br/>" +
+            "<span class='routing'>京方</span> 国道の左手脇に細い脇道があり、" +
+            "下るとすぐに国道と線路をアンダーパスする水路トンネルがあるのでそちらを通ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_005603562.MP.webp",
+              comment: "うとう峠東入口",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_005634976.MP.webp",
+              comment: "水路トンネル",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_005752566.webp",
+              comment: "原火谷ハイキングマップ",
+            },
+          ],
+        },
+        {
+          name: "うとう峠",
+          coordinate: [35.412103, 136.952107],
+          icon: "pass",
+          description:
+            "標高 140m の峠で、峠の東側入口付近が各務原市と坂祝町の境界になっています。" +
+            "各務原市のウェブサイトによると、「うとう」は「山と山の間」を意味する言葉だそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_010053447.webp",
+              comment: "うとう峠の坂道",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_011100596.webp",
+              comment: "日本ラインうぬまの森",
+            },
+          ],
+        },
+        {
+          name: "うとう峠一里塚",
+          coordinate: [35.411249, 136.951139],
+          icon: "ichirizuka",
+          description:
+            "日本橋から100里 (約392.7km) の一里塚で、北塚が現存しています。" +
+            "南塚は太平洋戦争中に航空隊の兵舎建設によって半分が崩されたそうで、現在では殆ど塚の姿を確認できません。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_011018534.webp",
+              comment: "うとう峠一里塚",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_011003543.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "東の見附跡と赤坂の地蔵堂",
+          kana: "ひがしのみつけあととあかさかのじぞうどう",
+          coordinate: [35.403206, 136.9431],
+          icon: "monument",
+          description:
+            "道筋が直角に曲がるところが鵜沼宿の東の見附跡で、赤坂地蔵堂が鎮座しています。" +
+            "地蔵尊は宝暦13年 (1763) のもので、江戸・善光寺道と在所道と示す道標も兼ねていたようです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_013845523.webp",
+              comment: "東の見附跡と赤坂の地蔵堂",
+            },
+          ],
+        },
         // 52. 鵜沼宿
+        {
+          name: "鵜沼宿高札場跡",
+          kana: "うぬまじゅくこうさつばあと",
+          coordinate: [35.404475, 136.938801],
+          icon: "kosatsuba",
+          description:
+            "復元された高札場が交差点の一角にあります。本来の位置は東の赤坂神社付近だったそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_014409485.webp",
+              comment: "鵜沼宿高札場跡",
+            },
+          ],
+        },
+        {
+          name: "鵜沼宿町屋館 (旧武藤家)",
+          kana: "うぬまじゅくまちやかん (きゅうむとうけ)",
+          coordinate: [35.404597, 136.937302],
+          icon: "building",
+          description:
+            "江戸時代に絹屋という旅籠屋だった建物が見学できます。" +
+            "主屋、附属屋、離れのほか美しい庭園も備わっています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_014714491.webp",
+              comment: "箱階段のある主屋内部",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_014734182.webp",
+              comment: "中庭",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_014755154.webp",
+              comment: "離れ",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_014815588.webp",
+              comment: "附属屋",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_014914352.webp",
+              comment: "案内図・説明板",
+            },
+          ],
+        },
+        {
+          name: "鵜沼宿本陣跡",
+          kana: "うぬまじゅくほんじんあと",
+          coordinate: [35.404631, 136.936965],
+          icon: "honjin",
+          description: "本陣跡には明治維新後に小学校が建てられ、その後住宅地になったようです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_014937412.MP.webp",
+              comment: "鵜沼宿本陣跡",
+            },
+          ],
+        },
+        {
+          name: "鵜沼宿脇本陣",
+          kana: "うぬまじゅくわきほんじん",
+          coordinate: [35.404694, 136.936317],
+          icon: "monument",
+          description:
+            "幕末期の脇本陣坂井家が平成22年 (2010年) に復原され、見学できるようになっています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_015026756.webp",
+              comment: "鵜沼宿脇本陣",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_015058106.MP.webp",
+              comment: "説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_015112208.webp",
+              comment: "入口付近",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_015112208.webp",
+              comment: "甲冑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_015153877.MP.webp",
+              comment: "かまど",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_015219322.webp",
+              comment: "内部",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_015304024.webp",
+              comment: "雪隠 (せっちん)",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_015316131.webp",
+              comment: "風呂桶",
+            },
+          ],
+        },
+        {
+          name: "坂井家・梅田家・安田家",
+          coordinate: [35.404678, 136.935594],
+          icon: "building",
+          description:
+            "国登録有形文化財。中央の梅田家は茗荷屋という旅籠で、江戸後期の建築を留めています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_015427380.webp",
+              comment: "商家三軒並び",
+            },
+          ],
+        },
+        {
+          name: "西の見附跡",
+          kana: "にしのみつけあと",
+          coordinate: [35.404872, 136.931869],
+          icon: "monument",
+          description: "鵜沼宿の西端で、ここに警備施設である見附があったそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_015836852.webp",
+              comment: "西の見附跡",
+            },
+          ],
+        },
+        {
+          name: "衣裳塚古墳",
+          kana: "いしょうづかこふん",
+          coordinate: [35.404699, 136.92908],
+          icon: "monument",
+          description: "空安寺の駐車場の奥にある古墳で、円墳としては岐阜県内最大とのことです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_020150103.webp",
+              comment: "衣裳塚古墳",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_020201933.MP.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "山の前一里塚跡",
+          kana: "やまのまえいちりづかあと",
+          coordinate: [35.404648, 136.908781],
+          icon: "ichirizuka",
+          description:
+            "日本橋から102里 (約400.6km) の一里塚跡で、標柱があります。" +
+            "周囲には旅人道中安全と彫られた石碑や播隆上人碑とされる石造物があります。" +
+            "各務 (かかみ) 一里塚とも言われています。" +
+            "100里目のうとう峠一里塚から2里も離れていないように思えますが、繰り返された経路変更が影響しているのかもしれません。",
+        },
+        {
+          name: "六軒一里塚跡",
+          kana: "ろっけんいちりづかあと",
+          coordinate: [35.400073, 136.864714],
+          icon: "ichirizuka",
+          description: "日本橋から103里 (約404.5km) の一里塚跡で、標柱があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_035839527.webp",
+              comment: "六軒一里塚跡",
+            },
+          ],
+        },
+        {
+          name: "新加納一里塚跡",
+          kana: "しんかのういちりづかあと",
+          coordinate: [35.397951, 136.82502],
+          icon: "ichirizuka",
+          description:
+            "日本橋から104里 (約408.4km) の一里塚跡で、間の宿 (あいのしゅく) 新加納の入口にあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_045349945.webp",
+              comment: "東側の一里塚碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_045432197.webp",
+              comment: "西塚の一里塚碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_045438816.webp",
+              comment: "中山道間の宿 新加納のご案内",
+            },
+          ],
+        },
+        {
+          name: "高札場跡",
+          kana: "こうさつばあと",
+          coordinate: [35.397884, 136.823834],
+          icon: "kosatsuba",
+          description: "新加納宿内の直角に曲がる箇所に道標を兼ねた石碑があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_045712475.webp",
+              comment: "石碑",
+            },
+          ],
+        },
+        {
+          name: "新加納立場跡",
+          kana: "しんかのうたてばあと",
+          coordinate: [35.398046, 136.82381],
+          icon: "monument",
+          description:
+            "立場跡には説明板が掛かっています。皇女和宮も新加納で休憩されたそうです。" +
+            "この奥には国登録有形文化財の今尾家住宅があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_045712475.webp",
+              comment: "新加納立場跡",
+            },
+          ],
+        },
+        {
+          name: "手力雄神社鳥居・道標",
+          kana: "てじからおじんじゃとりい・みちしるべ",
+          coordinate: [35.396565, 136.799733],
+          icon: "monument",
+          description:
+            "手力雄神社の大きな鳥居と、その脇に「左 木曽路」と彫られた道標があります。" +
+            "手力雄神社の社殿はここから 600m ほど先にあります。" +
+            "中山道の街道筋は鳥居をくぐらず進路を変えます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_052955284.webp",
+              comment: "手力雄神社鳥居・道標",
+            },
+          ],
+        },
+        {
+          name: "切通の由来",
+          kana: "きりどおしのゆらい",
+          coordinate: [35.397495, 136.798524],
+          icon: "monument",
+          description:
+            "小さな休憩所があり、そこに「切通の由来」と書かれた説明板があります。" +
+            "一帯の滞溜水を川に落とすために作った流路が由来だそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_053136302.webp",
+              comment: "切通の由来",
+            },
+          ],
+        },
+        {
+          name: "細畑の一里塚",
+          kana: "ほそばたのいちりづか",
+          coordinate: [35.400654, 136.781922],
+          icon: "ichirizuka",
+          description:
+            "日本橋から105里 (約412.4km) の一里塚で、住宅地にありながら両塚現存しています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_061307171.webp",
+              comment: "南塚",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_061340453.webp",
+              comment: "南塚",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_061331620.webp",
+              comment: "北塚",
+            },
+          ],
+        },
+        {
+          name: "御鮨街道道標",
+          kana: "おすしかいどうみちしるべ",
+          coordinate: [35.402664, 136.768388],
+          icon: "monument",
+          description:
+            "茶所駅の西側に御鮨街道 (岐阜街道・尾張街道) が分岐する交差点があり、道標があります。" +
+            "加納宿文化保存会の資料によると、御鮨街道は鵜飼で捕れた鮎を鮨にして運んだ笠松までの街道とのことです。" +
+            "なお、ここから西に1ブロック進んだところで街道筋は直角に曲がりますが、そこには道筋を示した案内図があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_062758761.webp",
+              comment: "御鮨街道道標",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_062833581.webp",
+              comment: "加納宿案内図",
+            },
+          ],
+        },
         // 53. 加納宿
+        {
+          name: "加納宿東番所跡",
+          kana: "かのうじゅくひがしばんしょあと",
+          coordinate: [35.404405, 136.766126],
+          icon: "monument",
+          description: "行き交う人馬の取り締まり拠点で、加納宿の江戸方の入口です。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2023/05-27/PXL_20230527_063934333.MP.webp",
+              comment: "加納宿東番所跡",
+            },
+          ],
+        },
         // 54. 河渡宿
         // 55. 美江寺宿
         // 56. 赤坂宿
@@ -10343,6 +11538,7 @@
       L.polyline(shokiNakasendoRoute, { color: "lightcoral", weight: 5 }).addTo(shokiRouteOverlay);
       L.polyline(kazunomiyaRoute, { color: "lightcoral", weight: 5 }).addTo(kazunomiyaRouteOverlay);
       L.polyline(wadaOldRoute, { color: "lightcoral", weight: 5 }).addTo(wadaOldRouteOverlay);
+      L.polyline(dotaRoute, { color: "lightcoral", weight: 5 }).addTo(dotaOldRouteOverlay);
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2022-11-03.gpx", "blue"); // 鳥居峠ハイキング
