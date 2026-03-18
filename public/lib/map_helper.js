@@ -64,7 +64,7 @@ const initMap = (leaflet, map, overlays) => {
         (hasAltRoute
           ? `<span style="color: lightcoral"><i class="fa-solid fa-minus"></i> 代替ルート</span><br/>`
           : ``) +
-        `<span style="color: blue"><i class="fa-solid fa-minus"></i> GPS ログ</span><br/>`;
+        `<span style="color: blue"><i class="fa-solid fa-minus"></i> 足跡 (GPS ログ)</span><br/>`;
       return div;
     };
     legend.addTo(map);
@@ -315,7 +315,7 @@ const setMarkers = (leaflet, overlay, layer, markers) => {
       layer.addLayer(leaflet.marker(marker.coordinate, { icon: divIcon }).addTo(overlay));
       continue;
     }
-    const iconType = iconTypes.get(marker.icon ?? "default");
+    const iconType = iconTypes.get(marker.icon) ?? iconTypes.get("default");
     layer.addLayer(
       leaflet
         .marker(marker.coordinate, { icon: createIcon(leaflet, iconType.icon, iconType.color) })
@@ -339,7 +339,7 @@ const updateMarkerIcon = (leaflet, layer, source, isDot) => {
     if (!(markers[i] instanceof leaflet.Marker)) {
       continue;
     }
-    const iconType = iconTypes.get(source[i].icon ?? "default");
+    const iconType = iconTypes.get(source[i].icon) ?? iconTypes.get("default");
     if (isDot) {
       markers[i].setIcon(
         leaflet.divIcon({
