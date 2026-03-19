@@ -196,8 +196,8 @@ const createIcon = (leaflet, iconName, color) => {
     html: `<div class="map-icon" style="color: ${color}"><i class="fa-solid ${iconName}"></i></div>`,
     className: "custom-leaflet-icon",
     iconSize: [30, 30],
-    iconAnchor: [15, 30],
-    popupAnchor: [0, -30],
+    iconAnchor: [15, 15],
+    popupAnchor: [1, -18],
   });
 };
 
@@ -218,6 +218,7 @@ const iconTypes = new Map([
   ["food", { icon: "fa-utensils", color: "#20b2aa" }],
   ["shop", { icon: "fa-shop", color: "#8a2be2" }],
   ["sakagura", { icon: "fa-wine-bottle", color: "#DAA520" }],
+  ["sekisho", { icon: "fa-archway", color: "#a52a2a" }],
   ["default", { icon: "fa-map-pin", color: "royalblue" }],
 ]);
 
@@ -311,6 +312,7 @@ const setMarkers = (leaflet, overlay, layer, markers) => {
       const divIcon = leaflet.divIcon({
         html: '<div class="div-icon">' + marker.name + "</div>",
         iconSize: [0, 0],
+        iconAnchor: [0, -14],
       });
       layer.addLayer(leaflet.marker(marker.coordinate, { icon: divIcon }).addTo(overlay));
       continue;

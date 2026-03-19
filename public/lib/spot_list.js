@@ -127,12 +127,14 @@ const initSpotList = (spots, iconTypes) => {
   const passList = [],
     honjinList = [],
     ichirizukaList = [],
+    sekishoList = [],
     watashiList = [],
     bridgeList = [],
     kosatsubaList = [],
     shrineList = [],
     templeList = [],
     monumentList = [],
+    buildingList = [],
     otherList = [];
   spots.forEach((spot) => {
     switch (spot.icon) {
@@ -144,6 +146,9 @@ const initSpotList = (spots, iconTypes) => {
         break;
       case "ichirizuka":
         ichirizukaList.push(spot);
+        break;
+      case "sekisho":
+        sekishoList.push(spot);
         break;
       case "watashi":
         watashiList.push(spot);
@@ -162,6 +167,9 @@ const initSpotList = (spots, iconTypes) => {
         break;
       case "monument":
         monumentList.push(spot);
+        break;
+      case "building":
+        buildingList.push(spot);
         break;
       default:
         otherList.push(spot);
@@ -183,12 +191,14 @@ const initSpotList = (spots, iconTypes) => {
   buildIconSection("pass", "峠", passList);
   buildIconSection("honjin", "本陣", honjinList);
   buildIconSection("ichirizuka", "一里塚", ichirizukaList);
+  buildIconSection("sekisho", "関所", sekishoList);
   buildIconSection("watashi", "渡場", watashiList);
   buildIconSection("bridge", "橋", bridgeList);
   buildIconSection("kosatsuba", "高札場", kosatsubaList);
   buildIconSection("shrine", "神社", shrineList);
   buildIconSection("temple", "寺", templeList);
   buildIconSection("monument", "道標・記念碑・石仏・石塔・常夜燈等", monumentList);
+  buildIconSection("building", "建造物", buildingList);
   buildIconSection("default", "その他", otherList);
   const picCount = spots
     .map((spot) => (spot.pictures ? spot.pictures.length : 0))
