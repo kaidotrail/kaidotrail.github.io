@@ -34,6 +34,13 @@
     />
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.min.css"
+      integrity="sha512-AiWBM2PiPZkogKBj8Jss3MahJ+bRbSMebXUBwZMg+83vJTnZT/FXoxZrmpL+x9GbAYLWRuBZDqzhDt0Dk73qhw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.85.1/L.Control.Locate.css"
       integrity="sha512-GWoEoj+Zbl9JtrJd8dZkVO7nkAi1dXVuG9jOCv4rRL/LdL5ZdMuV8DZxRhKV12tPjIrmE1gNghWX5oBN8BrJUA=="
       crossorigin="anonymous"
@@ -57,6 +64,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.min.js"
+      integrity="sha512-8sfQf8cr0KjCeN32YPfjvLU2cMvyY1lhCXTMfpTZ16CvwIzeVQtwtKlxeSqFs/TpXjKhp1Dcv77LQmn1VFaOZg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/isbot@5/index.iife.min.js"></script>
     <!--suppress ES6ConvertVarToLetConst, EqualityComparisonWithCoercionJS -->
     <!-- prettier-ignore -->
@@ -67,7 +80,7 @@
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/map_style.css?v=8" />
     <link rel="stylesheet" href="lib/spot_list.css?v=2" />
-    <script src="lib/map_helper.js?v=8"></script>
+    <script src="lib/map_helper.js?v=9"></script>
     <script src="lib/spot_list.js?v=2"></script>
     <script src="routes/nakahara.js?v=4"></script>
   </head>
@@ -88,7 +101,7 @@
     <div id="map"></div>
     <div id="spot-list" class="non-map-screen"></div>
     <script>
-      const map = L.map("map", { zoomControl: false });
+      const map = createMap(L);
       const routeOverlay = L.layerGroup();
       routeOverlay.addTo(map);
       const altRouteOverlay = L.layerGroup();

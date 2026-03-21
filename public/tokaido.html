@@ -35,6 +35,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.min.css"
+      integrity="sha512-AiWBM2PiPZkogKBj8Jss3MahJ+bRbSMebXUBwZMg+83vJTnZT/FXoxZrmpL+x9GbAYLWRuBZDqzhDt0Dk73qhw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"
       integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="
@@ -53,11 +60,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.min.js"
+      integrity="sha512-8sfQf8cr0KjCeN32YPfjvLU2cMvyY1lhCXTMfpTZ16CvwIzeVQtwtKlxeSqFs/TpXjKhp1Dcv77LQmn1VFaOZg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <!--suppress ES6ConvertVarToLetConst, EqualityComparisonWithCoercionJS -->
     <!-- prettier-ignore -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/map_style.css?v=3" />
-    <script src="lib/map_helper.js?v=6"></script>
+    <script src="lib/map_helper.js?v=7"></script>
     <script src="routes/tokaido.js?v=3"></script>
     <script src="routes/section_kusatsu.js?v=1"></script>
   </head>
@@ -73,7 +86,7 @@
     </h1>
     <div id="map"></div>
     <script>
-      const map = L.map("map", { zoomControl: false });
+      const map = createMap(L);
       const routeOverlay = L.layerGroup();
       routeOverlay.addTo(map);
       const sayaRouteOverlay = L.layerGroup();

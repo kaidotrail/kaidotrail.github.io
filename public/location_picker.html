@@ -28,6 +28,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.min.css"
+      integrity="sha512-AiWBM2PiPZkogKBj8Jss3MahJ+bRbSMebXUBwZMg+83vJTnZT/FXoxZrmpL+x9GbAYLWRuBZDqzhDt0Dk73qhw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"
       integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="
@@ -43,6 +50,12 @@
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.85.1/L.Control.Locate.min.js"
       integrity="sha512-BxqrHRClEo8PNxiWPIppxGvOiOAPQ01392TXW55htg+Q3rpptqfaYGSGsfxuYQxVDyjYZOW6uXaomed1bCcSFw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.min.js"
+      integrity="sha512-8sfQf8cr0KjCeN32YPfjvLU2cMvyY1lhCXTMfpTZ16CvwIzeVQtwtKlxeSqFs/TpXjKhp1Dcv77LQmn1VFaOZg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
@@ -131,7 +144,7 @@
       });
       const inputLocation = document.getElementById("location");
       inputLocation.addEventListener("focus", () => inputLocation.select());
-      const map = L.map("map", { zoomControl: false });
+      const map = createMap(L);
       const layerControl = initMap(L, map);
       activateKonjakuMap(L, layerControl, "kanto", "00");
       activateKonjakuMap(L, layerControl, "matsumoto", "00");

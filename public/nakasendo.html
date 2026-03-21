@@ -39,6 +39,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.min.css"
+      integrity="sha512-AiWBM2PiPZkogKBj8Jss3MahJ+bRbSMebXUBwZMg+83vJTnZT/FXoxZrmpL+x9GbAYLWRuBZDqzhDt0Dk73qhw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"
       integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="
@@ -57,6 +64,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.min.js"
+      integrity="sha512-8sfQf8cr0KjCeN32YPfjvLU2cMvyY1lhCXTMfpTZ16CvwIzeVQtwtKlxeSqFs/TpXjKhp1Dcv77LQmn1VFaOZg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/isbot@5/index.iife.min.js"></script>
     <!--suppress ES6ConvertVarToLetConst, EqualityComparisonWithCoercionJS -->
     <!-- prettier-ignore -->
@@ -67,7 +80,7 @@
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/map_style.css?v=6" />
     <link rel="stylesheet" href="lib/spot_list.css?v=2" />
-    <script src="lib/map_helper.js?v=9"></script>
+    <script src="lib/map_helper.js?v=10"></script>
     <script src="lib/spot_list.js?v=2"></script>
     <script src="routes/nakasendo.js?v=4"></script>
     <script src="routes/spot_nihonbashi.js?v=1"></script>
@@ -92,7 +105,7 @@
     <div id="spot-list" class="non-map-screen"></div>
     <div id="own-gpx" class="non-map-screen"></div>
     <script>
-      const map = L.map("map", { zoomControl: false });
+      const map = createMap(L);
       const routeOverlay = L.layerGroup();
       routeOverlay.addTo(map);
       const shokiRouteOverlay = L.layerGroup();

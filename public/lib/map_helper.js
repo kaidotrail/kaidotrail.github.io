@@ -2,6 +2,53 @@
 let current = 0;
 
 /**
+ * 地図インスタンスを作成します。
+ *
+ * @param leaflet Leaflet 本体
+ * @return {*} 地図インスタンス
+ */
+const createMap = (leaflet) => {
+  const map = leaflet.map("map", {
+    zoomControl: false,
+    contextmenu: true,
+    contextmenuItems: [
+      {
+        text: '<i class="fa-solid fa-magnifying-glass-plus"></i> ズームイン',
+        callback: () => map.zoomIn(),
+      },
+      {
+        text: '<i class="fa-solid fa-magnifying-glass-minus"></i> ズームアウト',
+        callback: () => map.zoomOut(),
+      },
+      {
+        text: '<i class="fa-solid fa-copy"></i> 座標をコピー',
+        callback: (e) => {
+          const lat = Math.round(e.latlng.lat * 10000000) / 10000000;
+          const lng = Math.round(e.latlng.lng * 10000000) / 10000000;
+          navigator.clipboard.writeText(lat + "," + lng);
+          alert(`コピーしました: ${lat},${lng}`);
+        },
+      },
+      {
+        text: '<i class="fa-solid fa-map"></i> Google マップで開く',
+        callback: (e) => {
+          const lat = Math.round(e.latlng.lat * 10000000) / 10000000;
+          const lng = Math.round(e.latlng.lng * 10000000) / 10000000;
+          const zoom = map.getZoom();
+          window.open(
+            `https://www.google.com/maps/@?api=1&map_action=map&map_action=map` +
+              `&center=${lat},${lng}&zoom=${zoom}&basemap=roadmap`,
+            "_blank",
+          );
+        },
+      },
+    ],
+  });
+
+  return map;
+};
+
+/**
  * タイルやコントロールなどを初期化します。
  *
  * @param leaflet Leaflet 本体
