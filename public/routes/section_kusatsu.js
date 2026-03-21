@@ -434,7 +434,7 @@ const kusatsuToSanjyoSpots = [
     name: "三条大橋",
     kana: "さんじょうおおはし",
     coordinate: [35.009044, 135.771801],
-    icon: "monument",
+    icon: "bridge",
     description:
       "鴨川に架かる橋で、東海道53次・中山道69次の西の起点です。" +
       "西詰の北側に高札場跡があり、説明板があります。" +
