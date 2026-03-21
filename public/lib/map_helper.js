@@ -31,9 +31,9 @@ const initMap = (leaflet, map, overlays) => {
       "<a href='https://developers.google.com/maps/documentation' target='_blank'>Google Maps</a>",
   });
   tileLayers[4] = leaflet.tileLayer(
-    "http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
     {
-      attribution: 'Tiles &copy; <a href="http://www.esrij.com/" target="_blank">Esri Japan</a>',
+      attribution: 'Tiles &copy; <a href="https://www.esrij.com/" target="_blank">Esri Japan</a>',
     },
   );
   tileLayers[3].addTo(map); // Google マップをデフォルトにする
