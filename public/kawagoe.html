@@ -66,6 +66,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/isbot@5/index.iife.min.js"></script>
     <!--suppress ES6ConvertVarToLetConst, EqualityComparisonWithCoercionJS -->
     <!-- prettier-ignore -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -74,7 +75,10 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/map_style.css?v=4" />
+    <link rel="stylesheet" href="lib/spot_list.css?v=1" />
     <script src="lib/map_helper.js?v=6"></script>
+    <script src="lib/spot_list.js?v=2"></script>
+    <script src="routes/spot_nihonbashi.js?v=1"></script>
     <script src="routes/kawagoe.js?v=1"></script>
     <script src="routes/section_hirao.js?v=1"></script>
   </head>
@@ -87,8 +91,15 @@
       <a href="./"><span class="logo-font">旧街道足跡マップ</span> α版</a>
       <span class="sep">&gt;</span>
       川越街道
+      <button id="spot-list-open">
+        <i class="fa-solid fa-list"></i>
+      </button>
     </h1>
+    <div id="zoom-in-message">
+      <span>ズームインすると見どころが表示されます<br />(江戸方から追加中)</span>
+    </div>
     <div id="map"></div>
+    <div id="spot-list" class="non-map-screen"></div>
     <script>
       const map = createMap(L);
       const routeOverlay = L.layerGroup();
@@ -112,15 +123,148 @@
       // Stations
       const stations = [
         { name: "日本橋", coordinate: [35.684112, 139.774533] },
-        { name: "平尾追分", coordinate: [35.749627, 139.714079] },
-        { name: "川越城", coordinate: [35.924836, 139.485455] },
+        { name: "1. 平尾追分", coordinate: [35.749627, 139.714079] },
+        { name: "2. 上板橋宿", coordinate: [35.752904, 139.694163] },
+        { name: "8. 川越城", coordinate: [35.924836, 139.485455] },
       ];
       const stationLayer = L.featureGroup();
       setMarkers(L, stationOverlay, stationLayer, stations);
       initQueryParamUpdater(map, () => map.fitBounds(stationLayer.getBounds()));
 
       // Spots
-      const spots = [];
+      const spots = [
+        nihonbashiSpot,
+        ...nihonbashiToHiraoSpots,
+        // 1. 板橋宿
+        {
+          name: "遊座大山・ハッピーロード大山",
+          kana: "ゆうざおおやま・はっぴーろーどおおやま",
+          coordinate: [35.74885, 139.702184],
+          icon: "guide",
+          description:
+            "大山駅を中心に東西に商店街が広がっています。ハッピーロード大山のウェブサイトによると、この「大山」の" +
+            "地名の由来は2つの説があり、1つ目は現在の養育院あたりに丘岡があってこれを大山と呼んでいたこと、そして" +
+            "2つ目は大山詣の街道がここを通っていたからとのことです。川越街道の道中には大山道を示す道標もあるため、" +
+            "街道ウォーカーとしては2つ目の説を推したいところです。",
+          url: "https://haro.or.jp/about/history.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_132406.webp",
+              comment: "遊座大山",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_133051.webp",
+              comment: "ハッピーロード大山",
+            },
+          ],
+        },
+        {
+          name: "旧道分岐",
+          coordinate: [35.750152, 139.6954858],
+          icon: "guide",
+          description: "<span class='routing'>川越方</span> 右手に分岐する脇道に入ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_134127.webp",
+              comment: "旧道分岐",
+            },
+          ],
+        },
+        // 2. 上板橋宿
+        {
+          name: "豊敬稲荷神社",
+          coordinate: [35.752904, 139.694163],
+          icon: "shrine",
+          description:
+            "境内の碑によると、民家の端にあった稲荷社を昭和28年 (1953) に現在位置に遷座し整備したそうです。" +
+            "境内に上板橋宿の案内図があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_134650.webp",
+              comment: "豊敬稲荷神社",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_134617.webp",
+              comment: "旧上板橋宿概要図",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_134842.webp",
+              comment: "神社前の街道の様子",
+            },
+          ],
+        },
+        {
+          name: "下頭橋",
+          kana: "げとばし",
+          coordinate: [35.755486, 139.691225],
+          icon: "bridge",
+          description:
+            "端の東詰に地蔵が鎮座しているほか、下頭橋について記した説明板があります。それによると" +
+            "橋の名の由来は3つあり、1つ目は旅僧が地面に刺した榎の木が芽吹いて大木になったとされる" +
+            "「逆榎 (さかさえのき)」が由来という説、2つ目は川越藩主の出府の際に江戸屋敷の家臣がここまできて頭を下げて" +
+            "出迎えたことが由来という説、3つ目は橋のたもとで旅人から喜捨を受けていた六蔵の金を元に石橋が架け替えられた" +
+            "ことが由来という説です。<br/>" +
+            "<span class='routing'>川越方</span> 左45度に伸びる道に入ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_135425.webp",
+              comment: "下頭橋六蔵尊",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_135419.webp",
+              comment: "下頭橋 説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_135520.webp",
+              comment: "石神井川下流方向",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_135524.webp",
+              comment: "下頭橋の西側",
+            },
+          ],
+        },
+        {
+          name: "旧道分岐",
+          coordinate: [35.760333, 139.677851],
+          icon: "guide",
+          description: "<span class='routing'>川越方</span> 右手に分岐する脇道に入ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_141452.webp",
+              comment: "旧道分岐",
+            },
+          ],
+        },
+        // 3. 下練馬宿
+        {
+          name: "下練馬の大山道道標",
+          kana: "しもねりまのおおやまみちどうひょう",
+          coordinate: [35.765745, 139.667025],
+          icon: "monument",
+          description:
+            "環八と立体交差するところに「従是大山道」と彫られた道標と「左 東高野山道」と彫られた石碑があります。" +
+            "説明板によると、大山道道標は宝暦3年 (1753) に建てられたもので、上部の不動明王像は後付けされたもの、" +
+            "また東高野山道標は長命寺への道標だそうです。これらは環八の工事によって元の位置から 8m 西側に移動された" +
+            "ことも記されています。",
+          url: "https://www.city.nerima.tokyo.jp/kankomoyoshi/annai/rekishiwoshiru/rekishibunkazai/bunkazai/b012.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_143522.webp",
+              comment: "大山道道標",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_143535.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        // 4. 白子宿
+        // 5. 膝折宿
+        // 6. 大和田宿
+        // 7. 大井宿
+        // 8. 川越宿
+      ];
       const spotLayer = L.featureGroup();
       setMarkers(L, spotOverlay, spotLayer, spots);
       initIconUpdater(L, map, spotLayer, spots);
@@ -133,6 +277,12 @@
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2025-05-05.gpx", "blue"); // #1 日本橋→新座
       setGpx(L, gpxOverlay, "gpx/kagaorange_2025-06-21.gpx", "blue"); // #2 新座→川越
+
+      // Spot list
+      initSpotList(spots, iconTypes);
+      if (isbot(navigator.userAgent)) {
+        toggleSpotList();
+      }
     </script>
   </body>
 </html>
