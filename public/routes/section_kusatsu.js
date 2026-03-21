@@ -7,7 +7,8 @@ const kusatsuToSanjyoSpots = [
     icon: "monument",
     description:
       "「左 中仙道美のぢ」「右東海道いせみち」と彫られた道標があり、その上部に常夜燈の火袋があります。" +
-      "文化13年 (1816) に建てられ、火袋の部分は何度も取り替えられたものの、道標部分は当時のものが残っているそうです。",
+      "文化13年 (1816) に建てられ、火袋の部分は何度も取り替えられたものの、道標部分は当時のものが残っているそうです。" +
+      "近くには草津町道路元標もあります。",
     url: "https://kanko-kusatsu.com/spot/oiwakemitishirube",
     pictures: [
       {
@@ -17,6 +18,10 @@ const kusatsuToSanjyoSpots = [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2023/07-16/PXL_20230716_032805097.webp",
         comment: "説明板",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_024827690.webp",
+        comment: "草津町道路元標",
       },
     ],
   },
@@ -116,6 +121,27 @@ const kusatsuToSanjyoSpots = [
     ],
   },
   {
+    name: "草津宿黒門跡",
+    kana: "くさつじゅくくろもんあと",
+    coordinate: [35.011798, 135.956655],
+    icon: "monument",
+    description:
+      "現在の草津川に架かる矢倉橋に黒門跡の説明板があります。" +
+      "草津宿の京方の入口で、文化14年 (1817) に黒門が設置されていたそうです。" +
+      "元々は宮川橋にあったが、石垣が崩れたことから八倉村境のここに移したとも記されています。" +
+      "黒門跡の説明板の隣には名物立場の絵があります。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_030641825.webp",
+        comment: "草津宿黒門跡",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_030638939.webp",
+        comment: "名物立場",
+      },
+    ],
+  },
+  {
     name: "野路一里塚跡",
     kana: "のじいちりづかあと",
     coordinate: [35.003226, 135.951981],
@@ -136,6 +162,26 @@ const kusatsuToSanjyoSpots = [
         url: "https://kaidotrail.github.io/img/kagaorange/2023/07-16/PXL_20230716_052831221.webp",
         comment: "野路上北池公園",
       },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_040745271.webp",
+        comment: "説明板",
+      },
+    ],
+  },
+  {
+    name: "清宗塚",
+    kana: "きよむねづか",
+    coordinate: [35.001729, 135.952114],
+    icon: "monument",
+    description:
+      "壇ノ浦で父宗盛と共に生虜となり斬首された清宗の胴塚があるそうです。" +
+      "中山道沿いの野洲市篠原にも親子の胴塚があり (平家終焉の地)、それと矛盾しているようにも思いますが、" +
+      "本当のところは分かりません。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_041154013.webp",
+        comment: "説明板",
+      },
     ],
   },
   {
@@ -151,6 +197,10 @@ const kusatsuToSanjyoSpots = [
     pictures: [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2023/07-16/PXL_20230716_054143803.webp",
+        comment: "野路萩の玉川",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_043709994.webp",
         comment: "野路萩の玉川",
       },
       {
@@ -199,6 +249,20 @@ const kusatsuToSanjyoSpots = [
     ],
   },
   {
+    name: "立場跡",
+    kana: "たてばあと",
+    coordinate: [34.986649, 135.934539],
+    icon: "monument",
+    description:
+      "月輪池の縁に立場跡の石碑があります。かつてこの地に立場茶屋があったことを示しているようです。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_050603972.MP.webp",
+        comment: "東海道立場跡",
+      },
+    ],
+  },
+  {
     name: "大萱一里塚跡",
     kana: "おおがやいちりづかあと",
     coordinate: [34.983505, 135.928242],
@@ -211,6 +275,38 @@ const kusatsuToSanjyoSpots = [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2023/07-16/PXL_20230716_063736835.webp",
         comment: "大萱一里塚跡",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_052331532.webp",
+        comment: "説明板",
+      },
+    ],
+  },
+  {
+    name: "大江の千里 (ちりんさん)",
+    kana: "おおえのちさと",
+    coordinate: [34.980998904370146, 135.92479425449676],
+    icon: "monument",
+    description: "平安時代前期の歌人の奥方がこの地に住んでいたとのことです。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_052331532.webp",
+        comment: "説明板",
+      },
+    ],
+  },
+  {
+    name: "大場の桜",
+    coordinate: [34.976674, 135.917854],
+    icon: "camera",
+    description:
+      "大きな桜の木があり、江戸時代からある古木とのことです。" +
+      "説明板には東海道と芦浦街道との分岐点の近くであることも記されています。" +
+      "芦浦街道は芦浦観音寺への参詣道で、ここから少し西にある交差点から北に分岐しています。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_054500977.webp",
+        comment: "説明板",
       },
     ],
   },
@@ -225,12 +321,28 @@ const kusatsuToSanjyoSpots = [
       "擬宝珠 (ぎぼし) や緩やかなアーチなどの特徴が引き継がれています。",
     pictures: [
       {
-        url: "https://kaidotrail.github.io/img/kagaorange/2023/07-16/PXL_20230716_073016694.MP.webp",
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_061101036.MP.webp",
         comment: "瀬田唐橋",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_061828677.webp",
+        comment: "西側",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_061252247.webp",
+        comment: "擬宝珠",
       },
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2023/07-16/PXL_20230716_073332989.webp",
         comment: "琵琶湖方面",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_061535098.webp",
+        comment: "石碑",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_061548858.MP.webp",
+        comment: "説明板",
       },
     ],
   },
@@ -284,9 +396,8 @@ const kusatsuToSanjyoSpots = [
     icon: "sekisho",
     description:
       "逢坂の頂上に逢坂山関址と彫られた石碑と常夜燈があります。" +
-      "観光協会のウェブサイトによると、平安時代には不破、鈴鹿と並ぶ三関のひとつであったそうですが、" +
+      "説明板によると、平安時代には不破、鈴鹿と並ぶ三関のひとつであったそうですが、" +
       "正確な位置はわかっていないようです。",
-    url: "https://otsu.or.jp/thingstodo/spot85",
     pictures: [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2023/07-17/PXL_20230716_215120663.webp",
@@ -418,7 +529,9 @@ const kusatsuToSanjyoSpots = [
     kana: "くるまいしひろば",
     coordinate: [34.999771, 135.793241],
     icon: "monument",
-    description: "",
+    description:
+      "平成9年 (1997) の地下鉄東西線の開業に伴い使わなくなった京津線の軌道跡を活用して道路整備を行ったそうです。" +
+      "この広場はその記念に作られたもので、牛車の荷車のオブジェや車石などが展示されています。",
     pictures: [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2023/07-17/PXL_20230716_234833056.MP.webp",
