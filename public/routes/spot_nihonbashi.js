@@ -9,12 +9,24 @@ const nihonbashiSpot = {
     "北詰に先代の道路元標 (都電の架線柱) や原稿の道路元標のレプリカが展示されています。",
   pictures: [
     {
-      url: "https://kaidotrail.github.io/img/kagaorange/2022/12-04/IMG_20221204_051810.webp",
+      url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_082234.webp",
       comment: "南西から見た日本橋",
     },
     {
-      url: "https://kaidotrail.github.io/img/kagaorange/2022/12-04/IMG_20221204_052134.webp",
+      url: "https://kaidotrail.github.io/img/kagaorange/2022/12-04/IMG_20221204_051810.webp",
+      comment: "南西から見た日本橋 夜景",
+    },
+    {
+      url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_075952.webp",
+      comment: "モニュメント",
+    },
+    {
+      url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_082420.webp",
       comment: "現行の日本国道路元標のレプリカ",
+    },
+    {
+      url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_082433.webp",
+      comment: "先代の東京市道路元標",
     },
     {
       url: "https://kaidotrail.github.io/img/kagaorange/2022/12-04/IMG_20221204_052010.webp",

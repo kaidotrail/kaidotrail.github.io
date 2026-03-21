@@ -1,6 +1,73 @@
 /** 中山道と川越街道の共通分のスポット一覧 */
 const nihonbashiToHiraoSpots = [
   {
+    name: "今川橋",
+    coordinate: [35.690036, 139.772243],
+    icon: "bridge",
+    description:
+      "今川焼発祥の地で、元祖ではありませんが今川焼を売るお店があります。" +
+      "名前の由来になった橋はもうありませんが、交差点の名前として残っています。" +
+      "なお、近くにある由来碑によると、名主である今川氏の尽力により架けられた橋なので今川橋となったそうです。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_084052.webp",
+        comment: "今川橋交差点",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_084002.webp",
+        comment: "今川焼本舗",
+      },
+    ],
+  },
+  {
+    name: "神田明神",
+    kana: "かんだみょうじん",
+    coordinate: [35.701894, 139.76782],
+    icon: "shrine",
+    description:
+      "江戸総鎮守として崇敬を集めてきた神社で、日本橋や秋葉原など周辺各地を多数の山車が巡行する神田祭でも有名です。",
+    url: "https://www.kandamyoujin.or.jp",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_090516.webp",
+        comment: "社殿",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_090414.webp",
+        comment: "随神門",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_090121.webp",
+        comment: "鳥居",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_091027.webp",
+        comment: "御神馬 明 (あかり)",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_091138.webp",
+        comment: "神田明神資料館",
+      },
+    ],
+  },
+  {
+    name: "赤門",
+    kana: "あかもん",
+    coordinate: [35.710621, 139.760301],
+    icon: "monument",
+    description:
+      "国指定重要文化財。文政10年 (1827) に加賀藩前田家の姫専用門として建てられたもので、" +
+      "その後東大の門になりました。" +
+      "2021年の耐震診断で問題が見つかり門は閉鎖、2027年までに補修予定とのことです。",
+    url: "https://treasure.adm.u-tokyo.ac.jp/akamon",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_102907.webp",
+        comment: "赤門",
+      },
+    ],
+  },
+  {
     name: "追分一里塚跡",
     kana: "おいわけいちりづかあと",
     coordinate: [35.7160864, 139.7584158],
@@ -10,7 +77,7 @@ const nihonbashiToHiraoSpots = [
       "ここは中山道と日光御成道 (旧岩槻街道) の追分 (分かれ道) にあたるため、追分一里塚と呼ばれててきたそうです。",
     pictures: [
       {
-        url: "https://kaidotrail.github.io/img/kagaorange/2022/12-04/IMG_20221204_061237.webp",
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_105013.webp",
         comment: "説明板",
       },
     ],
@@ -29,6 +96,33 @@ const nihonbashiToHiraoSpots = [
       },
     ],
   },
+  {
+    name: "とげぬき地蔵尊 (高岩寺)",
+    kana: "とげぬきじぞうそん (こうがんじ)",
+    coordinate: [35.735724, 139.73542],
+    icon: "temple",
+    description:
+      "曹洞宗のお寺で、商店街 (巣鴨地蔵通り) の名前にもなっています。" +
+      "地蔵菩薩のお告げを受けた武士が地蔵の姿を封じた紙 (御影) を川に流したところ病に苦しむ妻が回復したとの言い伝えがあり、" +
+      "さらにその後、針を誤飲してしまった女が御影を飲み込んだところ針を吐き出すことができたとの言い伝えが重なって" +
+      "「とげぬき地蔵尊」と言われるようになったそうです。",
+    url: "https://togenuki.jp",
+  },
+  {
+    name: "板橋平尾宿",
+    kana: "いたばしひらおしゅく",
+    coordinate: [35.747971, 139.717739],
+    icon: "monument",
+    description:
+      "板橋宿は上宿・仲宿・平尾宿 (下宿) の3つの宿場で構成されており、このあたりが平尾宿のようです。" +
+      "説明板があり、駕籠や馬借、荷駄、飛脚 (問屋場) があったと記されています。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_130547.webp",
+        comment: "ここは板橋平尾宿",
+      },
+    ],
+  },
   // 1. 板橋宿
   {
     name: "平尾追分",
@@ -36,7 +130,8 @@ const nihonbashiToHiraoSpots = [
     icon: "guide",
     description:
       "中山道と川越街道の追分 (分かれ道) です。" +
-      "中山道はここから北西方向に伸びており、ここから板橋宿の中宿エリアになります。",
+      "中山道はここから北西方向に伸びており、ここから板橋宿の仲宿エリアになります。" +
+      "川越街道はここから西方、四ツ又を経由し大山駅へと進みます。",
     pictures: [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2022/12-04/IMG_20221204_080216.webp",
