@@ -125,6 +125,7 @@
         { name: "日本橋", coordinate: [35.684112, 139.774533] },
         { name: "1. 平尾追分", coordinate: [35.749627, 139.714079] },
         { name: "2. 上板橋宿", coordinate: [35.752904, 139.694163] },
+        { name: "3. 下練馬宿", coordinate: [35.767327, 139.663621] },
         { name: "8. 川越城", coordinate: [35.924836, 139.485455] },
       ];
       const stationLayer = L.featureGroup();
@@ -136,6 +137,25 @@
         nihonbashiSpot,
         ...nihonbashiToHiraoSpots,
         // 1. 板橋宿
+        {
+          name: "四ツ又名称の由来",
+          coordinate: [35.749493, 139.709284],
+          icon: "monument",
+          description:
+            "四ツ又交差点の近辺に複数ある案内板の右下に「四ツ又名称の由来」が記されており、" +
+            '「旧中山道から分岐した旧川越街道と当時の通称 "高田道" が交叉する十字路を四ツ又と称しました」' +
+            "とあります。馬印や毛槍を担いでいる大名行列の挿絵も添えられています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_132034.webp",
+              comment: "案内板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_132034_edit.webp",
+              comment: "四ツ又名称の由来",
+            },
+          ],
+        },
         {
           name: "遊座大山・ハッピーロード大山",
           kana: "ゆうざおおやま・はっぴーろーどおおやま",
@@ -225,6 +245,26 @@
           ],
         },
         {
+          name: "環七・R254",
+          coordinate: [35.755145, 139.6880862],
+          icon: "guide",
+          description:
+            "環七と R254 の立体交差があります。" +
+            "R254 は本郷追分の少し南にある R17 との交差点 (本郷三丁目) が起点で、キロポストには日本橋からの距離も" +
+            "併記されています。" +
+            "R254 は川越街道、下仁田街道、そして立科・長和で旧中山道とも重なったのち、松本に至る道路です。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_135950.webp",
+              comment: "板橋中央陸橋",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_140323.webp",
+              comment: "R254 9km キロポスト",
+            },
+          ],
+        },
+        {
           name: "旧道分岐",
           coordinate: [35.760333, 139.677851],
           icon: "guide",
@@ -238,6 +278,27 @@
         },
         // 3. 下練馬宿
         {
+          name: "野瀬商店",
+          kana: "のせしょうてん",
+          coordinate: [35.764705, 139.669542],
+          icon: "building",
+          description:
+            "大正2年創業のお米屋さんがあり、その軒先に北町旧跡研究会による下練馬宿の説明板があります。" +
+            "説明板によると、下練馬宿には鍛冶屋や紺屋のほか、鷹狩りの餌となる「けら」を扱う「けらや」もあったそうです。" +
+            "けらはコウロギの仲間で、挿絵も添えられています。",
+          url: "https://kiitan.com",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_142937.webp",
+              comment: "説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_143351.webp",
+              comment: "北一商店街",
+            },
+          ],
+        },
+        {
           name: "下練馬の大山道道標",
           kana: "しもねりまのおおやまみちどうひょう",
           coordinate: [35.765745, 139.667025],
@@ -246,7 +307,8 @@
             "環八と立体交差するところに「従是大山道」と彫られた道標と「左 東高野山道」と彫られた石碑があります。" +
             "説明板によると、大山道道標は宝暦3年 (1753) に建てられたもので、上部の不動明王像は後付けされたもの、" +
             "また東高野山道標は長命寺への道標だそうです。これらは環八の工事によって元の位置から 8m 西側に移動された" +
-            "ことも記されています。",
+            "ことも記されています。" +
+            "また別の案内板によると、このあたりに内田家本陣や脇本陣もあったようです。",
           url: "https://www.city.nerima.tokyo.jp/kankomoyoshi/annai/rekishiwoshiru/rekishibunkazai/bunkazai/b012.html",
           pictures: [
             {
@@ -256,6 +318,103 @@
             {
               url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_143535.webp",
               comment: "説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_144037.webp",
+              comment: "下練馬宿 案内板",
+            },
+          ],
+        },
+        {
+          name: "北町浅間神社",
+          kana: "きたまちせんげんじんじゃ",
+          coordinate: [35.767327, 139.663621],
+          icon: "shrine",
+          description:
+            "参道の入口に旧川越街道と彫られた石碑と、旧川越街道や下練馬宿について記した説明板があります。" +
+            "参道を進むと正面に社殿、そして左手に富士山の 1/100 スケールの富士塚があり、頂上は標高 37.76m だそうです。",
+          url: "https://www.city.nerima.tokyo.jp/kankomoyoshi/annai/rekishiwoshiru/rekishibunkazai/bunkazai/b019.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_144303.webp",
+              comment: "旧川越街道碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_144310.webp",
+              comment: "旧川越街道 説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_144518.webp",
+              comment: "富士塚 頂上",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_144541.webp",
+              comment: "富士塚 標高",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_144602.webp",
+              comment: "富士塚頂上からの眺め",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_144737.webp",
+              comment: "浅間神社 説明板",
+            },
+          ],
+        },
+        {
+          name: "北町聖観音堂",
+          kana: "きたまちしょうかんのんどう",
+          coordinate: [35.767976, 139.66205],
+          icon: "monument",
+          description:
+            "天和2年 (1682) の蓮華座に座す聖観音坐像が鎮座するお堂があるほか、仁王像や馬頭観音などもあります。",
+          url: "https://www.city.nerima.tokyo.jp/kankomoyoshi/annai/rekishiwoshiru/rekishibunkazai/bunkazai/b021.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_145050.webp",
+              comment: "北町聖観音堂",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_145125.webp",
+              comment: "石仏・石塔群",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_145144.webp",
+              comment: "旧川越街道 説明板",
+            },
+          ],
+        },
+        {
+          name: "鎌倉古道",
+          kana: "かまくらこどう",
+          coordinate: [35.77091, 139.642643],
+          icon: "monument",
+          description:
+            "地下鉄赤塚駅の1番出口に鎌倉古道と書かれた道標と騎馬像があります。" +
+            "左手に「至かまくら」右手に「至はやせ」とも記されており、古地図と照らし合わせてもここが古くからある道の" +
+            "交差点であることが確認できます。「はやせ」はここから北にある荒川の左岸に広がる地名「早瀬」を指している" +
+            "のではないかと思われます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_153253.webp",
+              comment: "鎌倉古道",
+            },
+          ],
+        },
+        {
+          name: "供養塔",
+          kana: "くようとう",
+          coordinate: [35.771347, 139.641075],
+          icon: "monument",
+          description: "細い道が分岐するところに判読の難しい供養塔があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_153629.webp",
+              comment: "供養塔 正面",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_153701.webp",
+              comment: "供養塔 側面",
             },
           ],
         },
