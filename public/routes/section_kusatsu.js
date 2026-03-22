@@ -270,7 +270,8 @@ const kusatsuToSanjyoSpots = [
     description:
       "日本橋から東海道経由で120里 (約471.3km) の一里塚跡で、大きな石碑と説明板があります。" +
       "説明板によると、塚は明治末期に消失してしまったそうです。" +
-      "月輪池 (つきのわいけ) 一里塚跡とも呼ばれています。",
+      "月輪池 (つきのわいけ) 一里塚跡とも呼ばれています。" +
+      "交差点の対面には旧朝倉道などを記した巨大な道標があります。",
     pictures: [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2023/07-16/PXL_20230716_063736835.webp",
@@ -279,6 +280,10 @@ const kusatsuToSanjyoSpots = [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_052331532.webp",
         comment: "説明板",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_052416319.webp",
+        comment: "道標",
       },
     ],
   },
@@ -290,7 +295,7 @@ const kusatsuToSanjyoSpots = [
     description: "平安時代前期の歌人の奥方がこの地に住んでいたとのことです。",
     pictures: [
       {
-        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_052331532.webp",
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-04/PXL_20240504_053040827.webp",
         comment: "説明板",
       },
     ],
