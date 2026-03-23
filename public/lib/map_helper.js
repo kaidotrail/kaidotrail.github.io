@@ -161,6 +161,9 @@ const initQueryParamUpdater = (map, defaultFunc) => {
  * @param {number} zoomThreshold アイコンを切り替えるズームレベル
  */
 const initIconUpdater = (leaflet, map, layer, layerIcons, zoomThreshold = 12) => {
+  if (new URLSearchParams(location.search).get("select") && zoomThreshold === 12) {
+    zoomThreshold = 10;
+  }
   const toggle = () => {
     updateMarkerIcon(leaflet, layer, layerIcons, map.getZoom() < zoomThreshold);
     const zoomInMessage = document.getElementById("zoom-in-message");
