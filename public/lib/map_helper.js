@@ -20,6 +20,7 @@ const createMap = (leaflet) => {
         text: '<i class="fa-solid fa-magnifying-glass-minus"></i> ズームアウト',
         callback: () => map.zoomOut(),
       },
+      { separator: true },
       {
         text: '<i class="fa-solid fa-copy"></i> 座標をコピー',
         callback: (e) => {
