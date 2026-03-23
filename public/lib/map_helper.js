@@ -3,9 +3,8 @@ let current = 0;
 
 /**
  * 地図インスタンスを作成します。
- *
- * @param leaflet Leaflet 本体
- * @return {*} 地図インスタンス
+ * @param {*} leaflet Leaflet 本体
+ * @returns {*} 地図インスタンス
  */
 const createMap = (leaflet) => {
   const map = leaflet.map("map", {
@@ -51,11 +50,10 @@ const createMap = (leaflet) => {
 
 /**
  * タイルやコントロールなどを初期化します。
- *
- * @param leaflet Leaflet 本体
- * @param map 地図インスタンス
- * @param overlays オーバーレイ構成
- * @return {*} レイヤーコントロール
+ * @param {*} leaflet Leaflet 本体
+ * @param {*} map 地図インスタンス
+ * @param {*} overlays オーバーレイ構成
+ * @returns {*} レイヤーコントロール
  */
 const initMap = (leaflet, map, overlays) => {
   const tileLayers = [];
@@ -123,9 +121,8 @@ const initMap = (leaflet, map, overlays) => {
 
 /**
  * ドラッグやズームをした際にその後の位置座標をクエリーパラメーター lat, lng, z にそれぞれ格納します。
- *
- * @param map 地図インスタンス
- * @param defaultFunc パラメーターがなかった場合の初期座標を設定する処理
+ * @param {*} map 地図インスタンス
+ * @param {*|void} defaultFunc パラメーターがなかった場合の初期座標を設定する処理
  */
 const initQueryParamUpdater = (map, defaultFunc) => {
   const q = new URLSearchParams(location.search);
@@ -149,12 +146,11 @@ const initQueryParamUpdater = (map, defaultFunc) => {
 
 /**
  * ズームレベルに応じてアイコンを切り替える機能を設定します。
- *
- * @param leaflet Leaflet 本体
- * @param map 地図インスタンス
- * @param layer 浅いズームレベルでは点のようにしておき、深いズームレベルでアイコンを表示するレイヤー
- * @param layerIcons 深いズームレベルで表示するアイコンの情報が格納された配列
- * @param zoomThreshold アイコンを切り替えるズームレベル
+ * @param {*} leaflet Leaflet 本体
+ * @param {*} map 地図インスタンス
+ * @param {*} layer 浅いズームレベルでは点のようにしておき、深いズームレベルでアイコンを表示するレイヤー
+ * @param {Array} layerIcons 深いズームレベルで表示するアイコンの情報が格納された配列
+ * @param {number} zoomThreshold アイコンを切り替えるズームレベル
  */
 const initIconUpdater = (leaflet, map, layer, layerIcons, zoomThreshold = 12) => {
   const toggle = () => {
@@ -170,8 +166,7 @@ const initIconUpdater = (leaflet, map, layer, layerIcons, zoomThreshold = 12) =>
 
 /**
  * ポップアップ内の画像スライダー機能を初期化します。
- *
- * @param layer 対象レイヤー
+ * @param {*} layer 対象レイヤー
  */
 const initPopupSlider = (layer) => {
   const arrowRightClickHandler = () => {
@@ -233,11 +228,10 @@ const initPopupSlider = (layer) => {
 
 /**
  * 指定したアイコンクラス名と色で地図用アイコンを生成します。
- *
- * @param leaflet Leaflet 本体
- * @param iconName アイコン名
- * @param color 色
- * @return {*}
+ * @param {*} leaflet Leaflet 本体
+ * @param {string} iconName アイコン名
+ * @param {string} color 色
+ * @returns {string} div 要素文字列
  */
 const createIcon = (leaflet, iconName, color) => {
   return leaflet.divIcon({
@@ -272,9 +266,8 @@ const iconTypes = new Map([
 
 /**
  * マーカー情報をもとにポップアップの内容を構築します。
- *
- * @param markerData マーカー情報
- * @return {string} HTML 文字列
+ * @param {*} markerData マーカー情報
+ * @returns {string} div 要素文字列
  */
 const buildPopupContent = (markerData) => {
   let content = `<div class="popup-content">`;
@@ -350,11 +343,10 @@ const buildPopupContent = (markerData) => {
 
 /**
  * マーカー一覧をマップに配置します。
- *
- * @param leaflet Leaflet 本体
- * @param overlay 配置対象の地図またはオーバーレイ
- * @param layer レイヤー
- * @param markers マーカー一覧
+ * @param {*} leaflet Leaflet 本体
+ * @param {*} overlay 配置対象の地図またはオーバーレイ
+ * @param {*} layer レイヤー
+ * @param {*} markers マーカー一覧
  */
 const setMarkers = (leaflet, overlay, layer, markers) => {
   for (const marker of markers) {
@@ -379,11 +371,10 @@ const setMarkers = (leaflet, overlay, layer, markers) => {
 
 /**
  * アイコンを変更します。
- *
- * @param leaflet Leaflet 本体
- * @param layer レイヤー
- * @param source マーカー情報
- * @param isDot ドットにする場合は true
+ * @param {*} leaflet Leaflet 本体
+ * @param {*} layer レイヤー
+ * @param {Array} source マーカー情報
+ * @param {boolean} isDot ドットにする場合は true
  */
 const updateMarkerIcon = (leaflet, layer, source, isDot) => {
   const markers = layer.getLayers();
@@ -408,11 +399,10 @@ const updateMarkerIcon = (leaflet, layer, source, isDot) => {
 
 /**
  * GPX データをロードします。
- *
- * @param leaflet Leaflet 本体
- * @param overlay 配置対象の地図またはオーバーレイ
- * @param path GPX ファイルの URL
- * @param color カラーコード
+ * @param {*} leaflet Leaflet 本体
+ * @param {*} overlay 配置対象の地図またはオーバーレイ
+ * @param {string} path GPX ファイルの URL
+ * @param {string} color カラーコード
  */
 const setGpx = (leaflet, overlay, path, color) => {
   new leaflet.GPX(path, {
@@ -426,8 +416,7 @@ const setGpx = (leaflet, overlay, path, color) => {
 
 /**
  * GPX 地図以外の画面に切り替えます。すでに表示している場合は地図表示に戻ります。
- *
- * @param target id
+ * @param {string} target id
  */
 const toggleNonMapScreen = (target) => {
   const mapElm = document.getElementById("map");
@@ -461,12 +450,14 @@ const toggleOwnGpx = () => {
 
 /**
  * 指定した GPX ファイルを重ねて表示する機能を初期化します。
- *
- * @param leaflet Leaflet 本体
- * @param map 地図インスタンス
+ * @param {*} leaflet Leaflet 本体
+ * @param {*} map 地図インスタンス
  */
 const initOwnGpx = (leaflet, map) => {
   const ownGpx = document.getElementById("own-gpx");
+  if (!ownGpx) {
+    return;
+  }
   const backToMap = document.createElement("button");
   backToMap.innerHTML = "<i class='fa-solid fa-circle-arrow-left'></i> 地図に戻る";
   backToMap.style.marginTop = "10px";
@@ -522,11 +513,10 @@ const initOwnGpx = (leaflet, map) => {
 
 /**
  * 今昔マップを追加します。
- *
- * @param leaflet Leaflet 本体
- * @param layerControl initMap() が返却した LayerControl
- * @param dataSet データセットフォルダ銘
- * @param age 時期フォルダ銘
+ * @param {*} leaflet Leaflet 本体
+ * @param {*} layerControl initMap() が返却した LayerControl
+ * @param {string} dataSet データセットフォルダ名
+ * @param {string} age 時期フォルダ名
  */
 const activateKonjakuMap = (leaflet, layerControl, dataSet, age) => {
   layerControl.addBaseLayer(
@@ -537,6 +527,11 @@ const activateKonjakuMap = (leaflet, layerControl, dataSet, age) => {
   );
 };
 
+/**
+ * 人族測図を追加します。
+ * @param {*} leaflet Leaflet 本体
+ * @param {*} layerControl initMap() が返却した LayerControl
+ */
 const activateJinsokuMap = (leaflet, layerControl) => {
   layerControl.addBaseLayer(
     leaflet.tileLayer(`https://habs.rad.naro.go.jp/rapid16/{z}/{x}/{-y}.png`, {
