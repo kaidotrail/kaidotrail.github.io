@@ -78,7 +78,7 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/map_style.css?v=1" />
-    <script src="lib/map_helper.js?v=3"></script>
+    <script src="lib/map_helper.js?v=4"></script>
   </head>
   <body>
     <!-- prettier-ignore -->
@@ -157,6 +157,7 @@
       inputLocation.addEventListener("focus", () => inputLocation.select());
       const map = createMap(L);
       const layerControl = initMap(L, map);
+      activateJinsokuMap(L, layerControl);
       activateKonjakuMap(L, layerControl, "kanto", "00");
       activateKonjakuMap(L, layerControl, "matsumoto", "00");
       activateKonjakuMap(L, layerControl, "chukyo", "2man");

@@ -87,7 +87,7 @@
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/map_style.css?v=6" />
     <link rel="stylesheet" href="lib/spot_list.css?v=2" />
-    <script src="lib/map_helper.js?v=10"></script>
+    <script src="lib/map_helper.js?v=11"></script>
     <script src="lib/spot_list.js?v=2"></script>
     <script src="routes/nakasendo.js?v=4"></script>
     <script src="routes/spot_nihonbashi.js?v=1"></script>
@@ -139,6 +139,7 @@
         土田ルート: dotaOldRouteOverlay,
         "kagaorange の軌跡": gpxOverlay,
       });
+      activateJinsokuMap(L, layerControl);
       activateKonjakuMap(L, layerControl, "kanto", "00");
       activateKonjakuMap(L, layerControl, "matsumoto", "00");
       activateKonjakuMap(L, layerControl, "chukyo", "2man");

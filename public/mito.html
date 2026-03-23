@@ -85,7 +85,7 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/map_style.css?v=3" />
-    <script src="lib/map_helper.js?v=6"></script>
+    <script src="lib/map_helper.js?v=7"></script>
   </head>
   <body>
     <!-- prettier-ignore -->
@@ -111,6 +111,7 @@
         見どころ: spotOverlay,
         "kagaorange の軌跡": gpxOverlay,
       });
+      activateJinsokuMap(L, layerControl);
       activateKonjakuMap(L, layerControl, "kanto", "00");
       activateKonjakuMap(L, layerControl, "kanto", "01");
 

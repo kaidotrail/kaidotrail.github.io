@@ -536,3 +536,13 @@ const activateKonjakuMap = (leaflet, layerControl, dataSet, age) => {
     `今昔マップ <span style="font-size: 0.7em">${dataSet}/${age}</span>`,
   );
 };
+
+const activateJinsokuMap = (leaflet, layerControl) => {
+  layerControl.addBaseLayer(
+    leaflet.tileLayer(`https://habs.rad.naro.go.jp/rapid16/{z}/{x}/{-y}.png`, {
+      attribution:
+        '<a href="https://habs.rad.naro.go.jp/habs_map.html" target="_blank">農研機構農業環境研究部門</a>',
+    }),
+    `迅速測図 <span style="font-size: 0.7em">関東地方のみ</span>`,
+  );
+};

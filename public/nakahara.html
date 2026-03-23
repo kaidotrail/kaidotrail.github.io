@@ -87,7 +87,7 @@
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/map_style.css?v=8" />
     <link rel="stylesheet" href="lib/spot_list.css?v=2" />
-    <script src="lib/map_helper.js?v=9"></script>
+    <script src="lib/map_helper.js?v=10"></script>
     <script src="lib/spot_list.js?v=2"></script>
     <script src="routes/nakahara.js?v=4"></script>
   </head>
@@ -131,6 +131,7 @@
         },
         true,
       );
+      activateJinsokuMap(L, layerControl);
       activateKonjakuMap(L, layerControl, "tokyo50", "2man");
       activateKonjakuMap(L, layerControl, "kanto", "00");
       activateKonjakuMap(L, layerControl, "kanto", "01");

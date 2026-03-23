@@ -87,7 +87,7 @@
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/map_style.css?v=4" />
     <link rel="stylesheet" href="lib/spot_list.css?v=1" />
-    <script src="lib/map_helper.js?v=6"></script>
+    <script src="lib/map_helper.js?v=7"></script>
     <script src="lib/spot_list.js?v=2"></script>
     <script src="routes/spot_nihonbashi.js?v=1"></script>
     <script src="routes/kawagoe.js?v=1"></script>
@@ -127,6 +127,7 @@
         おすすめ歩行ルート: routeOverlay,
         "kagaorange の軌跡": gpxOverlay,
       });
+      activateJinsokuMap(L, layerControl);
       activateKonjakuMap(L, layerControl, "tokyo50", "00");
       activateKonjakuMap(L, layerControl, "kanto", "00");
       activateKonjakuMap(L, layerControl, "kanto", "01");
