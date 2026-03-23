@@ -272,7 +272,7 @@ const initSpotSelector = (spots) => {
           {
             "@type": "ListItem",
             position: 2,
-            name: select + "一覧",
+            name: iconType.description + "一覧",
           },
         ],
       });
