@@ -24,8 +24,6 @@ jobs:
       - uses: pnpm/action-setup@v4
       - run: pnpm i
       - run: pnpm build
-      - name: Create sitemap
-        run: cp sitemap.txt dist/sitemap.txt
       - name: Create IndexNow key file
         run: echo ${{ vars.INDEXNOW_KEY }} > dist/${{ vars.INDEXNOW_KEY }}.txt
       - name: Upload artifact
