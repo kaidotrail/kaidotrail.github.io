@@ -20,6 +20,8 @@ curl -X POST https://api.indexnow.org/IndexNow \
     \"urlList\": [
       \"https://kaidotrail.github.io\",
       \"https://kaidotrail.github.io/nakasendo.html\",
+      \"https://kaidotrail.github.io/nikko.html\",
+      \"https://kaidotrail.github.io/nakahara.html\",
       \"https://kaidotrail.github.io/kawagoe.html\"
     ]
   }"
