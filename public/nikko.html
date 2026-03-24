@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>旧街道足跡マップ &ndash; 日光街道</title>
+    <title>日光街道 &ndash; 旧街道足跡マップ</title>
     <meta
       name="description"
-      content="日光街道のルート解説・実際に歩いたGPSログをGoogleマップや地理院地図に重ねて見ることができるページです。"
+      content="旧日光街道のルート解説・実際に歩いたGPSログをGoogleマップや地理院地図に重ねて見ることができるページです。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -78,8 +78,11 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/map_style.css?v=4" />
+    <link rel="stylesheet" href="lib/spot_list.css?v=1" />
     <script src="lib/map_helper.js?v=8"></script>
+    <script src="lib/spot_list.js?v=1"></script>
     <script src="routes/nikko.js?v=2"></script>
+    <script src="routes/spot_nihonbashi.js?v=1"></script>
   </head>
   <body>
     <!-- prettier-ignore -->
@@ -91,8 +94,13 @@
       <span class="sep">&gt;</span>
       <span id="route-entry">日光街道</span>
       <span id="select-entry"></span>
+      <button id="spot-list-open"><i class="fa-solid fa-list"></i></button>
     </h1>
+    <div id="zoom-in-message">
+      <span>ズームインすると見どころが表示されます<br />(江戸方から追加中)</span>
+    </div>
     <div id="map"></div>
+    <div id="spot-list" class="non-map-screen"></div>
     <div id="own-gpx" class="non-map-screen"></div>
     <script>
       const map = createMap(L);
@@ -145,8 +153,109 @@
       initQueryParamUpdater(map, () => map.fitBounds(stationLayer.getBounds()));
 
       // Spots
-      const spots = [];
-      initSpots(L, map, spotOverlay, spots);
+      const spots = [
+        // 日本橋
+        nihonbashiSpot,
+        {
+          name: "薬種問屋の集積地・本町",
+          kana: "やくしゅどんやのしゅうせきち・ほんちょう",
+          coordinate: [35.687734, 139.774192],
+          icon: "monument",
+          description:
+            "武田薬品工業の本社ビル前に「薬種問屋の集積地・本町」と書かれた説明板、そして" +
+            "「本庁薬問屋発祥の町」と彫られた石碑があります。" +
+            "江戸時代初期から薬草や薬を扱う薬種問屋が軒を連ねており、薬の匂いが立ち込めるほどだったそうです。" +
+            "現代でも武田・第一三京・アステラスといった製薬会社の本社ビルが立ち並んでいます。" +
+            "昭和4年には薬祖神社も建てられました。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/09-21/PXL_20240920_200605639.webp",
+              comment: "薬種問屋の集積地・本町 説明板",
+            },
+          ],
+        },
+        {
+          name: "地下横断歩道",
+          coordinate: [35.6883267, 139.776183],
+          icon: "guide",
+          description: "地下横断歩道を通って昭和通りを横断できます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/09-21/PXL_20240920_200833609.webp",
+              comment: "南側入口",
+            },
+          ],
+        },
+        {
+          name: "旧日光街道本通り",
+          coordinate: [35.689, 139.77773],
+          icon: "monument",
+          description:
+            "昭和58年 (1983) に建てられた旧日光街道本通りと彫られた石碑があります。" +
+            "石碑の建つ場所からは東京スカイツリーを見通すことができます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/09-21/PXL_20240920_201547896.webp",
+              comment: "旧日光街道本通り",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/09-21/PXL_20240920_201838309.webp",
+              comment: "本通りと東京スカイツリー",
+            },
+          ],
+        },
+        {
+          name: "浅草見附跡",
+          kana: "あさくさみつけあと",
+          coordinate: [35.696184, 139.785341],
+          icon: "monument",
+          description:
+            "江戸城の警備拠点である浅草見附があった場所で、浅草橋の北詰に石碑があります。" +
+            "付近には旧浅草橋の地名について記した説明板があり、見附についても言及があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/09-21/PXL_20240920_201838309.webp",
+              comment: "浅草見附跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/09-21/PXL_20240920_203158227.webp",
+              comment: "旧浅草橋 説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/09-21/PXL_20240920_203206855.webp",
+              comment: "浅草橋",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/09-21/PXL_20240920_203225943.webp",
+              comment: "屋形船",
+            },
+          ],
+        },
+        // 1. 千住宿
+        // 2. 草加宿
+        // 3. 越谷宿
+        // 4. 粕壁宿
+        // 5. 杉戸宿
+        // 6. 幸手宿
+        // 7. 栗橋宿
+        // 8. 中田宿
+        // 9. 古河宿
+        // 10. 野木宿
+        // 11. 間々田宿
+        // 12. 小山宿
+        // 13. 新田宿
+        // 14. 小金井宿
+        // 15. 石橋宿
+        // 16. 雀宮宿
+        // 17. 宇都宮宿
+        // 18. 徳次郎宿
+        // 19. 大沢宿
+        // 20. 今市宿
+        // 21. 鉢石宿
+        // 日光東照宮
+      ];
+      const displaySpots = initSpots(L, map, spotOverlay, spots);
+      new SpotList(displaySpots, iconTypes).detectLandingPage(isbot(navigator.userAgent));
 
       // Route
       L.polyline(nikkoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);

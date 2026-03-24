@@ -246,7 +246,6 @@ const initSpotSelector = (spots) => {
   const q = new URLSearchParams(location.search);
   const select = q.get("select");
   const pathName = location.pathname.split("/").slice(-1)[0];
-  const head = document.getElementsByTagName("head")[0];
   const canonical = document.createElement("link");
   const ld = document.createElement("script");
   ld.type = "application/ld+json";
@@ -256,7 +255,7 @@ const initSpotSelector = (spots) => {
     if (iconType) {
       // canonical URL を更新
       canonical.href = `https://${CANONICAL_HOST}/${pathName}?select=${select}`;
-      head.appendChild(canonical);
+      document.head.appendChild(canonical);
 
       // LD-JSON を更新
       ld.innerText = JSON.stringify({
@@ -276,7 +275,7 @@ const initSpotSelector = (spots) => {
           },
         ],
       });
-      head.appendChild(ld);
+      document.head.appendChild(ld);
 
       // タイトルを更新
       const routeEntry = document.getElementById("route-entry");
@@ -299,7 +298,7 @@ const initSpotSelector = (spots) => {
   }
   // canonical URL を更新
   canonical.href = `https://kaidotrail.github.io/${pathName}`;
-  head.appendChild(canonical);
+  document.head.appendChild(canonical);
 
   // LD-JSON を更新
   ld.innerText = JSON.stringify({
@@ -307,7 +306,7 @@ const initSpotSelector = (spots) => {
     "@type": "BreadcrumbList",
     itemListElement: [{ "@type": "ListItem", position: 1, name: "中原街道" }],
   });
-  head.appendChild(ld);
+  document.head.appendChild(ld);
 
   return spots;
 };

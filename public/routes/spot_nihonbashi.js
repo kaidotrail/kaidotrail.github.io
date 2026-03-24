@@ -32,5 +32,9 @@ const nihonbashiSpot = {
       url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_082320.webp",
       comment: "麒麟像",
     },
+    {
+      url: "https://kaidotrail.github.io/img/kagaorange/2024/09-21/PXL_20240920_195942483.webp",
+      comment: "里程標",
+    },
   ],
 };
