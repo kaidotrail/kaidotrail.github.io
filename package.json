@@ -4,8 +4,8 @@
   "description": "kaidotrail website",
   "scripts": {
     "format": "prettier --write --cache --list-different .",
-    "format:check": "prettier --check .",
-    "lint": "eslint .",
+    "format:check": "prettier --check --cache .",
+    "lint": "eslint --cache . && textlint --cache *.md && textlint --cache public/*.html",
     "lint:fix": "eslint --fix .",
     "build": "node build.mjs",
     "clean": "rm -rf dist"
@@ -31,6 +31,10 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsdoc": "^62.8.0",
     "globals": "^17.3.0",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "textlint": "^15.5.2",
+    "textlint-filter-rule-comments": "^1.3.0",
+    "textlint-plugin-html": "^1.0.1",
+    "textlint-rule-preset-ja-technical-writing": "^12.0.2"
   }
 }

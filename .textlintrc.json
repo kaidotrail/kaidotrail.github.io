@@ -1,0 +1,14 @@
+{
+  "plugins": ["html"],
+  "filters": { "comments": true },
+  "rules": {
+    "preset-ja-technical-writing": {
+      "sentence-length": false,
+      "ja-no-mixed-period": false,
+      "max-kanji-continuous-len": {
+        "max": 6,
+        "allow": ["農研機構農業環境研究部門"]
+      }
+    }
+  }
+}

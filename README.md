@@ -15,7 +15,7 @@
 今の所バニラ HTML & CSS & JS で書いています。
 将来何かのジェネレーターやフレームワーク等を導入するかもしれません (選定中)。
 
-タスクランナーは pnpm, フォーマッターは Prettier, リンターは ESLint を採用しています。
+タスクランナー・フォーマッターに pnpm と Prettier, リンターに ESLint と textlint を採用しています。
 
 - 依存関係解決: `pnpm i`
 - format: `pnpm format`
