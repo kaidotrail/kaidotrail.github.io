@@ -253,6 +253,9 @@ const initSpotSelector = (spots) => {
   if (select) {
     const iconType = iconTypes.get(select);
     if (iconType) {
+      // title を更新
+      document.title = iconType.description + `一覧 - ` + document.title;
+
       // canonical URL を更新
       canonical.href = `https://${CANONICAL_HOST}/${pathName}?select=${select}`;
       document.head.appendChild(canonical);
