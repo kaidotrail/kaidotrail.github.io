@@ -12,3 +12,6 @@ https://kaidotrail.github.io/kawagoe.html
 https://kaidotrail.github.io/oshu_matsumae.html
 https://kaidotrail.github.io/mito.html
 https://kaidotrail.github.io/location_picker.html
+https://kaidotrail.github.io/changelog.html
+https://kaidotrail.github.io/terms.html
+https://kaidotrail.github.io/policy.html
