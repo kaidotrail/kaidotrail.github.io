@@ -106,9 +106,9 @@ const initMap = (leaflet, map, overlays) => {
   leaflet.control.locate({ position: "bottomright" }).addTo(map);
 
   // Legend
+  const legend = leaflet.control({ position: "bottomleft" });
   if (overlays) {
     const hasAltRoute = Object.keys(overlays).filter((k) => k.endsWith("ルート")).length > 1;
-    const legend = leaflet.control({ position: "bottomleft" });
     legend.onAdd = () => {
       const div = leaflet.DomUtil.create("div", "map-legend");
       div.innerHTML =
@@ -119,6 +119,14 @@ const initMap = (leaflet, map, overlays) => {
           : ``) +
         `<span style="color: blue"><i class="fa-solid fa-minus"></i> 足跡 (GPS ログ)</span>` +
         `<div id="terms-link"><a href="terms.html">利用規約</a></div>`;
+      return div;
+    };
+    legend.addTo(map);
+  } else {
+    legend.onAdd = () => {
+      const div = leaflet.DomUtil.create("div", "map-legend");
+      // noinspection HtmlUnknownTarget
+      div.innerHTML = `<div id="terms-link"><a href="terms.html">利用規約</a></div>`;
       return div;
     };
     legend.addTo(map);

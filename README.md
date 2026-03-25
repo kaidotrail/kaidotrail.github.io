@@ -7,6 +7,9 @@
 
 サイトはこちら: https://kaidotrail.github.io/
 
+[利用規約](https://kaidotrail.github.io/terms.html)
+[プライバシーポリシー](https://kaidotrail.github.io/policy.html)
+
 ## 開発環境
 
 今の所バニラ HTML & CSS & JS で書いています。

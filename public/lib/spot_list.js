@@ -146,7 +146,7 @@ class SpotList {
    * @param {number} ml margin-left
    * @returns {HTMLButtonElement} 絞り込み解除ボタン
    */
-  #clearSelectButton(ml = 5) {
+  #createClearSelectButton(ml = 5) {
     const clearSelect = document.createElement("button");
     clearSelect.innerHTML = '<i class="fa-solid fa-rectangle-xmark"></i> 絞り込み解除';
     clearSelect.style.marginLeft = `${ml}px`;
@@ -157,13 +157,45 @@ class SpotList {
     return clearSelect;
   }
 
+  /**
+   * フッターを構築します。
+   * @returns {HTMLDivElement} フッター要素
+   */
+  static createFooter() {
+    const footer = document.createElement("footer");
+    const p1 = document.createElement("p");
+    // noinspection HtmlUnknownTarget
+    p1.innerHTML = `&copy; 旧街道足跡マップ &ndash;
+          <a href="terms.html">利用規約</a>
+          <a href="policy.html">プライバシーポリシー</a>`;
+    footer.appendChild(p1);
+    const p2 = document.createElement("p");
+    p2.innerHTML = `This work is licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" target="_blank">CC BY-SA 4.0</a
+          ><img
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          /><img
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          /><img
+            src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          />`;
+    footer.appendChild(p2);
+    return footer;
+  }
+
   /** スポット一覧の DOM を構築します。 */
   #buildSpotList() {
     const spotList = document.getElementById("spot-list");
     spotList.appendChild(this.#createBackToMapButton(0, 10));
     const selectIcon = this.#iconMap.get(new URLSearchParams(location.search).get("select"));
     if (selectIcon) {
-      spotList.appendChild(this.#clearSelectButton());
+      spotList.appendChild(this.#createClearSelectButton());
     }
     const iconPane = document.createElement("div");
     iconPane.className = "spot-link-icons";
@@ -248,5 +280,6 @@ class SpotList {
     const counter = document.createElement("p");
     counter.innerHTML = `全 ${this.#spots.length} 地点 (写真 ${picCount} 枚)`;
     spotList.appendChild(counter);
+    spotList.appendChild(SpotList.createFooter());
   }
 }
