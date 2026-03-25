@@ -15,11 +15,14 @@ h1 a {
 
 footer {
   text-align: center;
-  font-size: 0.8em;
+  font-size: 11px;
   border-top: 1px solid goldenrod;
 }
 footer > p {
   margin: 1px;
+}
+footer a {
+  color: black;
 }
 
 #map {
@@ -51,6 +54,13 @@ footer > p {
   #zoom-in-message span {
     font-size: 14px;
   }
+}
+
+#terms-link {
+  margin-top: 4px;
+}
+#terms-link a:hover {
+  color: darkred;
 }
 
 .logo-link img {

@@ -117,7 +117,8 @@ const initMap = (leaflet, map, overlays) => {
         (hasAltRoute
           ? `<span style="color: lightcoral"><i class="fa-solid fa-minus"></i> 代替ルート</span><br/>`
           : ``) +
-        `<span style="color: blue"><i class="fa-solid fa-minus"></i> 足跡 (GPS ログ)</span><br/>`;
+        `<span style="color: blue"><i class="fa-solid fa-minus"></i> 足跡 (GPS ログ)</span>` +
+        `<div id="terms-link"><a href="terms.html">利用規約</a></div>`;
       return div;
     };
     legend.addTo(map);

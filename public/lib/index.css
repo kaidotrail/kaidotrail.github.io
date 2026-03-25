@@ -36,11 +36,14 @@ li > ul {
 
 footer {
   text-align: center;
-  font-size: 0.8em;
+  font-size: 11px;
   border-top: 1px solid goldenrod;
 }
 footer > p {
   margin: 1px;
+}
+footer a {
+  color: black;
 }
 
 .logo-font {

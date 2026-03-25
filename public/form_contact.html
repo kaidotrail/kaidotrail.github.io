@@ -43,10 +43,12 @@
     <h1 style="padding-top: 3px">
       <a href="./"><span class="logo-font">旧街道足跡マップ</span></a>
       <span class="sep">&gt;</span>
-      街道情報投稿
+      連絡フォーム
     </h1>
     <div class="non-map-screen" style="display: block">
-      <p>このフォームから管理人にメッセージを送信することができます。</p>
+      <p>
+        このフォームから管理人にメッセージを送信できます。個人を特定できる情報は記入しないでください。
+      </p>
       <form id="my-form" action="https://formspree.io/f/mjgaaqee" method="POST">
         <h3><i class="fa-solid fa-message"></i> 連絡内容</h3>
         <label for="message">メッセージ:</label><br />
@@ -64,11 +66,11 @@
         </div>
         <label for="social">アカウント名</label><br />
         <input id="social" type="text" name="social" size="40" disabled /><br />
-        <label for="name">お名前:</label><br />
+        <label for="name">ハンドルネーム (実名は記入しないでください):</label><br />
         <input id="name" type="text" name="name" size="40" disabled /><br />
         <label for="email">メールアドレス:</label><br />
         <input id="email" type="email" name="email" size="40" disabled /><br />
-        <button id="my-form-button" style="margin-top: 10px">投稿</button>
+        <button id="my-form-button" style="margin-top: 10px">送信</button>
         <p id="my-form-status"></p>
       </form>
       <footer>
