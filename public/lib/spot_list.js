@@ -251,6 +251,9 @@ class SpotList {
           break;
       }
     });
+    if (!selectIcon) {
+      spotList.appendChild(iconPane);
+    }
     const buildIconSection = (id, subSpots) => {
       if (subSpots.length === 0) {
         return;
