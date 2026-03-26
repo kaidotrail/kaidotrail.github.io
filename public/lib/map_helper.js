@@ -259,11 +259,11 @@ const initSpotSelector = (spots) => {
   const ld = document.createElement("script");
   ld.type = "application/ld+json";
   canonical.rel = "canonical";
+  const breadcrumbPageTitle = document.title.split("-")[0].trim();
   if (select) {
     const iconType = iconTypes.get(select);
     if (iconType) {
       // title を更新
-      const breadcrumbPageTitle = document.title.split("-")[0].trim();
       document.title = iconType.description + `一覧 - ` + document.title;
 
       // canonical URL を更新
@@ -278,13 +278,20 @@ const initSpotSelector = (spots) => {
           {
             "@type": "ListItem",
             position: 1,
+            name: "旧街道足跡マップ",
+            item: `https://${CANONICAL_HOST}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
             name: breadcrumbPageTitle,
             item: `https://${CANONICAL_HOST}/${pathName}`,
           },
           {
             "@type": "ListItem",
-            position: 2,
+            position: 3,
             name: iconType.description + "一覧",
+            item: `https://${CANONICAL_HOST}/${pathName}?select=${select}`,
           },
         ],
       });
@@ -310,14 +317,27 @@ const initSpotSelector = (spots) => {
     }
   }
   // canonical URL を更新
-  canonical.href = `https://kaidotrail.github.io/${pathName}`;
+  canonical.href = `https://${CANONICAL_HOST}/${pathName}`;
   document.head.appendChild(canonical);
 
   // LD-JSON を更新
   ld.innerText = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [{ "@type": "ListItem", position: 1, name: "中原街道" }],
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "旧街道足跡マップ",
+        item: `https://${CANONICAL_HOST}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: breadcrumbPageTitle,
+        item: `https://${CANONICAL_HOST}/${pathName}`,
+      },
+    ],
   });
   document.head.appendChild(ld);
 
