@@ -263,6 +263,7 @@ const initSpotSelector = (spots) => {
     const iconType = iconTypes.get(select);
     if (iconType) {
       // title を更新
+      const breadcrumbPageTitle = document.title.split("-")[0].trim();
       document.title = iconType.description + `一覧 - ` + document.title;
 
       // canonical URL を更新
@@ -277,7 +278,7 @@ const initSpotSelector = (spots) => {
           {
             "@type": "ListItem",
             position: 1,
-            name: "中原街道",
+            name: breadcrumbPageTitle,
             item: `https://${CANONICAL_HOST}/${pathName}`,
           },
           {
