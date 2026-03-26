@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="kagaorange" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>n里は何キロ？ - 旧街道足跡マップ</title>
+    <link rel="canonical" href="https://kaidotrail.github.io/calc_ri.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--suppress ES6ConvertVarToLetConst, EqualityComparisonWithCoercionJS -->
+    <!-- prettier-ignore -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
+    <link rel="stylesheet" href="lib/app.css?v=1" />
+    <link rel="stylesheet" href="lib/map_style.css?v=1" />
+    <link rel="stylesheet" href="lib/form.css?v=1" />
+    <style>
+      .input {
+        height: 40px;
+        text-align: center;
+      }
+      .result {
+        font-family: monospace;
+        color: darkred;
+      }
+      .text-l {
+        font-size: 30px;
+        vertical-align: -4px;
+      }
+      .text-m {
+        font-size: 15px;
+      }
+      .input-s {
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- prettier-ignore -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTM7SMZG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <a href="./" class="logo-link"><img src="lib/logo160.png" alt="旧街道足跡マップ" /></a>
+    <h1 style="padding-top: 3px">
+      <a href="./"><span class="logo-font">旧街道足跡マップ</span></a>
+      <span class="sep">&gt;</span>
+      n里は何キロ？
+    </h1>
+    <div class="non-map-screen" style="display: block">
+      <h2 style="margin-top: 0">n里は何キロ？</h2>
+      <p>
+        旧街道ウォーキングに欠かせない里程とメートル法の換算を行います。本ページでは以下の定義に基づきます。
+      </p>
+      <ul>
+        <li>
+          定義1: 1里 = 3927.27273m (<a
+            href="https://ja.wikisource.org/wiki/%E5%BA%A6%E9%87%8F%E8%A1%A1%E6%B3%95"
+            target="_blank"
+            >度量衡法</a
+          >
+          第五條, 1981)
+        </li>
+        <li>
+          定義2: 1里 = 36町 = 2,160間 = 12,960尺 (<a
+            href="https://ja.wikisource.org/wiki/%E5%BA%A6%E9%87%8F%E8%A1%A1%E6%B3%95"
+            target="_blank"
+            >度量衡法</a
+          >
+          第三條, 1981)
+        </li>
+      </ul>
+      <p>時代や地域によって定義は異なります。あくまで参考値としてご利用ください。</p>
+      <h2>里 → キロメートル</h2>
+      <input id="input-ri" type="number" min="0" class="input" />
+      <label for="input-ri">里</label>
+      は約
+      <span id="result-km" class="result text-l">-</span>
+      <label for="result-km" class="result text-l">km</label>
+      <span class="result text-m">(<span id="result-m">-</span>m)</span>
+      です。
+      <h2>里・町・間・尺 → キロメートル</h2>
+      <input id="input-ri2" type="number" min="0" class="input input-s" />
+      <label for="input-ri2">里</label>
+      <input id="input-cho" type="number" min="0" class="input input-s" />
+      <label for="input-cho">町</label>
+      <input id="input-ken" type="number" min="0" class="input input-s" />
+      <label for="input-ken">間</label>
+      <input id="input-shaku" type="number" min="0" class="input input-s" />
+      <label for="input-shaku">尺</label>
+      は約
+      <span id="result-km2" class="result text-l">-</span>
+      <label for="result-km2" class="result text-l">km</label>
+      <span class="result text-m">(<span id="result-m2">-</span>m)</span>
+      です。
+      <h2>キロメートル → 里</h2>
+      <input id="input-km" type="number" min="0" class="input" />
+      <label for="input-km">km</label>
+      は約
+      <span id="result-ri" class="result text-l">-</span>
+      <label for="result-ri" class="result text-l">里</label>
+      <span class="result text-m">(<span id="result-ri-cho">-</span>)</span>
+      です。
+      <p>※町は丁とも表記されます。</p>
+      <p>漢数字見本:</p>
+      <table style="font-size: 16px">
+        <tr>
+          <th>一</th>
+          <th>二</th>
+          <th>三</th>
+          <th>四</th>
+          <th>五</th>
+          <th>六</th>
+          <th>七</th>
+          <th>八</th>
+          <th>九</th>
+          <th>十</th>
+          <th>百</th>
+          <th>千</th>
+          <th>万</th>
+        </tr>
+        <tr>
+          <td>壱</td>
+          <td>弐</td>
+          <td>参</td>
+          <td>泗</td>
+          <td>伍</td>
+          <td>陸</td>
+          <td>質</td>
+          <td>捌</td>
+          <td>玖</td>
+          <td>拾</td>
+          <td>佰</td>
+          <td>仟</td>
+          <td>萬</td>
+        </tr>
+        <tr>
+          <td>壹</td>
+          <td>貮</td>
+          <td>參</td>
+          <td>肆</td>
+          <td><br /></td>
+          <td><br /></td>
+          <td>漆</td>
+          <td><br /></td>
+          <td><br /></td>
+          <td>陌</td>
+          <td>佰</td>
+          <td>阡</td>
+          <td><br /></td>
+        </tr>
+        <tr>
+          <td>弌</td>
+          <td>貳</td>
+          <td><br /></td>
+          <td><br /></td>
+          <td><br /></td>
+          <td><br /></td>
+          <td><br /></td>
+          <td><br /></td>
+          <td><br /></td>
+          <td><br /></td>
+          <td><br /></td>
+          <td><br /></td>
+          <td><br /></td>
+        </tr>
+      </table>
+      <footer>
+        <p><a href="./">旧街道足跡マップ</a></p>
+        <p>
+          This work is licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">CC BY-SA 4.0</a
+          ><img
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          /><img
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          /><img
+            src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          />
+        </p>
+      </footer>
+    </div>
+    <script>
+      const RI2M = 3927.27273;
+      const RI2CHO = 36;
+      const CHO2KEN = 60;
+      const KEN2SHAKU = 6;
+      const round1 = (n) => Math.round(n * 10) / 10;
+      const round2 = (n) => Math.round(n * 100) / 100;
+
+      // ri -> km
+      const resultKm = document.getElementById("result-km");
+      const resultM = document.getElementById("result-m");
+      document.getElementById("input-ri").addEventListener("input", (e) => {
+        const ri = Number(e.target.value) * RI2M;
+        resultKm.innerText = round1(ri / 1000).toLocaleString();
+        resultM.innerText = round2(ri).toLocaleString();
+      });
+
+      // ri/cho/ken/shaku -> km
+      const resultKm2 = document.getElementById("result-km2");
+      const resultM2 = document.getElementById("result-m2");
+      const inputRi2 = document.getElementById("input-ri2");
+      const inputCho = document.getElementById("input-cho");
+      const inputKen = document.getElementById("input-ken");
+      const inputShaku = document.getElementById("input-shaku");
+      const handeRi = () => {
+        const ri =
+          Number(inputRi2.value) +
+          Number(inputCho.value) / RI2CHO +
+          Number(inputKen.value) / RI2CHO / CHO2KEN +
+          Number(inputShaku.value) / RI2CHO / CHO2KEN / KEN2SHAKU;
+        resultKm2.innerText = round1((ri * RI2M) / 1000).toLocaleString();
+        resultM2.innerText = round2(ri * RI2M).toLocaleString();
+      };
+      inputRi2.addEventListener("input", handeRi);
+      inputCho.addEventListener("input", handeRi);
+      inputKen.addEventListener("input", handeRi);
+      inputShaku.addEventListener("input", handeRi);
+
+      // km -> ri
+      const resultRi = document.getElementById("result-ri");
+      const resultRiCho = document.getElementById("result-ri-cho");
+      document.getElementById("input-km").addEventListener("input", (e) => {
+        const ri = (Number(e.target.value) * 1000) / RI2M;
+        resultRi.innerText = round1(ri).toLocaleString();
+        let text = "";
+        if (ri >= 1) {
+          text += Math.floor(ri) + "里";
+        }
+        const cho = (ri % 1) * RI2CHO;
+        if (cho >= 1) {
+          text += Math.floor(cho) + "町";
+        }
+        const ken = (cho % 1) * CHO2KEN;
+        if (ken >= 1) {
+          text += Math.floor(ken) + "間";
+        }
+        const shaku = (ken % 1) * KEN2SHAKU;
+        if (shaku !== 0) {
+          text += Math.round(shaku) + "尺";
+        }
+        resultRiCho.innerText = text;
+      });
+    </script>
+  </body>
+</html>
