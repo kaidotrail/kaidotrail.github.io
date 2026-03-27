@@ -5,7 +5,7 @@
   "scripts": {
     "format": "prettier --write --cache --list-different .",
     "format:check": "prettier --check --cache .",
-    "lint": "eslint --cache . && textlint --cache *.md && textlint --cache public/*.html",
+    "lint": "eslint --cache . && textlint --cache **/*.{md,html}",
     "lint:fix": "eslint --fix .",
     "build": "node build.mjs",
     "clean": "rm -rf dist"
