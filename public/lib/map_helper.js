@@ -211,6 +211,9 @@ const initPopupSlider = (layer) => {
       }
     }
   };
+  const leafletLayers = document.getElementsByClassName("leaflet-control-layers");
+  const leafletBar = document.getElementsByClassName("leaflet-bar");
+  const mapLegend = document.getElementsByClassName("map-legend");
   layer.on("popupopen", () => {
     const arrowRightElements = document.getElementsByClassName("arrow-right");
     for (let i = 0; i < arrowRightElements.length; i++) {
@@ -220,9 +223,14 @@ const initPopupSlider = (layer) => {
     for (let i = 0; i < arrowLeftElements.length; i++) {
       arrowLeftElements[i].addEventListener("click", arrowLeftClickHandler);
     }
-    const layerControl = document.getElementsByClassName("leaflet-top");
-    for (const lc of layerControl) {
-      lc.style.display = "none";
+    for (const ll of leafletLayers) {
+      ll.style.display = "none";
+    }
+    for (const lb of leafletBar) {
+      lb.style.display = "none";
+    }
+    for (const ml of mapLegend) {
+      ml.style.display = "none";
     }
     const zoomInMessage = document.getElementById("zoom-in-message");
     if (zoomInMessage) {
@@ -239,9 +247,14 @@ const initPopupSlider = (layer) => {
     for (let i = 0; i < arrowLeftElements.length; i++) {
       arrowLeftElements[i].removeEventListener("click", arrowLeftClickHandler);
     }
-    const layerControl = document.getElementsByClassName("leaflet-top");
-    for (const lc of layerControl) {
-      lc.style.display = "block";
+    for (const ll of leafletLayers) {
+      ll.style.display = "block";
+    }
+    for (const lb of leafletBar) {
+      lb.style.display = "block";
+    }
+    for (const ml of mapLegend) {
+      ml.style.display = "block";
     }
   });
 };
