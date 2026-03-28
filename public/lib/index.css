@@ -42,3 +42,39 @@ li > ul {
   font-size: 1.3em;
   font-family: "Yuji Syuku", serif;
 }
+
+.author-route:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f4d7"; /* fa-route */
+  font-weight: 900;
+  padding-right: 1px;
+  font-style: normal;
+  color: red;
+}
+
+.author-footprint:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f54b"; /* fa-shoe-prints */
+  font-weight: 900;
+  padding-right: 1px;
+  font-style: normal;
+  color: blue;
+}
+
+.author-spots:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f277"; /* fa-signs-post */
+  font-weight: 900;
+  padding-right: 1px;
+  font-style: normal;
+  color: goldenrod;
+}
+
+.author-photos:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f030"; /* fa-camera */
+  font-weight: 900;
+  padding-right: 1px;
+  font-style: normal;
+  color: deeppink;
+}

@@ -7,7 +7,7 @@ const nihonbashiToHiraoSpots = [
     description:
       "今川焼発祥の地で、元祖ではありませんが今川焼を売るお店があります。" +
       "名前の由来になった橋はもうありませんが、交差点の名前として残っています。" +
-      "なお、近くにある由来碑によると、名主である今川氏の尽力により架けられた橋なので今川橋となったそうです。",
+      "なお、近くにある由来碑によると、名主であった今川氏の尽力により架けられた橋なので今川橋となったそうです。",
     pictures: [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_083814.webp",
@@ -61,7 +61,7 @@ const nihonbashiToHiraoSpots = [
     icon: "monument",
     description:
       "国指定重要文化財。文政10年 (1827) に加賀藩前田家の姫専用門として建てられたもので、" +
-      "その後東大の門になりました。" +
+      "その後東京大学の門になりました。" +
       "2021年の耐震診断で問題が見つかり門は閉鎖、2027年までに補修予定とのことです。",
     url: "https://treasure.adm.u-tokyo.ac.jp/akamon",
     pictures: [
@@ -78,7 +78,7 @@ const nihonbashiToHiraoSpots = [
     icon: "ichirizuka",
     description:
       "日本橋から1里 (約3.9km) の一里塚跡で、説明板があります。" +
-      "ここは中山道と日光御成道 (旧岩槻街道) の追分 (分かれ道) にあたるため、追分一里塚と呼ばれててきたそうです。",
+      "ここは中山道と日光御成道 (旧岩槻街道) の追分 (分かれ道) にあたるため、追分一里塚と呼ばれてきたそうです。",
     pictures: [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2025/05-05/IMG_20250505_105013.webp",
