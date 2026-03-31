@@ -4,6 +4,9 @@ const CANONICAL_HOST = "kaidotrail.github.io";
 /** ポップアップの画像スライダーの状態 */
 let current = 0;
 
+/** 今昔マップ表示状態 */
+let displayingKonjakuMap = false;
+
 /**
  * 地図インスタンスを作成します。
  * @param {*} leaflet Leaflet 本体
@@ -173,15 +176,31 @@ const initIconUpdater = (leaflet, map, layer, layerIcons, zoomThreshold = 12) =>
   if (new URLSearchParams(location.search).get("select") && zoomThreshold === 12) {
     zoomThreshold = 10;
   }
+  const zoomInMessage = document.getElementById("zoom-in-message");
+  const zoomInMessageContent = zoomInMessage.innerHTML ?? "";
+  const updateZoomInMessage = () => {
+    if (!zoomInMessage) {
+      return;
+    }
+    zoomInMessage.style.display = map.getZoom() < zoomThreshold ? "block" : "none";
+    if (displayingKonjakuMap && map.getZoom() > 15) {
+      zoomInMessage.innerHTML =
+        "<span style='color: orangered'>今昔マップを表示するにはズームアウトしてください</span>";
+      zoomInMessage.style.display = "block";
+    } else {
+      zoomInMessage.innerHTML = zoomInMessageContent;
+    }
+  };
   const toggle = () => {
     updateMarkerIcon(leaflet, layer, layerIcons, map.getZoom() < zoomThreshold);
-    const zoomInMessage = document.getElementById("zoom-in-message");
-    if (zoomInMessage) {
-      zoomInMessage.style.display = map.getZoom() < zoomThreshold ? "block" : "none";
-    }
+    updateZoomInMessage();
   };
   toggle();
   map.on("zoomend", () => toggle());
+  map.on("baselayerchange", (e) => {
+    displayingKonjakuMap = e.name.startsWith("今昔マップ");
+    updateZoomInMessage();
+  });
 };
 
 /**
