@@ -177,7 +177,7 @@ const initIconUpdater = (leaflet, map, layer, layerIcons, zoomThreshold = 12) =>
     zoomThreshold = 10;
   }
   const zoomInMessage = document.getElementById("zoom-in-message");
-  const zoomInMessageContent = zoomInMessage.innerHTML ?? "";
+  const zoomInMessageContent = zoomInMessage ? zoomInMessage.innerHTML : "";
   const updateZoomInMessage = () => {
     if (!zoomInMessage) {
       return;
