@@ -4,9 +4,6 @@ const CANONICAL_HOST = "kaidotrail.github.io";
 /** ポップアップの画像スライダーの状態 */
 let current = 0;
 
-/** 今昔マップ表示状態 */
-let displayingKonjakuMap = false;
-
 /**
  * 地図インスタンスを作成します。
  * @param {*} leaflet Leaflet 本体
@@ -177,18 +174,9 @@ const initIconUpdater = (leaflet, map, layer, layerIcons, zoomThreshold = 12) =>
     zoomThreshold = 10;
   }
   const zoomInMessage = document.getElementById("zoom-in-message");
-  const zoomInMessageContent = zoomInMessage ? zoomInMessage.innerHTML : "";
   const updateZoomInMessage = () => {
-    if (!zoomInMessage) {
-      return;
-    }
-    zoomInMessage.style.display = map.getZoom() < zoomThreshold ? "block" : "none";
-    if (displayingKonjakuMap && map.getZoom() > 15) {
-      zoomInMessage.innerHTML =
-        "<span style='color: orangered'>今昔マップを表示するにはズームアウトしてください</span>";
-      zoomInMessage.style.display = "block";
-    } else {
-      zoomInMessage.innerHTML = zoomInMessageContent;
+    if (zoomInMessage) {
+      zoomInMessage.style.display = map.getZoom() < zoomThreshold ? "block" : "none";
     }
   };
   const toggle = () => {
@@ -197,10 +185,6 @@ const initIconUpdater = (leaflet, map, layer, layerIcons, zoomThreshold = 12) =>
   };
   toggle();
   map.on("zoomend", () => toggle());
-  map.on("baselayerchange", (e) => {
-    displayingKonjakuMap = e.name.startsWith("今昔マップ");
-    updateZoomInMessage();
-  });
 };
 
 /**
@@ -686,6 +670,7 @@ const activateKonjakuMap = (leaflet, layerControl, dataSet, age) => {
   layerControl.addBaseLayer(
     leaflet.tileLayer(`https://ktgis.net/kjmapw/kjtilemap/${dataSet}/${age}/{z}/{x}/{-y}.png`, {
       attribution: '<a href="https://ktgis.net/kjmapw/data.html" target="_blank">今昔マップ</a>',
+      maxNativeZoom: 15,
     }),
     `今昔マップ <span style="font-size: 0.7em">${dataSet}/${age}</span>`,
   );
@@ -701,6 +686,7 @@ const activateJinsokuMap = (leaflet, layerControl) => {
     leaflet.tileLayer(`https://habs.rad.naro.go.jp/rapid16/{z}/{x}/{-y}.png`, {
       attribution:
         '<a href="https://habs.rad.naro.go.jp/habs_map.html" target="_blank">農研機構農業環境研究部門</a>',
+      maxNativeZoom: 16,
     }),
     `迅速測図 <span style="font-size: 0.7em">関東地方のみ</span>`,
   );
