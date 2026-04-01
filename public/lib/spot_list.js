@@ -107,6 +107,30 @@ class SpotList {
       tr.appendChild(td1);
       const td2 = document.createElement("td");
       td2.innerHTML = spot.description ?? "(未記入)";
+      if (spot.url) {
+        const displayUrl = spot.url.replace("https://", "").replace("http://", "");
+        td2.innerHTML +=
+          `<br/><span class="ref-link">` +
+          (spot.url.endsWith(".pdf")
+            ? `<i class="fa-solid fa-file-pdf" style="color:red"></i>`
+            : `<i class="fa-solid fa-globe" style="color:darkblue"></i>`) +
+          `<a href="${spot.url}" target="_blank">${displayUrl}</a>` +
+          `</span>`;
+      }
+      if (spot.x) {
+        td2.innerHTML +=
+          `<br/><span class="ref-link">` +
+          `<i class="fa-brands fa-x-twitter"></i>` +
+          `<a href="https://x.com/${spot.x}" target="_blank">@${spot.x}</a>` +
+          `</span>`;
+      }
+      if (spot.instagram) {
+        td2.innerHTML +=
+          `<br/><span class="ref-link">` +
+          `<i class="fa-brands fa-instagram" style="color:pink"></i>` +
+          `<a href="https://www.instagram.com/${spot.instagram}/" target="_blank">${spot.instagram}</a>` +
+          `</span>`;
+      }
       tr.appendChild(td2);
       table.appendChild(tr);
     });

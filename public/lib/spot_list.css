@@ -32,6 +32,19 @@
   line-height: 10px;
   text-align: right;
 }
+#spot-list .ref-link {
+  font-size: 0.8em;
+}
+#spot-list .ref-link i {
+  padding-right: 2px;
+}
+#spot-list .ref-link a {
+  font-weight: normal;
+  text-decoration: none;
+}
+#spot-list .ref-link a:hover {
+  text-decoration: underline;
+}
 
 .spot-link-icons {
   font-size: 1.4em;
