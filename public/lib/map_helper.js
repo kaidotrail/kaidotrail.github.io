@@ -399,52 +399,52 @@ const iconTypes = new Map([
 ]);
 
 /**
- * マーカー情報をもとにポップアップの内容を構築します。
- * @param {*} markerData マーカー情報
+ * スポット情報をもとにポップアップの内容を構築します。
+ * @param {*} spot スポット情報
  * @returns {string} div 要素文字列
  */
-const buildPopupContent = (markerData) => {
+const buildPopupContent = (spot) => {
   let content = `<div class="popup-content">`;
-  content += `<h1>${markerData.name}</h1>`;
-  if (markerData.kana) {
-    content += `<h2>${markerData.kana}</h2>`;
+  content += `<h1>${spot.name}</h1>`;
+  if (spot.kana) {
+    content += `<h2>${spot.kana}</h2>`;
   }
-  if (markerData.description) {
-    content += `<p>${markerData.description}</p>`;
+  if (spot.description) {
+    content += `<p>${spot.description}</p>`;
   }
-  if (markerData.url || markerData.x || markerData.instagram) {
+  if (spot.url || spot.x || spot.instagram) {
     content += `<p class="link-area">`;
-    if (markerData.url) {
-      const displayUrl = markerData.url.replace("https://", "").replace("http://", "");
+    if (spot.url) {
+      const displayUrl = spot.url.replace("https://", "").replace("http://", "");
       content +=
-        (markerData.url.endsWith(".pdf")
+        (spot.url.endsWith(".pdf")
           ? `<i class="fa-solid fa-file-pdf" style="color:red"></i>`
           : `<i class="fa-solid fa-globe" style="color:darkblue"></i>`) +
-        `<a href="${markerData.url}" target="_blank">${displayUrl}</a> `;
+        `<a href="${spot.url}" target="_blank">${displayUrl}</a> `;
     }
-    if (markerData.x) {
+    if (spot.x) {
       content +=
         `<i class="fa-brands fa-x-twitter"></i>` +
-        `<a href="https://x.com/${markerData.x}" target="_blank">@${markerData.x}</a> `;
+        `<a href="https://x.com/${spot.x}" target="_blank">@${spot.x}</a> `;
     }
-    if (markerData.instagram) {
+    if (spot.instagram) {
       content +=
         `<i class="fa-brands fa-instagram" style="color:pink"></i>` +
-        `<a href="https://www.instagram.com/${markerData.instagram}/" target="_blank">${markerData.instagram}</a> `;
+        `<a href="https://www.instagram.com/${spot.instagram}/" target="_blank">${spot.instagram}</a> `;
     }
     content += "</p>";
   }
-  if (markerData.pictures && markerData.pictures.length > 0) {
-    for (let i = 0; i < markerData.pictures.length; i++) {
+  if (spot.pictures && spot.pictures.length > 0) {
+    for (let i = 0; i < spot.pictures.length; i++) {
       content += `<div class="popup-pic-${i}" style="display:${i === 0 ? "block" : "none"}">`;
-      content += `<img src="${markerData.pictures[i].url}" width="300" height="225" alt="${markerData.pictures[i].comment}"/>`;
+      content += `<img src="${spot.pictures[i].url}" width="300" height="225" alt="${spot.pictures[i].comment}"/>`;
       content += `<div class="popup-text">`;
-      if (markerData.pictures.length > 1) {
-        content += `[${i + 1}/${markerData.pictures.length}] `;
+      if (spot.pictures.length > 1) {
+        content += `[${i + 1}/${spot.pictures.length}] `;
       }
-      content += `${markerData.pictures[i].comment ?? ""}<br/>`;
+      content += `${spot.pictures[i].comment ?? ""}<br/>`;
       try {
-        const tokens = URL.parse(markerData.pictures[i].url).pathname.split("/");
+        const tokens = URL.parse(spot.pictures[i].url).pathname.split("/");
         const date = new Date(tokens[3] + "-" + tokens[4]).toLocaleDateString();
         content += `<span class="credit">${date} ${tokens[2]}</span>`;
       } catch (e) {
@@ -453,7 +453,7 @@ const buildPopupContent = (markerData) => {
       content += `</div>`;
       content += `</div>`;
     }
-    if (markerData.pictures.length > 1) {
+    if (spot.pictures.length > 1) {
       content += `<div class="popup-arrows">`;
       content += `<i class="arrow-left fa-solid fa-circle-chevron-left"></i>`;
       content += `<i class="arrow-right fa-solid fa-circle-chevron-right"></i>`;
@@ -465,8 +465,8 @@ const buildPopupContent = (markerData) => {
   const formUrl =
     `form_edit.html?` +
     `kaido=${location.pathname.split("/").slice(-1)[0].replace(".html", "")}` +
-    `&coordinate=${markerData.coordinate[0]},${markerData.coordinate[1]}` +
-    `&spot=${markerData.name}`;
+    `&coordinate=${spot.coordinate[0]},${spot.coordinate[1]}` +
+    `&spot=${spot.name}`;
   content +=
     `<div class="edit-request-link">` +
     `<a href="${formUrl}" target="_blank"><i class="fa-solid fa-pen-to-square"></i> 修正</a>` +
