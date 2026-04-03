@@ -8,7 +8,8 @@
     "lint": "eslint --cache . && textlint --cache **/*.{md,html}",
     "lint:fix": "eslint --fix .",
     "build": "node build.mjs",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "sitemap": "sitemap < public/sitemap.txt > dist/sitemap.xml"
   },
   "keywords": [],
   "author": "mikan",
@@ -32,6 +33,7 @@
     "eslint-plugin-jsdoc": "^62.8.0",
     "globals": "^17.3.0",
     "prettier": "^3.8.1",
+    "sitemap": "^9.0.1",
     "textlint": "^15.5.2",
     "textlint-filter-rule-comments": "^1.3.0",
     "textlint-plugin-html": "^1.0.1",
