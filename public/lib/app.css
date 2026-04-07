@@ -18,3 +18,7 @@ footer a {
   border-radius: 50%;
   vertical-align: middle;
 }
+
+.border-silver {
+  border: 1px solid silver;
+}
