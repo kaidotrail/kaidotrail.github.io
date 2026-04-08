@@ -5,6 +5,8 @@ https://kaidotrail.github.io/nakasendo.html?select=honjin
 https://kaidotrail.github.io/nakasendo.html?select=ichirizuka
 https://kaidotrail.github.io/tokaido.html
 https://kaidotrail.github.io/nikko.html
+https://kaidotrail.github.io/nikko.html?select=honjin
+https://kaidotrail.github.io/nikko.html?select=ichirizuka
 https://kaidotrail.github.io/oshu.html
 https://kaidotrail.github.io/koshu.html
 https://kaidotrail.github.io/nakahara.html
