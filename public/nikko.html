@@ -112,9 +112,7 @@
       <span id="select-entry"></span>
       <button id="spot-list-open"><i class="fa-solid fa-list"></i></button>
     </h1>
-    <div id="zoom-in-message">
-      <span>ズームインすると見どころが表示されます<br />(江戸方から追加中)</span>
-    </div>
+    <div id="zoom-in-message"><span>ズームインすると見どころが表示されます</span></div>
     <div id="map"></div>
     <div id="spot-list" class="non-map-screen"></div>
     <div id="own-gpx" class="non-map-screen"></div>
@@ -161,7 +159,7 @@
         { name: "18. 徳次郎宿", coordinate: [36.647871, 139.846023] },
         { name: "19. 大沢宿", coordinate: [36.695955, 139.756169] },
         { name: "20. 今市宿", coordinate: [36.724614, 139.687988] },
-        { name: "21. 鉢石宿", coordinate: [36.750167, 139.611103] },
+        { name: "21. 鉢石宿", coordinate: [36.750182, 139.611168] },
         { name: "日光東照宮", coordinate: [36.757875, 139.598757] },
       ];
       const stationLayer = L.featureGroup();
@@ -4439,8 +4437,453 @@
             },
           ],
         },
+        {
+          name: "瀧尾神社",
+          kana: "たきのおじんじゃ",
+          coordinate: [36.726761, 139.680876],
+          icon: "shrine",
+          description:
+            "今市の総鎮守で、日光二荒山神社と共に男体山の神を祀る神社として始まったそうです。",
+          instagram: "takinoo_jinja",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_013300964.webp",
+              comment: "鳥居",
+            },
+          ],
+        },
+        {
+          name: "杉並木 (上今市〜瀬川)",
+          coordinate: [36.726842, 139.6817583],
+          icon: "camera",
+          description: "ここから西方に 900m ほど未舗装の杉並木が続いています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_013339863.webp",
+              comment: "杉並木",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_014638155.webp",
+              comment: "杉並木",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_013306118.MP.webp",
+              comment: "東側入口",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_013329677.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "高靇神社",
+          kana: "たかおじんじゃ",
+          coordinate: [36.727868, 139.6794789],
+          icon: "shrine",
+          description:
+            "神護景雲元年 (767) 創建と伝わる神社で、今市に十五社ある同名の社の中で最古とのことです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_013747429.webp",
+              comment: "高靇神社",
+            },
+          ],
+        },
+        {
+          name: "瀬川一里塚",
+          kana: "せがわいちりづか",
+          coordinate: [36.728922, 139.673789],
+          icon: "ichirizuka",
+          description:
+            "日本橋から34里 (約133.5km) の一里塚で、両塚現存しています。" +
+            "南塚は杉並木に飲まれてよくわかりませんが、国土交通省関東地方整備局のガイドには両塚の写真があります。" +
+            "かつては北塚に説明板があったようですが現在は無くなっており、塚木も切り株になっています。",
+          url: "https://www.ktr.mlit.go.jp/utunomiya/utunomiya_nikkomap001.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_020318783.webp",
+              comment: "北塚",
+            },
+          ],
+        },
+        {
+          name: "旧江連家住宅",
+          kana: "きゅうえづれけじゅうたく",
+          coordinate: [36.729246, 139.673175],
+          icon: "building",
+          description:
+            "杉並木公園内に天保元年 (1830) に建てられた民家が移築され展示されています。" +
+            "江連家は南小倉村の名主を務めた家で、格式高い民家となっています。",
+          url: "http://www.kousha.or.jp/sugi.php",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_020515913.webp",
+              comment: "杉並木公園",
+            },
+          ],
+        },
+        {
+          name: "杉並木 (瀬川〜野口西)",
+          coordinate: [36.729194, 139.670748],
+          icon: "camera",
+          description: "ここから西方に 2km ほど杉並木が続いています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_022329891.webp",
+              comment: "杉並木",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_023418696.MP.webp",
+              comment: "杉並木",
+            },
+          ],
+        },
+        {
+          name: "砲弾打ち込み杉",
+          coordinate: [36.731692, 139.664368],
+          icon: "monument",
+          description:
+            "戊辰戦争で官軍が幕府軍を攻撃する際に前哨戦が起きた場所とのことで、砲弾が杉に当たって破裂したことで" +
+            "幹が凹んでいるそうです。",
+          url: "https://www.pref.tochigi.lg.jp/c05/kensei/aramashi/rekishi/bakumatsu-kingendai_02.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_022802621.webp",
+              comment: "砲弾打ち込み杉",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_022852604.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "薬師堂",
+          coordinate: [36.734897, 139.654082],
+          icon: "temple",
+          description:
+            "入口に石の梵鐘が置かれたお堂があります。" +
+            "国土交通省関東地方整備局のガイドによると、明和5年 (1768) に村人が石の梵鐘を奉納しようとしたが" +
+            "龍頭が壊れてしまい、以来放置されてきたそうです。",
+          url: "https://www.ktr.mlit.go.jp/utunomiya/utunomiya_nikkomap001.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_024303671.webp",
+              comment: "薬師堂",
+            },
+          ],
+        },
+        {
+          name: "明治天皇七里御小休所",
+          kana: "めいじてんのうしちりごしょうきゅうじょ",
+          coordinate: [36.740601, 139.634539],
+          icon: "monument",
+          description:
+            "宮内庁のウェブサイトによると、明治天皇の明治9年 (1876) の東北・北海道巡幸の際に日光にも立ち寄られ、" +
+            "東照宮、二荒山神社、中禅寺湖、華厳滝などに訪れたそうです。ここ七里はその際の休憩所と考えられます。",
+          url: "https://shoryobu.kunaicho.go.jp/Gallery/936ffe08cebc419ca804a4f1d8f56549",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_031404987.webp",
+              comment: "明治天皇七里御小休所",
+            },
+          ],
+        },
+        {
+          name: "筋違橋袂の地蔵尊",
+          kana: "すじかいばしたもとのじぞうそん",
+          coordinate: [36.74388, 139.627828],
+          icon: "monument",
+          description:
+            "国土交通省関東地方整備局のガイドによると、はしかになったときこの地蔵の横にある橋の下をくぐると治る" +
+            "という言い伝えがあり、はしか地蔵とも呼ばれているそうです。",
+          url: "https://www.ktr.mlit.go.jp/utunomiya/utunomiya_nikkomap001.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_032503975.webp",
+              comment: "地蔵尊",
+            },
+          ],
+        },
+        {
+          name: "異人石",
+          kana: "いじんいし",
+          coordinate: [36.744515, 139.626727],
+          icon: "monument",
+          description:
+            "栃木県のウェブサイトによると、明治時代にある外国人が杉並木観賞用としてつくらせたといわれる石製の椅子" +
+            "とのことです。",
+          url: "https://www.pref.tochigi.lg.jp/c10/education/bunkazai/suginamiki/documents/siryouhen2.pdf",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_032701462.webp",
+              comment: "異人石",
+            },
+          ],
+        },
+        {
+          name: "杉並木 (東和町)",
+          coordinate: [36.745144, 139.624875],
+          icon: "camera",
+          description: "JR日光線のガードの西側から 100m ほど松並木があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_033119087.MP.webp",
+              comment: "松並木",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_033007387.webp",
+              comment: "東側入口",
+            },
+          ],
+        },
+        {
+          name: "東武日光軌道線100形電車",
+          coordinate: [36.747402, 139.619146],
+          icon: "monument",
+          description:
+            "東武日光駅前に昭和28年 (1953) から同43年 (1968) にかけて活躍した路面電車が展示されています。" +
+            "国鉄日光駅前から東武日光駅前を経由し男体山のケーブルカーのあった馬返までを結んでいたそうです。" +
+            "馬返は第二いろは坂の分岐地点にあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_033905758.webp",
+              comment: "東武100形電車",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_033929500.webp",
+              comment: "説明板",
+            },
+          ],
+        },
         // 21. 鉢石宿
+        {
+          name: "鉢石宿入江本陣跡",
+          kana: "はついししゅくいりえほんじんあと",
+          coordinate: [36.750182, 139.611168],
+          icon: "honjin",
+          description:
+            "鉢石宿に2軒あった本陣のうちの1軒である入江本陣は「日光・奥州・甲州道中宿村大概帳」や「日光道中略記」で" +
+            "菓子屋であったことが記されています。しかしそれが実際にどこにあったのかを確認できる確かな資料はなく、" +
+            "ざっくりこのあたりであったと推測するしかありません。" +
+            "なお、ここにあった魚要という湯波そば屋は2023年に閉店しました。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_035939481.MP.webp",
+              comment: "入江本陣跡付近",
+            },
+          ],
+        },
+        {
+          name: "鉢石宿高野本陣跡",
+          kana: "はついししゅくたかのほんじんあと",
+          coordinate: [36.751425, 139.608646],
+          icon: "honjin",
+          description:
+            "鉢石宿に2軒あった本陣のうちの1軒で、鉢石会のウェブサイトに本陣を営んでいた高野家が保有するという" +
+            "芭蕉句碑が紹介されています。句碑はサンフィールドの裏にあるそうです。",
+          url: "https://www.hatsuishikai.com",
+        },
+        {
+          name: "日光のおいしい水",
+          coordinate: [36.751075, 139.60808],
+          icon: "monument",
+          description: "厚生省のお墨付きという湧水があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_041201842.webp",
+              comment: "日光のおいしい水",
+            },
+          ],
+        },
+        {
+          name: "旧日光市庁舎",
+          coordinate: [36.750739, 139.607664],
+          icon: "building",
+          description:
+            "国登録有形文化財。大正8年 (1919) に「大名ホテル」として建てられたものの殆ど使われずに売却され、" +
+            "昭和29年 (1954) から日光市庁舎本館として使用されていたとのことです。" +
+            "平成30年 (2018) に役割を終え、今は記念公園となっています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_040527708.webp",
+              comment: "日光のおいしい水",
+            },
+          ],
+        },
+        {
+          name: "神橋",
+          kana: "しんきょう",
+          coordinate: [36.753327, 139.604021],
+          icon: "bridge",
+          description:
+            "国指定重要文化財。奈良時代の末に初代の橋が架けられ、寛永13年 (1636) から現在のような神橋に造り変え" +
+            "られたそうです。神事・将軍社参・勅使・幣帛供進使などでのみ使用され、一般の通行は仮橋 (日光橋) を通行" +
+            "することになっていました。日光道中分間延絵図にも神橋と仮橋の両方が描かれています。" +
+            "現在は ¥300 を納めると橋を渡ることができますが、通り抜けはできません。",
+          url: "http://www.shinkyo.net",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_042147854.webp",
+              comment: "神橋",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_042533970.webp",
+              comment: "日光橋からみた神橋",
+            },
+          ],
+        },
+        {
+          name: "長さか瀧",
+          coordinate: [36.75361, 139.602371],
+          icon: "camera",
+          description: "表参道の長坂の道端から小さな滝が流れています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_043133555.webp",
+              comment: "長さか瀧",
+            },
+          ],
+        },
+        {
+          name: "勝道上人銅像",
+          kana: "しょうどうしょうにんどうぞう",
+          coordinate: [36.754266, 139.601727],
+          icon: "monument",
+          description:
+            "日光山開山の祖である勝道上人の銅像があります。" +
+            "説明板によると、昭和30年 (1955) 日光市政移行を記念して建立されたそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_043325895.webp",
+              comment: "勝道上人銅像",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_043335245.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "輪王寺",
+          kana: "りんのうじ",
+          coordinate: [36.754915, 139.600493],
+          icon: "temple",
+          description:
+            "天平神護2年 (766) に勝道上人が開山したお寺で、空海や円仁らも来山した伝説があります。" +
+            "東日本最大の木造建築という正保2年 (1645) 建立の三仏堂のほか、境内の多数の建造物等が国指定重要文化財と" +
+            "なっています。",
+          url: "https://www.rinnoji.or.jp",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_043600635.MP.webp",
+              comment: "三仏堂",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_043727157.MP.webp",
+              comment: "金剛桜",
+            },
+          ],
+        },
         // 日光東照宮
+        {
+          name: "日光東照宮",
+          coordinate: [36.757875, 139.598757],
+          icon: "shrine",
+          description:
+            "徳川家康を祀った神社で、陽明門をはじめとする美しい装飾の施された建造物の数々や三猿・眠猫の彫刻など、" +
+            "多数の見どころがあります。" +
+            "本殿や陽明門などが国宝に指定されているほか、多数の建物等が国指定重要文化財となっています。" +
+            "奧宮にある宝塔には家康公の神柩が納められているそうです。",
+          url: "https://www.toshogu.jp",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_050811506.MP.webp",
+              comment: "陽明門",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_051031684.MP.webp",
+              comment: "唐門",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_055019012.webp",
+              comment: "神輿舎",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_045233433.webp",
+              comment: "五重塔",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_055236446.webp",
+              comment: "銅燈籠",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_055439816.webp",
+              comment: "三猿",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_051331253.webp",
+              comment: "眠猫",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_052814281.webp",
+              comment: "奧宮宝塔",
+            },
+          ],
+        },
+        {
+          name: "日光二荒山神社",
+          kana: "にっこうふたらさんじんじゃ",
+          coordinate: [36.758348, 139.596386],
+          icon: "shrine",
+          description:
+            "男体山 (二荒山) を御神体とする神社で、勝道上人が神護景雲元年 (767) に二荒山の神を祀る祠を建てたのが" +
+            "由来と伝わっています。二荒山の頂上には同じく上人が創建した奥宮があります。" +
+            "宇都宮の二荒山神社は「ふたあらやま」と読みますが、こちらは「ふたらさん」と読みます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_060824149.webp",
+              comment: "日光二荒山神社",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_060310869.webp",
+              comment: "鳥居",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_060419230.MP.webp",
+              comment: "茅の輪くぐり",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_060345060.webp",
+              comment: "杉に楢のやどり木 (縁結びの御神木)",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_060725055.webp",
+              comment: "良い縁うさぎ",
+            },
+          ],
+        },
+        {
+          name: "良い縁坂",
+          coordinate: [36.755871, 139.596769],
+          icon: "monument",
+          description: "日光二荒山神社の西参道の坂道は「良い縁坂」と名付けられています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_061632230.webp",
+              comment: "良い縁坂",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_061416475.webp",
+              comment: "良い縁坂",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2024/11-04/PXL_20241104_061405797.webp",
+              comment: "良い縁坂",
+            },
+          ],
+        },
       ];
       const displaySpots = initSpots(L, map, spotOverlay, spots);
       new SpotList(displaySpots, iconTypes).detectLandingPage(isbot(navigator.userAgent));
