@@ -95,6 +95,7 @@
     <link rel="stylesheet" href="lib/map_style.css?v=4" />
     <script src="lib/map_helper.js?v=7"></script>
     <script src="routes/oshu.js?v=2"></script>
+    <script src="routes/spots_utsunomiya.js?v=1"></script>
   </head>
   <body>
     <!-- prettier-ignore -->
@@ -130,7 +131,7 @@
 
       // Stations
       const stations = [
-        { name: "17. 宇都宮宿", coordinate: [36.56177, 139.877192] },
+        { name: "17. 宇都宮宿", coordinate: [36.561748, 139.87719] },
         { name: "18. 白沢宿", coordinate: [36.632525, 139.9437457] },
         { name: "19. 氏家宿", coordinate: [36.679781, 139.967574] },
         { name: "20. 喜連川宿", coordinate: [36.71873, 140.025853] },
@@ -147,7 +148,7 @@
       initQueryParamUpdater(map, () => map.fitBounds(stationLayer.getBounds()));
 
       // Spots
-      const spots = [];
+      const spots = [...utsunomiyaSpots];
       initSpots(L, map, spotOverlay, spots);
 
       // Route
