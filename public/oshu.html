@@ -93,7 +93,9 @@
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/app.css?v=1" />
     <link rel="stylesheet" href="lib/map_style.css?v=4" />
+    <link rel="stylesheet" href="lib/spot_list.css?v=1" />
     <script src="lib/map_helper.js?v=7"></script>
+    <script src="lib/spot_list.js?v=1"></script>
     <script src="routes/oshu.js?v=2"></script>
     <script src="routes/spots_utsunomiya.js?v=1"></script>
   </head>
@@ -107,8 +109,13 @@
       <span class="sep">&gt;</span>
       <span id="route-entry">奥州街道 (白河以南)</span>
       <span id="select-entry"></span>
+      <button id="spot-list-open"><i class="fa-solid fa-list"></i></button>
     </h1>
+    <div id="zoom-in-message">
+      <span>ズームインすると見どころが表示されます<br />(宇都宮方から追加中)</span>
+    </div>
     <div id="map"></div>
+    <div id="spot-list" class="non-map-screen"></div>
     <div id="own-gpx" class="non-map-screen"></div>
     <script>
       const map = createMap(L);
@@ -148,8 +155,144 @@
       initQueryParamUpdater(map, () => map.fitBounds(stationLayer.getBounds()));
 
       // Spots
-      const spots = [...utsunomiyaSpots];
-      initSpots(L, map, spotOverlay, spots);
+      const spots = [
+        ...utsunomiyaSpots,
+        {
+          name: "宇都宮二荒山神社",
+          kana: "うつのみやふたあらやまじんじゃ",
+          coordinate: [36.562383, 139.885806],
+          icon: "shrine",
+          description:
+            "崇神天皇の時代に成立したと伝わる大変古い神社で、崇神天皇の第一皇子である豊城入彦命を御祭神としています。" +
+            "下野国一之宮にもなっており、宇都宮という地名は一之宮がなまったものという説があるそうです。" +
+            "日光の二荒山神社は「ふたらさん」と読みますが、こちらは「ふたあらやま」と読みます。",
+          url: "http://futaarayamajinja.jp",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_222512610.webp",
+              comment: "宇都宮二荒山神社",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_222307753.webp",
+              comment: "鳥居",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_222653658.webp",
+              comment: "祭神 豊城入彦命と二荒山神社 説明板",
+            },
+          ],
+        },
+        {
+          name: "鉄砲町通り",
+          coordinate: [36.561324, 139.884218],
+          icon: "guide",
+          description:
+            "旧町名杉原町の説明板があり、江戸時代宇都宮城下図にて奥州街道の道順が示されています。<br/>" +
+            "<span class='routing'>白河方</span> 右折して脇道に入ります。<br/>" +
+            "<span class='routing'>江戸方</span> 左折して大通りに入ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_222054611.webp",
+              comment: "旧町名 杉原町",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_223426590.webp",
+              comment: "鉄砲町通り北側入口",
+            },
+          ],
+        },
+        {
+          name: "オリオン通り",
+          coordinate: [36.560194, 139.883987],
+          icon: "guide",
+          description:
+            "街道の道筋はここで直角に曲がります。<br/>" +
+            "<span class='routing'>白河方</span> アーケードに入り左折します。<br/>" +
+            "<span class='routing'>江戸方</span> 右折しアーケードを出て鉄砲町通りに入ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_223540321.webp",
+              comment: "オリオン通り北側入口",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_223615937.webp",
+              comment: "オリオン通りアーケード",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_223953100.webp",
+              comment: "旧町名 日野町",
+            },
+          ],
+        },
+        {
+          name: "大町通り",
+          coordinate: [36.560133, 139.888415],
+          icon: "guide",
+          description:
+            "大町通りの西端で道筋が折れ曲がっています。<br/>" +
+            "<span class='routing'>白河方</span> オリオン通りの延長線上にあるひのまち通りを経由し" +
+            "突き当りを左折、続いて右折して大町通りに入ります。<br/>" +
+            "<span class='routing'>江戸方</span> 大町通りを出たら左折、続いて右折しひのまち通りに入ります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_224421404.webp",
+              comment: "大町通り",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_224424933.webp",
+              comment: "旧町名 大町",
+            },
+          ],
+        },
+        {
+          name: "旧道分岐",
+          coordinate: [36.559275, 139.892667],
+          icon: "guide",
+          description:
+            "大町通りの東端で道筋が折れ曲がっています。<br/>" +
+            "<span class='routing'>白河方</span> 左折し上河原通りに入ります。<br/>" +
+            "<span class='routing'>江戸方</span> 右折し大町通りに入ります。",
+        },
+        {
+          name: "三峰山神社",
+          kana: "みつみねさんじんじゃ",
+          coordinate: [36.561496, 139.894748],
+          icon: "shrine",
+          description:
+            "樋爪氏の墓と書かれた説明板があり、中にある五輪塔は文治5年 (1189) に源頼朝が奥州藤原氏を攻めたとき" +
+            "祈願成就のお礼の生贄として二荒山神社に献納された樋爪俊衡と弟季衡の墓と伝えられているそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_225149665.webp",
+              comment: "三峰山神社",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_225138214.webp",
+              comment: "樋爪氏の墓",
+            },
+          ],
+        },
+        {
+          name: "旧篠原家住宅",
+          kana: "きゅうしのはらけじゅうたく",
+          coordinate: [36.561858, 139.896834],
+          icon: "building",
+          description:
+            "国指定重要文化財。明治28年 (1895) に建てられた店蔵で、戦前まで醤油醸造と肥料商を営んでいたそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_225624464.webp",
+              comment: "旧篠原家住宅",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_225609841.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+      ];
+      const displaySpots = initSpots(L, map, spotOverlay, spots);
+      new SpotList(displaySpots, iconTypes).detectLandingPage(isbot(navigator.userAgent));
 
       // Route
       L.polyline(oshuRoute, { color: "red", weight: 5 }).addTo(routeOverlay);

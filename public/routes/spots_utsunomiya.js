@@ -6,6 +6,12 @@ const utsunomiyaSpots = [
     icon: "honjin",
     description:
       "追分の南側に本陣跡の説明板があります。200坪 (661㎡) 近い大きな建物があったそうですが現存しません。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-24/PXL_20250123_221042650.webp",
+        comment: "宇都宮宿本陣跡",
+      },
+    ],
   },
   {
     name: "日光街道と奥州街道の追分",
