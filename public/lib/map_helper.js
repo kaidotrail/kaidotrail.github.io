@@ -37,12 +37,7 @@ const createMap = (leaflet) => {
         callback: (e) => {
           const lat = Math.round(e.latlng.lat * 10000000) / 10000000;
           const lng = Math.round(e.latlng.lng * 10000000) / 10000000;
-          const zoom = map.getZoom();
-          window.open(
-            `https://www.google.com/maps/@?api=1&map_action=map&map_action=map` +
-              `&center=${lat},${lng}&zoom=${zoom}&basemap=roadmap`,
-            "_blank",
-          );
+          window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`, "_blank");
         },
       },
       {
