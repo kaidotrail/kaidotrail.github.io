@@ -411,11 +411,17 @@ const buildPopupContent = (spot) => {
     content += `<p class="link-area">`;
     if (spot.url) {
       const displayUrl = spot.url.replace("https://", "").replace("http://", "");
-      content +=
-        (spot.url.endsWith(".pdf")
-          ? `<i class="fa-solid fa-file-pdf" style="color:red"></i>`
-          : `<i class="fa-solid fa-globe" style="color:darkblue"></i>`) +
-        `<a href="${spot.url}" target="_blank">${displayUrl}</a> `;
+      if (spot.urlDead) {
+        content +=
+          `<i class="fa-solid fa-link-slash" style="color:red"></i><s>${displayUrl}</s> (リンク切れ) ` +
+          `<a href="https://web.archive.org/web/*/${spot.url}" target="_blank">[Internet Archive]</a>`;
+      } else {
+        content +=
+          (spot.url.endsWith(".pdf")
+            ? `<i class="fa-solid fa-file-pdf" style="color:red"></i>`
+            : `<i class="fa-solid fa-globe" style="color:darkblue"></i>`) +
+          `<a href="${spot.url}" target="_blank">${displayUrl}</a> `;
+      }
     }
     if (spot.x) {
       content +=
