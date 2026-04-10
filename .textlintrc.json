@@ -8,7 +8,7 @@
       "no-exclamation-question-mark": false,
       "max-kanji-continuous-len": {
         "max": 6,
-        "allow": ["農研機構農業環境研究部門"]
+        "allow": ["農研機構農業環境研究部門", "五海道其外分間絵図"]
       }
     }
   }
