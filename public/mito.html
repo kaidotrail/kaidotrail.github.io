@@ -102,6 +102,7 @@
     <link rel="stylesheet" href="lib/app.css?v=1" />
     <link rel="stylesheet" href="lib/map_style.css?v=3" />
     <script src="lib/map_helper.js?v=8"></script>
+    <script src="routes/mito.js?v=1"></script>
   </head>
   <body>
     <!-- prettier-ignore -->
@@ -119,6 +120,8 @@
     <div id="own-gpx" class="non-map-screen"></div>
     <script>
       const map = createMap(L);
+      const routeOverlay = L.layerGroup();
+      routeOverlay.addTo(map);
       const stationOverlay = L.layerGroup();
       stationOverlay.addTo(map);
       const spotOverlay = L.layerGroup();
@@ -128,6 +131,7 @@
       const layerControl = initMap(L, map, {
         宿場: stationOverlay,
         見どころ: spotOverlay,
+        おすすめ歩行ルート: routeOverlay,
         "kagaorange の軌跡": gpxOverlay,
       });
       activateJinsokuMap(L, layerControl);
@@ -136,8 +140,26 @@
 
       // Stations
       const stations = [
-        { name: "千住宿", coordinate: [35.750535, 139.802761] },
-        { name: "水戸宿", coordinate: [36.364974, 140.491184] },
+        { name: "1. 千住宿", coordinate: [35.750535, 139.802761] },
+        { name: "2. 新宿", coordinate: [35.760252, 139.859105] },
+        { name: "3. 松戸宿", coordinate: [35.780437, 139.896395] },
+        { name: "4. 小金宿", coordinate: [35.832008, 139.931643] },
+        { name: "5. 我孫子宿", coordinate: [35.87102, 140.015702] },
+        { name: "6. 取手宿", coordinate: [35.891505, 140.065619] },
+        { name: "7. 藤代宿", coordinate: [35.924025, 140.11377] },
+        { name: "8. 若柴宿", coordinate: [35.93397, 140.148157] },
+        { name: "9. 牛久宿", coordinate: [35.96713, 140.136014] },
+        { name: "10. 荒川沖宿", coordinate: [36.030939, 140.162782] },
+        { name: "11. 中村宿", coordinate: [36.055006, 140.1727045] },
+        { name: "12. 土浦宿", coordinate: [36.082898, 140.201595] },
+        { name: "13. 中貫宿", coordinate: [36.121297, 140.210225] },
+        { name: "14. 稲吉宿", coordinate: [36.142107, 140.234839] },
+        { name: "15. 府中宿", coordinate: [36.190469, 140.274242] },
+        { name: "16. 竹原宿", coordinate: [36.214551, 140.314708] },
+        { name: "17. 片倉宿", coordinate: [36.240143, 140.35514] },
+        { name: "18. 小幡宿", coordinate: [36.26448, 140.395592] },
+        { name: "19. 長岡宿", coordinate: [36.301704, 140.435719] },
+        { name: "20. 水戸宿", coordinate: [36.364974, 140.491184] },
       ];
       const stationLayer = L.featureGroup();
       setMarkers(L, stationOverlay, stationLayer, stations);
@@ -146,6 +168,9 @@
       // Spots
       const spots = [];
       initSpots(L, map, spotOverlay, spots);
+
+      // Route
+      L.polyline(mitoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2025-11-22.gpx", "blue"); // #1 千住→取手
