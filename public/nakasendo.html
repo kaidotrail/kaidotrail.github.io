@@ -128,6 +128,8 @@
       shokiRouteOverlay.addTo(map);
       const kazunomiyaRouteOverlay = L.layerGroup();
       kazunomiyaRouteOverlay.addTo(map);
+      const usuiOldRouteOverlay = L.layerGroup();
+      usuiOldRouteOverlay.addTo(map);
       const wadaOldRouteOverlay = L.layerGroup();
       wadaOldRouteOverlay.addTo(map);
       const dotaOldRouteOverlay = L.layerGroup();
@@ -144,6 +146,7 @@
         おすすめ歩行ルート: routeOverlay,
         初期中山道ルート: shokiRouteOverlay,
         碓氷峠和宮ルート: kazunomiyaRouteOverlay,
+        碓氷峠廃道: usuiOldRouteOverlay,
         和田峠古道ルート: wadaOldRouteOverlay,
         土田ルート: dotaOldRouteOverlay,
         "kagaorange の軌跡": gpxOverlay,
@@ -14843,6 +14846,7 @@
       L.polyline(kusatsuToSanjyoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
       L.polyline(shokiNakasendoRoute, { color: "lightcoral", weight: 5 }).addTo(shokiRouteOverlay);
       L.polyline(kazunomiyaRoute, { color: "lightcoral", weight: 5 }).addTo(kazunomiyaRouteOverlay);
+      L.polyline(usuiOldRoute, { color: "lightcoral", weight: 5 }).addTo(usuiOldRouteOverlay);
       L.polyline(wadaOldRoute, { color: "lightcoral", weight: 5 }).addTo(wadaOldRouteOverlay);
       L.polyline(dotaRoute, { color: "lightcoral", weight: 5 }).addTo(dotaOldRouteOverlay);
 
