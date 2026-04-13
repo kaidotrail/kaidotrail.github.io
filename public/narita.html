@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>成田街道 (佐倉街道) の足跡 - 旧街道足跡マップ</title>
+    <title>成田街道のルート・足跡 - 旧街道足跡マップ</title>
     <meta
       name="description"
       content="旧成田街道 (旧佐倉街道) のルート解説・実際に歩いたGPSログをGoogleマップや古地図等に重ねて見ることができるページです。"
     />
-    <meta property="og:title" content="成田街道 (佐倉街道) の足跡 - 旧街道足跡マップ" />
+    <meta property="og:title" content="成田街道のルート・足跡 - 旧街道足跡マップ" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="旧街道足跡マップ" />
     <meta
       property="og:description"
       content="成田街道 (佐倉街道) のルート解説・実際に歩いたGPSログをGoogleマップや古地図等に重ねて見ることができるページです。"
     />
-    <meta property="og:url" content="https://kaidotrail.github.io/sakura.html" />
+    <meta property="og:url" content="https://kaidotrail.github.io/narita.html" />
     <meta property="og:image" content="https://kaidotrail.github.io/lib/ogp1200.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -94,6 +94,7 @@
     <link rel="stylesheet" href="lib/app.css?v=1" />
     <link rel="stylesheet" href="lib/map_style.css?v=4" />
     <script src="lib/map_helper.js?v=7"></script>
+    <script src="routes/narita.js?v=1"></script>
   </head>
   <body>
     <!-- prettier-ignore -->
@@ -103,7 +104,7 @@
     <h1>
       <a href="./"><span class="logo-font">旧街道足跡マップ</span></a>
       <span class="sep">&gt;</span>
-      <span id="route-entry">成田街道 (佐倉街道)</span>
+      <span id="route-entry">成田街道</span>
       <span id="select-entry"></span>
       <span style="color: indianred">※攻略中</span>
     </h1>
@@ -111,6 +112,8 @@
     <div id="own-gpx" class="non-map-screen"></div>
     <script>
       const map = createMap(L);
+      const routeOverlay = L.layerGroup();
+      routeOverlay.addTo(map);
       const stationOverlay = L.layerGroup();
       stationOverlay.addTo(map);
       const spotOverlay = L.layerGroup();
@@ -140,6 +143,9 @@
       // Spots
       const spots = [];
       initSpots(L, map, spotOverlay, spots);
+
+      // Route
+      L.polyline(naritaRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2026-04-04.gpx", "blue"); // #0 成田→新勝寺
