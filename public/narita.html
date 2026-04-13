@@ -130,7 +130,7 @@
       activateKonjakuMap(L, layerControl, "kanto", "01");
 
       // Stations
-      const markers = [
+      const stations = [
         { name: "新宿", coordinate: [35.760253, 139.859104] },
         { name: "八幡宿", coordinate: [35.7218572, 139.9295568] },
         { name: "船橋宿", coordinate: [35.69764, 139.987479] },
@@ -142,7 +142,7 @@
         { name: "成田山新勝寺", coordinate: [35.785788, 140.318263] },
       ];
       const stationLayer = L.featureGroup();
-      setMarkers(L, stationOverlay, stationLayer, markers);
+      setMarkers(L, stationOverlay, stationLayer, stations);
       initQueryParamUpdater(map, () => map.fitBounds(stationLayer.getBounds()));
 
       // Spots
