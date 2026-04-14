@@ -168,6 +168,11 @@
       activateKonjakuMap(L, layerControl, "chukyo", "2man");
       activateKonjakuMap(L, layerControl, "omi", "2man");
       activateKonjakuMap(L, layerControl, "keihansin", "2man");
+      activateKonjakuMap(L, layerControl, "fukushima", "00");
+      activateKonjakuMap(L, layerControl, "sendai", "00");
+      activateKonjakuMap(L, layerControl, "iwatekennan", "00");
+      activateKonjakuMap(L, layerControl, "morioka", "00");
+      activateKonjakuMap(L, layerControl, "aomori", "00");
       initQueryParamUpdater(map, () => map.setView([35.6839621, 139.7743418], 13));
       map.on("click", (e) => {
         const lat = Math.round(e.latlng.lat * 10000000) / 10000000;
