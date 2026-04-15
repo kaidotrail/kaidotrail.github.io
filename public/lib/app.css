@@ -22,3 +22,8 @@ footer a {
 .border-silver {
   border: 1px solid silver;
 }
+
+.flat-list {
+  list-style: none inside none;
+  padding-left: 0;
+}
