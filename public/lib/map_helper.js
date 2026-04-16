@@ -104,6 +104,7 @@ const initMap = (leaflet, map, overlays) => {
   const legend = leaflet.control({ position: "bottomleft" });
   if (overlays) {
     const hasAltRoute = Object.keys(overlays).filter((k) => k.endsWith("ルート")).length > 1;
+    const hasAltGpx = Object.keys(overlays).filter((k) => k.endsWith("足跡")).length > 1;
     legend.onAdd = () => {
       const div = leaflet.DomUtil.create("div", "map-legend");
       div.innerHTML =
@@ -112,7 +113,11 @@ const initMap = (leaflet, map, overlays) => {
         (hasAltRoute
           ? `<span style="color: lightcoral"><i class="fa-solid fa-minus"></i> 代替ルート</span><br/>`
           : ``) +
-        `<span style="color: blue"><i class="fa-solid fa-minus"></i> 足跡 (GPS ログ)</span>` +
+        `<span style="color: blue"><i class="fa-solid fa-minus"></i></span>` +
+        (hasAltGpx
+          ? `<span style="color: deepskyblue"><i class="fa-solid fa-minus"></i></span>`
+          : ``) +
+        `<span style="color: blue"> 足跡 (GPS ログ)</span>` +
         `<div id="terms-link"><a href="terms.html">利用規約</a></div>`;
       return div;
     };
@@ -445,7 +450,7 @@ const buildPopupContent = (spot) => {
       }
       content += `${spot.pictures[i].comment ?? ""}<br/>`;
       try {
-        const tokens = URL.parse(spot.pictures[i].url).pathname.split("/");
+        const tokens = decodeURI(URL.parse(spot.pictures[i].url).pathname).split("/");
         const date = new Date(tokens[3] + "-" + tokens[4]).toLocaleDateString();
         content += `<span class="credit">${date} ${tokens[2]}</span>`;
       } catch (e) {
