@@ -99,7 +99,7 @@
     <link rel="stylesheet" href="lib/spot_list.css?v=2" />
     <script src="lib/map_helper.js?v=13"></script>
     <script src="lib/spot_list.js?v=3"></script>
-    <script src="routes/nakasendo.js?v=5"></script>
+    <script src="routes/nakasendo.js?v=6"></script>
     <script src="routes/spot_nihonbashi.js?v=1"></script>
     <script src="routes/section_hirao.js?v=2"></script>
     <script src="routes/section_kusatsu.js?v=1"></script>
@@ -2289,6 +2289,23 @@
           ],
         },
         {
+          name: "長坂",
+          coordinate: [36.3706087, 138.6591147],
+          icon: "guide",
+          description:
+            "長坂付近の中山道の道筋は二手に分かれており、両方が街道を構成していたと考えられます。" +
+            "安中市のウェブサイトに掲載されている安政5年 (1858) の須藤登喜江家資料中山道絵図では両方の道筋が" +
+            "はっきりと描かれているほか、文化3年 (1806) の分間延絵図でも北側の道がショートカット道としてうっすらと" +
+            "描かれているように見えます。",
+          url: "https://www.city.annaka.lg.jp/uploaded/attachment/7594.pdf",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/よしちぃ/2026/04-12/4125.webp",
+              comment: "長坂の坂上",
+            },
+          ],
+        },
+        {
           name: "思婦石",
           kana: "おもふいし",
           coordinate: [36.3708741, 138.6583346],
@@ -2352,19 +2369,18 @@
           ],
         },
         {
-          name: "聖沢",
-          kana: "ひじりざわ",
-          coordinate: [36.368304, 138.6540109],
+          name: "渡渉",
+          coordinate: [36.3660194, 138.6458944],
           icon: "guide",
           description: "沢を渡ります。水量が多い際は渡るのは危険です。",
           pictures: [
             {
               url: "https://kaidotrail.github.io/img/よしちぃ/2026/04-12/4021.webp",
-              comment: "聖沢",
+              comment: "沢",
             },
             {
               url: "https://kaidotrail.github.io/img/よしちぃ/2026/04-12/4123.webp",
-              comment: "聖沢 上流方向",
+              comment: "沢 上流方向",
             },
           ],
         },
@@ -14955,6 +14971,7 @@
       L.polyline(kusatsuToSanjyoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
       L.polyline(shokiNakasendoRoute, { color: "lightcoral", weight: 5 }).addTo(shokiRouteOverlay);
       L.polyline(kazunomiyaRoute, { color: "lightcoral", weight: 5 }).addTo(kazunomiyaRouteOverlay);
+      L.polyline(nagasakaAltRoute, { color: "lightcoral", weight: 5 }).addTo(usuiOldRouteOverlay);
       L.polyline(usuiOldRoute, { color: "lightcoral", weight: 5 }).addTo(usuiOldRouteOverlay);
       L.polyline(wadaOldRoute, { color: "lightcoral", weight: 5 }).addTo(wadaOldRouteOverlay);
       L.polyline(dotaRoute, { color: "lightcoral", weight: 5 }).addTo(dotaOldRouteOverlay);
