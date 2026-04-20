@@ -94,7 +94,7 @@
     <link rel="stylesheet" href="lib/app.css?v=1" />
     <link rel="stylesheet" href="lib/map_style.css?v=4" />
     <script src="lib/map_helper.js?v=7"></script>
-    <script src="routes/oshu_matsumae.js?v=1"></script>
+    <script src="routes/oshu_matsumae.js?v=2"></script>
   </head>
   <body>
     <!-- prettier-ignore -->
@@ -116,6 +116,8 @@
       routeOverlay.addTo(map);
       const sendaiAltRouteOverlay = L.layerGroup();
       sendaiAltRouteOverlay.addTo(map);
+      const nohejiShortRouteOverlay = L.layerGroup();
+      nohejiShortRouteOverlay.addTo(map);
       const stationOverlay = L.layerGroup();
       stationOverlay.addTo(map);
       const spotOverlay = L.layerGroup();
@@ -127,6 +129,7 @@
         見どころ: spotOverlay,
         おすすめ歩行ルート: routeOverlay,
         仙台宿内別ルート: sendaiAltRouteOverlay,
+        野辺地近道: nohejiShortRouteOverlay,
         "kagaorange の足跡": gpxOverlay,
       });
       activateKonjakuMap(L, layerControl, "fukushima", "00");
@@ -236,6 +239,9 @@
       L.polyline(oshuMatsumaeRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
       L.polyline(sendaiAltRoute1, { color: "lightcoral", weight: 5 }).addTo(sendaiAltRouteOverlay);
       L.polyline(sendaiAltRoute2, { color: "lightcoral", weight: 5 }).addTo(sendaiAltRouteOverlay);
+      L.polyline(nohejiShortRoute, { color: "lightcoral", weight: 5 }).addTo(
+        nohejiShortRouteOverlay,
+      );
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2025-08-23.gpx", "blue"); // #1 白河→須賀川
