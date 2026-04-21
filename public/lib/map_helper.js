@@ -640,21 +640,19 @@ const initOwnGpx = (leaflet, map) => {
       for (const file of input.files) {
         const url = window.URL.createObjectURL(file);
         new leaflet.GPX(url, {
-          async: true,
+          async: false,
           polyline_options: { color: "lime", weight: 2 },
           markers: { startIcon: null, endIcon: null },
         })
           .on("error", (e) => console.error("GPX の読み込みに失敗しました: " + String(e)))
           .on("loaded", async (e) => {
             window.URL.revokeObjectURL(url);
-            await navigator.locks.request("gpx-files", async () => {
-              bounds.extend(e.target.getBounds());
-              map.fitBounds(bounds);
-            });
-            toggleOwnGpx();
+            bounds.extend(e.target.getBounds());
+            map.fitBounds(bounds);
           })
           .addTo(map);
       }
+      toggleOwnGpx();
     },
     false,
   );
