@@ -881,7 +881,7 @@ const kusatsuToSanjyoSpots = [
         comment: "東海道中膝栗毛の弥次喜多像",
       },
       {
-        url: "https://kaidotrail.github.io/img/kagaorange/2023/07-17/PXL_20240505_023234531.webp",
+        url: "https://kaidotrail.github.io/img/kagaorange/2024/05-05/PXL_20240505_023234531.webp",
         comment: "高山彦九郎皇居望拝之趾",
       },
     ],
@@ -918,7 +918,7 @@ const kusatsuToSanjyoSpots = [
     name: "建礼門",
     kana: "けんれいもん",
     coordinate: [35.02323, 135.762116],
-    icon: "monument",
+    icon: "building",
     description:
       "京都御所の南に位置する門で、明治天皇が明治元年に東京に向けて出発された際の出発点です。" +
       "特別な時にだけ開かれ、特別な人しか通ることができませんが、間近で見ることはできます。",
