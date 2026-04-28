@@ -40,6 +40,32 @@ const shirakawaSpots = [
     ],
   },
   {
+    name: "天神神社",
+    kana: "てんじんじんじゃ",
+    coordinate: [37.127868, 140.204342],
+    icon: "shrine",
+    description:
+      "標高 11m という天神山に鎮座する神社で、城下町防衛の重要拠点でもあったことなどを記した説明板があります。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_050440.webp",
+        comment: "天神神社",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_050302.webp",
+        comment: "鳥居",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_050218.webp",
+        comment: "説明板",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_050249.webp",
+        comment: "参道からの眺め",
+      },
+    ],
+  },
+  {
     name: "月夜見の庭",
     kana: "つくよみのにわ",
     coordinate: [37.128087, 140.205321],
