@@ -197,4 +197,138 @@ const shirakawaSpots = [
       },
     ],
   },
+  {
+    name: "大谷忠吉本店",
+    kana: "おおやちゅうきちほんてん",
+    coordinate: [37.126409, 140.216981],
+    icon: "sakagura",
+    description:
+      "明治12年 (1879) 創業の酒蔵で、白陽 (はくよう) と登龍 (とりゅう) という日本酒を造っています。" +
+      "お店の前に「萩原朔太郎の妻美津子の生家」と書かれた説明板があり、当地で酒造業を営みながら詩人として活躍した" +
+      "大谷忠一郎が同じく詩人である萩原朔太郎に師事し、その縁から忠一郎の妹が萩原朔太郎と結婚したとのことです。",
+    url: "https://www.hakuyou.co.jp",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_060957085.webp",
+        comment: "萩原朔太郎の妻美津子の生家 説明板",
+      },
+    ],
+  },
+  {
+    name: "道標",
+    kana: "みちしるべ",
+    coordinate: [37.125777, 140.218257],
+    icon: "monument",
+    description:
+      "街道筋が直角に折れ曲がる交差点の南西の角に道標があります。" +
+      "台座に説明が記されており、嘉永2年 (1849) に建てられた道標を複製したものだそうです。" +
+      "西側に「左 せんだい あいづ でハ ゑちご」、北側に「左 なたくら いハき 水戸」「右 日光 江戸」と彫られている" +
+      "とのことです。「でハ」は出羽、「いハき」はいわきを示しているようです。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_061243177.webp",
+        comment: "道標",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_061251071.webp",
+        comment: "道標 南側",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_061256383.webp",
+        comment: "道標 (複製) 説明板",
+      },
+    ],
+  },
+  {
+    name: "横町",
+    kana: "よこまち",
+    coordinate: [37.127525, 140.219292],
+    icon: "monument",
+    description:
+      "スーパーの駐車場の角に横町と書かれた説明板があります。" +
+      "小峰城の東側に接する町で、町の北端に三之丸に入る横町門が、東側に藩の家臣が住む番士小路があったそうです。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_061544583.webp",
+        comment: "横町 説明板",
+      },
+    ],
+  },
+  {
+    name: "道標",
+    kana: "みちしるべ",
+    coordinate: [37.129801, 140.220531],
+    icon: "monument",
+    description:
+      "田町バス停の近くに道標があります。270m ほど南方にある道標と瓜二つなので、同一のオリジナルから複製されたもの" +
+      "かもしれません。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_061908480.MP.webp",
+        comment: "道標",
+      },
+    ],
+  },
+  {
+    name: "小峰城跡",
+    kana: "こみねじょうあと",
+    coordinate: [37.132698, 140.213882],
+    icon: "building",
+    description:
+      "国指定史跡。結城氏→蒲生氏→上杉氏→蒲生氏→丹羽氏→榊原氏→本多氏→奥平松平氏→結城松平氏→久松松平氏→" +
+      "阿部氏と城主が目まぐるしく入れ替わったのち戊辰戦争で落城した激動の歴史を持つ城です。平成3年 (1991) に木造で" +
+      "復元された三重櫓は小峰城の実質的な天守にあたる建物で、現在の白河のシンボルとなっています。" +
+      "東日本大震災で石垣が崩落しましたが、修復が行われました。",
+    url: "https://www.city.shirakawa.fukushima.jp/page/page001390.html",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_064702548.webp",
+        comment: "小峰城三重櫓",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_063734977.webp",
+        comment: "三重櫓 内部",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_063939332.webp",
+        comment: "三重櫓から西方",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_064103608.webp",
+        comment: "三重櫓から東方",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_063505130.webp",
+        comment: "三重櫓 説明板",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_064529237.webp",
+        comment: "前御門",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_064624142.webp",
+        comment: "本丸御殿跡",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_064322696.webp",
+        comment: "おとめ桜",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_063230957.webp",
+        comment: "帯曲輪門",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_070348111.webp",
+        comment: "小峰城跡 説明板",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_062929525.webp",
+        comment: "東日本大震災からの復旧 説明板",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_062940299.webp",
+        comment: "歴代領主・藩主・年表",
+      },
+    ],
+  },
 ];
