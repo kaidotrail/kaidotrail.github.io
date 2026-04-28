@@ -26,7 +26,8 @@ const shirakawaSpots = [
     coordinate: [37.12725, 140.205259],
     icon: "building",
     description:
-      "街道筋から門前通りが分岐する角に白壁の美しい呉服店の建物と蔵があります。" +
+      "街道筋から門前通りが分岐する角に白壁の美しい呉服店の建物と蔵があります。白河市の歴史的風致形成建造物の" +
+      "プレートがあり、蔵は明治26年 (1893)、店舗兼住居は大正2年 (1913) の建築だそうです。" +
       "新町 (しんちょう) と書かれた説明板もあり、宿場の江戸側の入口であり防御の役割を担っていたと解説されています。",
     pictures: [
       {
@@ -147,16 +148,31 @@ const shirakawaSpots = [
     icon: "monument",
     description:
       "吉田屋の看板が掛かる建物の横の蔵の前に中町と書かれた説明板があります。" +
-      "かつては城の正面入口にあたる大手 (追手) があったほか、高札場もここ中町にあったそうです。" +
-      "付近には白壁の美しい蔵があります。",
+      "かつては城の正面入口にあたる大手 (追手) があったほか、高札場もここ中町にあったそうです。",
     pictures: [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_054029487.webp",
         comment: "説明板",
       },
+    ],
+  },
+  {
+    name: "大谷家住宅",
+    kana: "おおやけじゅうたく",
+    coordinate: [37.128043, 140.212153],
+    icon: "building",
+    description:
+      "美しい白壁の蔵や建物があり、歴史的風致形成建造物のプレートがあります。" +
+      "明治後期に本町にある大谷忠吉 (おおやちゅうきち) 本店から味噌醸造店として分家・創業し、昭和52年 (1977) 頃" +
+      "まで営業していたそうです。",
+    pictures: [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_054125400.webp",
-        comment: "白壁の蔵",
+        comment: "大谷家住宅",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_051944.webp",
+        comment: "歴史的風致形成建造物 大谷家住宅建造物群",
       },
     ],
   },
@@ -247,8 +263,16 @@ const shirakawaSpots = [
     url: "https://www.hakuyou.co.jp",
     pictures: [
       {
-        url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_060957085.webp",
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_053228.webp",
+        comment: "大谷忠吉本店",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_053239.webp",
         comment: "萩原朔太郎の妻美津子の生家 説明板",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_053320.webp",
+        comment: "酒蔵の湧水 冷やし足湯",
       },
     ],
   },
@@ -304,6 +328,21 @@ const shirakawaSpots = [
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_061908480.MP.webp",
         comment: "道標",
+      },
+    ],
+  },
+  {
+    name: "津島神社",
+    kana: "つしまじんじゃ",
+    coordinate: [37.130007, 140.221056],
+    icon: "shrine",
+    description:
+      "鳥居の横に田町と書かれた説明板があります。北側を阿武隈川と接する町で、江戸時代中頃まで阿武隈川は歩いて渡って" +
+      "いたそうです。町の北側に木戸があったほか、中央付近から城内に入る田町門があったそうです。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_054237.webp",
+        comment: "津島神社",
       },
     ],
   },

@@ -93,7 +93,9 @@
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/app.css?v=1" />
     <link rel="stylesheet" href="lib/map_style.css?v=4" />
+    <link rel="stylesheet" href="lib/spot_list.css?v=1" />
     <script src="lib/map_helper.js?v=7"></script>
+    <script src="lib/spot_list.js?v=1"></script>
     <script src="routes/oshu_matsumae.js?v=2"></script>
     <script src="routes/spots_shirakawa.js?v=1"></script>
   </head>
@@ -108,8 +110,15 @@
       <span id="route-entry">奥州街道 (白河以北)</span>
       <span id="select-entry"></span>
       <span style="color: indianred">※攻略中</span>
+      <button id="spot-list-open"><i class="fa-solid fa-list"></i></button>
     </h1>
+    <div id="zoom-in-message">
+      <!--
+      <span>ズームインすると見どころが表示されます<br />(白河方から追加中)</span>
+      -->
+    </div>
     <div id="map"></div>
+    <div id="spot-list" class="non-map-screen"></div>
     <div id="own-gpx" class="non-map-screen"></div>
     <script>
       const map = createMap(L);
@@ -142,7 +151,7 @@
       // Stations
       const stations = [
         { name: "27. 白河宿", coordinate: [37.126858, 140.215489] },
-        { name: "28. 根田宿", coordinate: [37.141648, 140.237804] },
+        { name: "28. 根田宿", coordinate: [37.141603, 140.238] },
         { name: "29. 小田川宿", coordinate: [37.159517, 140.26159] },
         { name: "30. 太田川宿", coordinate: [37.171674, 140.275398] },
         { name: "31. 踏瀬宿", coordinate: [37.182238, 140.290184] },
@@ -233,8 +242,198 @@
       initQueryParamUpdater(map, () => map.fitBounds(stationLayer.getBounds()));
 
       // Spots
-      const spots = [...shirakawaSpots];
-      initSpots(L, map, spotOverlay, spots);
+      const spots = [
+        ...shirakawaSpots,
+        {
+          name: "名号塔・石碑群",
+          kana: "みょうごうとう・せきひぐん",
+          coordinate: [37.13319, 140.222626],
+          icon: "monument",
+          description:
+            "田町大橋の北詰東側に南無阿弥陀佛と彫られた名号塔があります。その隣には阿武隈川水災物故者各々と書かれた" +
+            "卒塔婆が立つ石碑があり、水害被災者の供養塔のようです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_054918.webp",
+              comment: "名号塔・石碑群",
+            },
+          ],
+        },
+        {
+          name: "褜姫神社",
+          kana: "えなひめじんじゃ",
+          coordinate: [37.136039, 140.223687],
+          icon: "shrine",
+          description:
+            "縁起を記した説明板によると、兵法家鬼一法眼の息女皆鶴姫を祭る神社とのことです。" +
+            "京都から平泉を目指す義経を追いかけてきた皆鶴姫がこの地で病に倒れたことが由来の社で、遺品の梅が植えられ" +
+            "「八房の梅」が咲いたとの逸話もあるそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_055443.webp",
+              comment: "褜姫神社",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_055545.webp",
+              comment: "縁起",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_055536.webp",
+              comment: "石碑",
+            },
+          ],
+        },
+        {
+          name: "仙台藩士戊辰戦没之碑",
+          kana: "せんだいはんしぼしんせんえきのひ",
+          coordinate: [37.139436, 140.225796],
+          icon: "monument",
+          description:
+            "明治2年 (1869) に建てられた戦死供養塔と、明治23年 (1890) に建てられた仙台藩士戊辰戦没之碑が" +
+            "あります。戦死供養塔は白河周辺で戦死した仙台藩士150名余を葬った墓だそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_060252.webp",
+              comment: "仙台藩士戊辰戦没之碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_060247.webp",
+              comment: "仙台藩からす組の旗",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_060305.webp",
+              comment: "戦死供養塔 説明板",
+            },
+          ],
+        },
+        {
+          name: "女石追分道標",
+          kana: "おんないしおいわけみちしるべ",
+          coordinate: [37.140436, 140.226315],
+          icon: "monument",
+          description:
+            "「左 会津ゑちご道」「右 仙たい松前道」と彫られた道標があります。元々は 100m 南の追分にあったそう" +
+            "そうですが失われたため、平成30年 (2018) に復元したそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_060446.webp",
+              comment: "女石追分道標",
+            },
+          ],
+        },
+        {
+          name: "遊女志げ女の碑",
+          kana: "ゆうじょしげじょのひ",
+          coordinate: [37.139829, 140.22684],
+          icon: "monument",
+          description:
+            "昭和29年 (1954) に建立されたという遊女しげの石碑があります。" +
+            "白河の坂田屋という旅籠に抱えられていた遊女しげは、長州藩出身で奥羽鎮撫総督参謀の世良修蔵と馴染みに" +
+            "なったが、世良は白河は危険と察して逃れ、しげはその脱出を手助けしたと疑われ会津藩士に殺害されたとの" +
+            "ことです。その後、坂田屋の下男が会津藩士を追い、この地でしげの仇を討ったそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_060823.webp",
+              comment: "遊女志げ女之碑",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_060817.webp",
+              comment: "説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_060804.webp",
+              comment: "石塔群",
+            },
+          ],
+        },
+        {
+          name: "旧道分岐",
+          coordinate: [37.1403446, 140.2324319],
+          icon: "guide",
+          description:
+            "<span class='routing'>仙台方</span> 国道の左手に旧道が分岐しています。" +
+            "すぐ近くに R4 の 192km キロポストがあります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_061551.webp",
+              comment: "旧道分岐",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_061539.webp",
+              comment: "R4 192km キロポスト",
+            },
+          ],
+        },
+        {
+          name: "R4 横断",
+          coordinate: [37.1406824, 140.234288],
+          icon: "guide",
+          description:
+            "国道を横断し、そのまま延長線上にある旧道に進みます。<br/>" +
+            "<span class='warning'>注意</span> 横断歩道のない箇所で国道を横断します。" +
+            "往来する車にくれぐれもご注意ください。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_061754.webp",
+              comment: "R4 横断",
+            },
+          ],
+        },
+        {
+          name: "廿三夜塔",
+          kana: "にじゅうさんやとう",
+          coordinate: [37.140486, 140.234824],
+          icon: "monument",
+          description: "崖を背にして埋まりかかった小さな廿三夜塔があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_061849.webp",
+              comment: "廿三夜塔",
+            },
+          ],
+        },
+        {
+          name: "根田醤油",
+          kana: "ねだしょうゆ",
+          coordinate: [37.141603, 140.238],
+          icon: "building",
+          description:
+            "名主で検断屋敷だった一家が江戸時代後期に醤油屋を始め今に至るそうです。" +
+            "「二年もろみしょうゆ」が看板商品で、冬に仕込んで翌年の春まで寝かせた足かけ2年の諸味 (もろみ) を" +
+            "使っているそうです。絶妙な濃さと味わい深さのおいしい醤油です。",
+          url: "https://www.neda-shoyu.jp",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_062321.webp",
+              comment: "根田醤油",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/01-26/PXL_20250126_071251920.webp",
+              comment: "二年もろみしょうゆ",
+            },
+          ],
+        },
+        {
+          name: "旧道分岐",
+          coordinate: [37.145857, 140.243382],
+          icon: "guide",
+          description: "<span class='routing'>江戸方</span> 国道の左側に旧道が分岐しています。",
+        },
+        {
+          name: "旧道分岐",
+          coordinate: [37.1479902, 140.2451885],
+          icon: "guide",
+          description: "<span class='routing'>仙台方</span> 国道の左側に旧道が分岐しています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_063819.webp",
+              comment: "旧道分岐",
+            },
+          ],
+        },
+      ];
+      const displaySpots = initSpots(L, map, spotOverlay, spots);
+      new SpotList(displaySpots, iconTypes).detectLandingPage(isbot(navigator.userAgent));
 
       // Route
       L.polyline(oshuMatsumaeRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
