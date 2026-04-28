@@ -95,6 +95,7 @@
     <link rel="stylesheet" href="lib/map_style.css?v=4" />
     <script src="lib/map_helper.js?v=7"></script>
     <script src="routes/oshu_matsumae.js?v=2"></script>
+    <script src="routes/spots_shirakawa.js?v=1"></script>
   </head>
   <body>
     <!-- prettier-ignore -->
@@ -232,7 +233,7 @@
       initQueryParamUpdater(map, () => map.fitBounds(stationLayer.getBounds()));
 
       // Spots
-      const spots = [];
+      const spots = [...shirakawaSpots];
       initSpots(L, map, spotOverlay, spots);
 
       // Route
