@@ -60,6 +60,18 @@ const shirakawaSpots = [
         comment: "説明板",
       },
       {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_050504.webp",
+        comment: "境内社",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_050518.webp",
+        comment: "石塔群",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_050524.webp",
+        comment: "筆塚",
+      },
+      {
         url: "https://kaidotrail.github.io/img/kagaorange/2025/08-23/IMG_20250823_050249.webp",
         comment: "参道からの眺め",
       },
