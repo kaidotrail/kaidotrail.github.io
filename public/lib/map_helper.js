@@ -400,7 +400,19 @@ const iconTypes = new Map([
 
 /**
  * スポット情報をもとにポップアップの内容を構築します。
- * @param {*} spot スポット情報
+ * @param {{
+ *   name: string,
+ *   kana: string,
+ *   coordinate: [number, number],
+ *   icon: string,
+ *   description: string,
+ *   url: string,
+ *   x: string,
+ *   instagram: string,
+ *   googleMapsQuery: string,
+ *   googleMapsQueryPlaceId: string,
+ *   pictures: {url: string, comment: string}[]
+ * }} spot スポット情報
  * @returns {string} div 要素文字列
  */
 const buildPopupContent = (spot) => {
@@ -412,7 +424,7 @@ const buildPopupContent = (spot) => {
   if (spot.description) {
     content += `<p>${spot.description}</p>`;
   }
-  if (spot.url || spot.x || spot.instagram) {
+  if (spot.url || spot.x || spot.instagram || spot.googleMapsQuery) {
     content += `<p class="link-area">`;
     if (spot.url) {
       const displayUrl = spot.url.replace("https://", "").replace("http://", "");
@@ -437,6 +449,22 @@ const buildPopupContent = (spot) => {
       content +=
         `<i class="fa-brands fa-instagram" style="color:pink"></i>` +
         `<a href="https://www.instagram.com/${spot.instagram}/" target="_blank">${spot.instagram}</a> `;
+    }
+    if (spot.googleMapsQuery) {
+      let gmUrl = "https://www.google.com/maps/search/?api=1&query=${spot.googleMapsQuery}";
+      if (spot.googleMapsQueryPlaceId) {
+        gmUrl += `&query_place_id=${spot.googleMapsQueryPlaceId}`;
+      }
+      content +=
+        // Google Maps アイコン
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92.3 132.3" height="10">` +
+        `<path fill="#1a73e8" d="M60.2 2.2C55.8.8 51 0 46.1 0 32 0 19.3 6.4 10.8 16.5l21.8 18.3L60.2 2.2z"/>` +
+        `<path fill="#ea4335" d="M10.8 16.5C4.1 24.5 0 34.9 0 46.1c0 8.7 1.7 15.7 4.6 22l28-33.3-21.8-18.3z"/> ` +
+        `<path fill="#4285f4" d="M46.2 28.5c9.8 0 17.7 7.9 17.7 17.7 0 4.3-1.6 8.3-4.2 11.4 0 0 13.9-16.6 27.5-32.7-5.6-10.8-15.3-19-27-22.7L32.6 34.8c3.3-3.8 8.1-6.3 13.6-6.3"/>` +
+        `<path fill="#fbbc04" d="M46.2 63.8c-9.8 0-17.7-7.9-17.7-17.7 0-4.3 1.5-8.3 4.1-11.3l-28 33.3c4.8 10.6 12.8 19.2 21 29.9l34.1-40.5c-3.3 3.9-8.1 6.3-13.5 6.3"/>` +
+        `<path fill="#34a853" d="M59.1 109.2c15.4-24.1 33.3-35 33.3-63 0-7.7-1.9-14.9-5.2-21.3L25.6 98c2.6 3.4 5.3 7.3 7.9 11.3 9.4 14.5 6.8 23.1 12.8 23.1s3.4-8.7 12.8-23.2"/>` +
+        `</svg>` +
+        `<a href="${gmUrl}" target="_blank">${spot.googleMapsQuery}</a> `;
     }
     content += "</p>";
   }
@@ -486,25 +514,37 @@ const buildPopupContent = (spot) => {
  * @param {*} leaflet Leaflet 本体
  * @param {*} overlay 配置対象の地図またはオーバーレイ
  * @param {*} layer レイヤー
- * @param {*} markers マーカー一覧
+ * @param {{
+ *   name: string,
+ *   kana: string,
+ *   coordinate: [number, number],
+ *   icon: string,
+ *   description: string,
+ *   url: string,
+ *   x: string,
+ *   instagram: string,
+ *   googleMapsQuery: string,
+ *   googleMapsQueryPlaceId: string,
+ *   pictures: {url: string, comment: string}[]
+ * }[]} spots スポット一覧
  */
-const setMarkers = (leaflet, overlay, layer, markers) => {
-  for (const marker of markers) {
-    if (!marker.icon) {
+const setMarkers = (leaflet, overlay, layer, spots) => {
+  for (const spot of spots) {
+    if (!spot.icon) {
       const divIcon = leaflet.divIcon({
-        html: '<div class="div-icon">' + marker.name + "</div>",
+        html: '<div class="div-icon">' + spot.name + "</div>",
         iconSize: [0, 0],
         iconAnchor: [0, -14],
       });
-      layer.addLayer(leaflet.marker(marker.coordinate, { icon: divIcon }).addTo(overlay));
+      layer.addLayer(leaflet.marker(spot.coordinate, { icon: divIcon }).addTo(overlay));
       continue;
     }
-    const iconType = iconTypes.get(marker.icon) ?? iconTypes.get("default");
+    const iconType = iconTypes.get(spot.icon) ?? iconTypes.get("default");
     layer.addLayer(
       leaflet
-        .marker(marker.coordinate, { icon: createIcon(leaflet, iconType.icon, iconType.color) })
+        .marker(spot.coordinate, { icon: createIcon(leaflet, iconType.icon, iconType.color) })
         .addTo(overlay)
-        .bindPopup(buildPopupContent(marker)),
+        .bindPopup(buildPopupContent(spot)),
     );
   }
 };

@@ -114,6 +114,9 @@ h1 a {
 .popup-content .link-area i {
   padding-right: 2px;
 }
+.popup-content .link-area svg {
+  padding-right: 2px;
+}
 .popup-content .link-area a {
   text-decoration: none;
 }
