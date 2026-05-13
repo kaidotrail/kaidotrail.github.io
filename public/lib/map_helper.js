@@ -5,6 +5,14 @@ const CANONICAL_HOST = "kaidotrail.github.io";
 let current = 0;
 
 /**
+ * 画面幅からスマートフォンかどうかを判定します。
+ * @returns {boolean} スマートフォンの場合は true, それ以外は false
+ */
+const isSmartphone = () => {
+  return window.matchMedia && window.matchMedia("(max-device-width: 640px)").matches;
+};
+
+/**
  * 地図インスタンスを作成します。
  * @param {*} leaflet Leaflet 本体
  * @returns {*} 地図インスタンス
@@ -563,10 +571,17 @@ const updateMarkerIcon = (leaflet, layer, source, isDot) => {
       continue;
     }
     const iconType = iconTypes.get(source[i].icon) ?? iconTypes.get("default");
+    if (isSmartphone()) {
+      markers[i].setOpacity(isDot ? 0 : 1); // スマホの場合は表示が重くなるのでマーカーごと消す
+      continue;
+    }
     if (isDot) {
       markers[i].setIcon(
         leaflet.divIcon({
-          html: `<div class="map-icon-dot" style="color: ${iconType.color}"><i class="fa-solid fa-circle-dot"></i></div>`,
+          html:
+            `<div class="map-icon-dot" style="color: ${iconType.color}">` +
+            `<i class="fa-solid fa-circle-dot"></i>` +
+            `</div>`,
           className: "custom-leaflet-icon",
           iconSize: [5, 5],
         }),
