@@ -93,7 +93,9 @@
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/app.css?v=1" />
     <link rel="stylesheet" href="lib/map_style.css?v=4" />
+    <link rel="stylesheet" href="lib/spot_list.css?v=1" />
     <script src="lib/map_helper.js?v=8"></script>
+    <script src="lib/spot_list.js?v=1"></script>
     <script src="routes/spot_nihonbashi.js?v=1"></script>
     <script src="routes/koshu.js?v=2"></script>
   </head>
@@ -107,8 +109,13 @@
       <span class="sep">&gt;</span>
       <span id="route-entry">甲州街道</span>
       <span id="select-entry"></span>
+      <button id="spot-list-open"><i class="fa-solid fa-list"></i></button>
     </h1>
+    <div id="zoom-in-message">
+      <span>ズームインすると見どころが表示されます<br />(江戸方から追加中)</span>
+    </div>
     <div id="map"></div>
+    <div id="spot-list" class="non-map-screen"></div>
     <div id="own-gpx" class="non-map-screen"></div>
     <script>
       const map = createMap(L);
@@ -191,8 +198,228 @@
       initQueryParamUpdater(map, () => map.fitBounds(stationLayer.getBounds()));
 
       // Spots
-      const spots = [nihonbashiSpot];
-      initSpots(L, map, spotOverlay, spots);
+      const spots = [
+        nihonbashiSpot,
+        {
+          name: "北町奉行所跡",
+          kana: "きたまちぶぎょうしょあと",
+          coordinate: [35.681633, 139.76946],
+          icon: "monument",
+          description:
+            "グラントウキョウノースタワーの入口付近に来た町奉行所跡の碑があります。実際の奉行所は" +
+            "丸の内トラストタワーからJR東京駅にかけてのエリアで、ここにあるのはその紹介のための碑のようです。" +
+            "町奉行は江戸府内の行政、司法、警察を担っていた機関で、北町奉行所は遠山の金さんが活躍した場でもあります。" +
+            "忘れたとは言わせねぇぜ！",
+          url: "https://visit-chiyoda.tokyo/app/spot/detail/639",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_201107007.MP.webp",
+              comment: "北町奉行所跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_201103273.MP.webp",
+              comment: "北町奉行所の範囲 案内図",
+            },
+          ],
+        },
+        {
+          name: "北地下自由通路",
+          coordinate: [35.6819452, 139.768635],
+          icon: "guide",
+          description:
+            "八重洲口と丸の内口を行き来できる自由通路を用い、北町奉行所の南側を抜けていたかつての道筋を近似します。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_201239345.webp",
+              comment: "北地下自由通路",
+            },
+          ],
+        },
+        {
+          name: "和田倉橋",
+          kana: "わだくらばし",
+          coordinate: [35.6834615, 139.7623909],
+          icon: "bridge",
+          description: "江戸城の和田倉門に通じていた橋で、現在の皇居外苑の北端部にあたります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_202028659.webp",
+              comment: "和田倉橋",
+            },
+          ],
+        },
+        {
+          name: "和田倉門守衛所跡",
+          kana: "わだくらもんしゅえいじょあと",
+          coordinate: [35.682612, 139.762027],
+          icon: "building",
+          description: "行幸通りとの交差点に道を挟んで1対の守衛所跡があります。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_202200916.MP.webp",
+              comment: "和田倉門守衛所跡",
+            },
+          ],
+        },
+        {
+          name: "馬場先門跡",
+          kana: "ばばさきもんあと",
+          coordinate: [35.67842, 139.760527],
+          icon: "monument",
+          description:
+            "江戸城の馬場先門があった場所で、説明板があります。朝鮮使節の曲馬を将軍が上覧し朝鮮馬場と呼ばれていた" +
+            "ことに由来するそうです。明治39年 (1906) まではここに枡形石垣があったそうです。",
+          url: "https://www.edo-chiyoda.jp/knainobunkazai/bunkazaisign_hyochu_setsumeiban/1/5/53.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_202946045.webp",
+              comment: "説明板",
+            },
+          ],
+        },
+        {
+          name: "日比谷門跡・日比谷見附跡",
+          kana: "ひびやもんあと・ひびやみつけあと",
+          coordinate: [35.675152, 139.758775],
+          icon: "monument",
+          description:
+            "日比谷公園の北東端付近に大きな石垣があり、日比谷門跡と日比谷見附跡の説明板があります。" +
+            "慶長19年 (1614) に熊本藩主加藤忠広によって築造され、寛永5年 (1628) に仙台藩主伊達政宗によって門の" +
+            "石垣が構築されたとのことです。現在ここに残る石垣は日比谷門と山下門の間にあった土手の名残りだそうです。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_203559620.MP.webp",
+              comment: "日比谷門跡",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_203552727.webp",
+              comment: "日比谷門跡 説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_203541281.webp",
+              comment: "日比谷見附跡 説明板",
+            },
+          ],
+        },
+        {
+          name: "四谷見附門跡",
+          kana: "よつやみつけもんあと",
+          coordinate: [35.686209, 139.731008],
+          icon: "monument",
+          description:
+            "千代田区のウェブサイトによると、この石垣は四谷見附門跡とのことです。明治になって道路の拡幅などから" +
+            "枡形を壊したともあり、折れ曲がりながら歩くとかつての道筋を追体験できます。",
+          url: "https://www.edo-chiyoda.jp/bunkazaihogonotorikumi/bunkazaihogochosain/hogocho2019/1/393.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_212100960.webp",
+              comment: "四谷見附門跡",
+            },
+          ],
+        },
+        {
+          name: "江戸城外堀跡 (四谷門地区)",
+          kana: "えどじょうそとぼりあと (よつやもんちく)",
+          coordinate: [35.686449, 139.730401],
+          icon: "monument",
+          description:
+            "嘉永13年 (1636) に開削された江戸城外堀の跡の上を橋で通過するところに説明板があります。" +
+            "足元を走る中央線は外堀の土手を削って建設されており、明治27年 (1894) の開業当時は甲武鉄道という私鉄" +
+            "だったそうです。" +
+            "この付近を含む外堀跡の一部は国指定史跡となっています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_212202137.webp",
+              comment: "説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_212123226.MP.webp",
+              comment: "外堀土手上を走る中央線",
+            },
+          ],
+        },
+        {
+          name: "四谷大木戸跡",
+          kana: "よつやおおきどあと",
+          coordinate: [35.687749, 139.716106],
+          icon: "monument",
+          description:
+            "交差点の一角に四谷大木戸と書かれた石碑や左下諏訪宿と彫られた石柱、石灯籠などがあります。<br/>" +
+            "<span class='routing'>下諏訪方</span> 横断歩道を渡ったら新宿駅東口の案内標識の指す方向へ向かいます。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_214132218.webp",
+              comment: "四谷大木戸跡",
+            },
+          ],
+        },
+        // 1.内藤新宿
+        {
+          name: "内藤新宿",
+          kana: "ないとうしんじゅく",
+          coordinate: [35.6885637, 139.7108442],
+          icon: "default",
+          description:
+            "宿場町の面影は殆どありませんが、高遠藩内藤家の下屋敷跡である新宿御苑が南側に広がっています。" +
+            "道外れに太宗寺というお寺があるほか、消防署と丸山園の間には秋葉神社がひっそりと鎮座しています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_215219803.MP.webp",
+              comment: "新宿一丁目西交差点付近",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250221_214849571.webp",
+              comment: "秋葉神社",
+            },
+          ],
+        },
+        // 2.下高井戸宿
+        // 3.上高井戸宿
+        // 4.国領宿
+        // 5.下布田宿
+        // 6.上布田宿
+        // 7.下石原宿
+        // 8.上石原宿
+        // 9.府中宿
+        // 10.日野宿
+        // 11.八王子宿
+        // 12.駒木野宿
+        // 13.小仏宿
+        // 14.小原宿
+        // 15.与瀬宿
+        // 16.吉野宿
+        // 17.関野宿
+        // 18.上野原宿
+        // 19.鶴川宿
+        // 20.野田尻宿
+        // 21.犬目宿
+        // 22.下鳥沢宿
+        // 23.上鳥沢宿
+        // 24.猿橋宿
+        // 25.駒橋宿
+        // 26.大月宿
+        // 27.下花崎宿
+        // 28.上花崎宿
+        // 29.下初狩宿
+        // 30.中初狩宿
+        // 31.白野宿
+        // 32.阿弥陀街道宿
+        // 33.黒野田宿
+        // 34.駒飼宿
+        // 35.鶴瀬宿
+        // 36.勝沼宿
+        // 37.栗原宿
+        // 38.石和宿
+        // 39.甲府柳町宿
+        // 40.韮崎宿
+        // 41.台ヶ原宿
+        // 42.教来石宿
+        // 43.蔦木宿
+        // 44.金沢宿
+        // 45.上諏訪宿
+      ];
+      const displaySpots = initSpots(L, map, spotOverlay, spots);
+      new SpotList(displaySpots, iconTypes).detectLandingPage(isbot(navigator.userAgent));
 
       // Route
       L.polyline(koshuRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
