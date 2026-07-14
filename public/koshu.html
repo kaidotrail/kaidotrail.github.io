@@ -122,8 +122,8 @@
       const map = createMap(L);
       const routeOverlay = L.layerGroup();
       routeOverlay.addTo(map);
-      const shinagawaRouteOverlay = L.layerGroup();
-      shinagawaRouteOverlay.addTo(map);
+      const fuchuOldRouteOverlay = L.layerGroup();
+      fuchuOldRouteOverlay.addTo(map);
       const nirasakiAltRouteOverlay = L.layerGroup();
       nirasakiAltRouteOverlay.addTo(map);
       const kamisuwaAltRouteOverlay = L.layerGroup();
@@ -138,7 +138,7 @@
         宿場: stationOverlay,
         見どころ: spotOverlay,
         おすすめ歩行ルート: routeOverlay,
-        品川道: shinagawaRouteOverlay,
+        府中初期ルート: fuchuOldRouteOverlay,
         穴山ルート: nirasakiAltRouteOverlay,
         上諏訪宿内別ルート: kamisuwaAltRouteOverlay,
         "kagaorange の足跡": gpxOverlay,
@@ -879,6 +879,96 @@
             },
           ],
         },
+        {
+          name: "飛田給薬師堂",
+          kana: "とびたきゅうやくしどう",
+          coordinate: [35.6616417, 139.5229447],
+          icon: "temple",
+          description:
+            "貞享年間 (1684-87) に元仙台藩士の松前意仙により造立されたという瑠璃光薬師如来の立像が納まる薬師堂で、" +
+            "元々は野外に置かれていたものの弘化4年 (1847) に仏堂が建てられたそうです。" +
+            "境内には松前意仙の入定塚という行人塚があり、昭和47年 (1972) の塚の改修の際には実際に遺骨が確認された" +
+            "そうです。<br/>" +
+            "ここから西方には江戸初期の甲州街道の道筋があり、その道筋の一部は府中から東海道品川宿へと至る品川道の" +
+            "一部にもなっています。",
+          url: "https://www.city.chofu.lg.jp/100200/p073047.html",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_033413191.MP.webp",
+              comment: "飛田給薬師堂",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_033447723.webp",
+              comment: "飛田給石造瑠璃光薬師如来立像 説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_033504698.webp",
+              comment: "行人塚",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_033510851.webp",
+              comment: "行人塚 説明板",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_033603979.webp",
+              comment: "初期甲州街道",
+            },
+          ],
+        },
+        {
+          name: "常夜燈",
+          kana: "じょうやとう",
+          coordinate: [35.663771, 139.519901],
+          icon: "monument",
+          description:
+            "車返稲荷神社の参道が分岐する交差点に嘉永5年 (1852) の銘がある常夜燈があります。" +
+            "秋葉大権現や稲荷大明神の文字も彫られています。",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_034051746.webp",
+              comment: "常夜燈",
+            },
+          ],
+        },
+        {
+          name: "観音院",
+          kana: "かんのんいん",
+          coordinate: [35.666, 139.515352],
+          icon: "temple",
+          description: "寛永8年 (1631) に開山された天台宗のお寺で、染屋観音とも呼ばれています。",
+          url: "http://www.tendaitokyo.jp/jiinmei/7kannonin/",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_034700432.webp",
+              comment: "観音院",
+            },
+          ],
+        },
+        {
+          name: "染屋不動尊",
+          kana: "そめやふどうそん",
+          coordinate: [35.668071, 139.507718],
+          icon: "temple",
+          description:
+            "境内には不動尊のお堂ほか、国指定重要文化財の金剛阿弥陀如来立像が納まっているという宝物殿や、上染屋の" +
+            "由来などを記したモニュメントなどがあります。",
+          url: "http://www.tokyo-jinjacho.or.jp/goshahou/douzou_amidanyorai_ritsuzou/",
+          pictures: [
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_035729479.webp",
+              comment: "染屋不動尊",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_035750692.webp",
+              comment: "宝物殿",
+            },
+            {
+              url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_035809393.webp",
+              comment: "上染屋 モニュメント",
+            },
+          ],
+        },
+        ...fuchuToTobitakyuSpots,
         // 9.府中宿
         // 10.日野宿
         // 11.八王子宿
@@ -922,12 +1012,11 @@
 
       // Route
       L.polyline(koshuRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(tobitakyuOldRoute, { color: "lightcoral", weight: 5 }).addTo(fuchuOldRouteOverlay);
       L.polyline(fuchuToTobitakyuRoute, { color: "lightcoral", weight: 5 }).addTo(
-        shinagawaRouteOverlay,
+        fuchuOldRouteOverlay,
       );
-      L.polyline(tobitakyuKoshuOldRoute, { color: "lightcoral", weight: 5 }).addTo(
-        shinagawaRouteOverlay,
-      );
+      L.polyline(fuchuOldRoute, { color: "lightcoral", weight: 5 }).addTo(fuchuOldRouteOverlay);
       L.polyline(koshuNirasakiAltRoute, { color: "lightcoral", weight: 5 }).addTo(
         nirasakiAltRouteOverlay,
       );
