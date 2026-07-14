@@ -7,8 +7,8 @@ const fuchuToTobitakyuSpots = [
     icon: "ichirizuka",
     description:
       "日本橋から7里 (約27.5km) の一里塚跡で、大きな石碑と説明板があります。" +
-      "江戸初期に整備された初期の道筋上にあり、付け替え後は府中から東海道の品川宿に至る品川道の道筋の一部と" +
-      "なりました。",
+      "江戸初期に整備された初期の甲州街道の道筋上にあり、付け替え後は府中から東海道の品川宿に至る品川道の道筋の" +
+      "一部となりました。",
     url: "https://www.kankou-fuchu.com/?p=we-page-entry&spot=40311",
     pictures: [
       {
