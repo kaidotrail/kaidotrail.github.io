@@ -654,14 +654,14 @@ const toggleNonMapScreen = (target) => {
 };
 
 /**
- * GPX 表示機能を表示します。すでに表示している場合は地図表示に戻ります。
+ * GPX/GeoJSON 表示機能を表示します。すでに表示している場合は地図表示に戻ります。
  */
 const toggleOwnGpx = () => {
   toggleNonMapScreen("own-gpx");
 };
 
 /**
- * 指定した GPX ファイルを重ねて表示する機能を初期化します。
+ * 指定した GPX/GeoJSON ファイルを重ねて表示する機能を初期化します。
  * @param {*} leaflet Leaflet 本体
  * @param {*} map 地図インスタンス
  */
@@ -673,12 +673,12 @@ const initOwnGpx = (leaflet, map) => {
   backToMap.addEventListener("click", toggleOwnGpx);
   ownGpx.appendChild(backToMap);
   const h2 = document.createElement("h2");
-  h2.innerText = "GPX ファイル描画 (実験的機能)";
+  h2.innerText = "GPX/GeoJSON ファイル描画 (実験的機能)";
   ownGpx.appendChild(h2);
   const p1 = document.createElement("p");
   p1.innerText =
-    "GPX ファイルを指定すると、地図に重ねて表示することができます。GPX ファイルの軌跡は緑色の線で表示されます。" +
-    "ファイルは同時に複数指定することができます。";
+    "GPX または GeoJSON ファイルを指定すると、地図に重ねて表示することができます。" +
+    "ファイルの軌跡は緑色の線で表示されます。ファイルは同時に複数指定することができます。";
   ownGpx.appendChild(p1);
   const p2 = document.createElement("p");
   p2.innerText =
@@ -688,11 +688,27 @@ const initOwnGpx = (leaflet, map) => {
   input.name = "file";
   input.type = "file";
   input.multiple = true;
+  input.accept = ".gpx,application/gpx+xml,.geojson,application/geo+json";
   input.addEventListener(
     "change",
     () => {
       const bounds = leaflet.latLngBounds();
       for (const file of input.files) {
+        // GeoJSON
+        if (file.name.toLowerCase().endsWith(".geojson")) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            try {
+              const geo = JSON.parse(event.target.result);
+              leaflet.geoJSON(geo, { style: { color: "lime", weight: 2 } }).addTo(map);
+            } catch (e) {
+              console.error("GeoJSON の読み込みに失敗しました: " + String(e));
+            }
+          };
+          reader.readAsText(file);
+          continue;
+        }
+        // GPX
         const url = window.URL.createObjectURL(file);
         new leaflet.GPX(url, {
           async: false,
