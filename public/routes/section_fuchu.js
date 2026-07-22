@@ -1,6 +1,75 @@
 /** 甲州街道初期ルートと品川道の重複区間のスポット一覧 */
 const fuchuToTobitakyuSpots = [
   {
+    name: "廃道迂回",
+    coordinate: [35.665785, 139.509296],
+    icon: "guide",
+    description:
+      "<span class='routing'>下諏訪方・府中方</span> 線路で道筋が分断されているため、この先の踏切を渡って" +
+      "迂回します。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2026/07-18/IMG_20260718_124930.webp",
+        comment: "西武多摩川線",
+      },
+    ],
+  },
+  {
+    name: "庚申塔",
+    kana: "こうしんとう",
+    coordinate: [35.666072, 139.508353],
+    icon: "monument",
+    description:
+      "左側面に道標のある庚申塔があります。「西 府中道」「東 品川道」「上 車返村」と彫られているように読めます。" +
+      "右側面は上部が欠けていますが「？永六丑年四月吉日」「？和三年３月改造」と彫られているように読めます。" +
+      "複数の可能性がありますが、仮に嘉永6年 (1853) だとするとペリー来航の年になります。" +
+      "すぐ近くに品川道の案内標柱があります。<br/>" +
+      "<span class='routing'>下諏訪方・府中方</span> 左折し街道筋に復帰します。<br/>" +
+      "<span class='routing'>江戸方・品川方</span> 道筋が線路で分断されているため、右折し踏切で迂回します。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2026/07-18/IMG_20260718_125238.webp",
+        comment: "庚申塔",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2026/07-18/IMG_20260718_125303.webp",
+        comment: "左側面",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2026/07-18/IMG_20260718_125311.webp",
+        comment: "右側面",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2026/07-18/IMG_20260718_125343.webp",
+        comment: "品川道 案内標柱",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2026/07-18/IMG_20260718_125408.webp",
+        comment: "品川道 案内図",
+      },
+    ],
+  },
+  {
+    name: "道標",
+    kana: "みちしるべ",
+    coordinate: [35.666306, 139.507518],
+    icon: "monument",
+    description:
+      "交差点の一角に寿司屋の看板と一体になった新し`い道標があります。" +
+      "道標は正面に「左 五宿」「右 不ち由宇」(府中)、右側面に「右 以奈記」(稲城) と彫られているように見えます。" +
+      "対面には古そうな石造物がありますが、判読不能です。",
+    pictures: [
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2026/07-18/IMG_20260718_125548.webp",
+        comment: "道標",
+      },
+      {
+        url: "https://kaidotrail.github.io/img/kagaorange/2026/07-18/IMG_20260718_125537.webp",
+        comment: "古そうな石造物",
+      },
+    ],
+  },
+  {
     name: "常久一里塚跡",
     kana: "つねひさいちりづかあと",
     coordinate: [35.667733, 139.500673],
@@ -8,20 +77,26 @@ const fuchuToTobitakyuSpots = [
     description:
       "日本橋から7里 (約27.5km) の一里塚跡で、大きな石碑と説明板があります。" +
       "江戸初期に整備された初期の甲州街道の道筋上にあり、付け替え後は府中から東海道の品川宿に至る品川道の道筋の" +
-      "一部となりました。",
+      "一部となりました。" +
+      "令和8年 (2026) 2月に説明板が更新され、説明板の下にあった武蔵名勝図絵は撤去されましたが、説明板自体の内容は" +
+      "強化されました。",
     url: "https://www.kankou-fuchu.com/?p=we-page-entry&spot=40311",
     pictures: [
       {
-        url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_040813495.webp",
+        url: "https://kaidotrail.github.io/img/kagaorange/2026/07-18/IMG_20260718_130402.webp",
         comment: "常久一里塚跡",
       },
       {
+        url: "https://kaidotrail.github.io/img/kagaorange/2026/07-18/IMG_20260718_130408.webp",
+        comment: "説明板",
+      },
+      {
         url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_040820853.webp",
-        comment: "市史跡 甲州街道常久一里塚跡 説明板",
+        comment: "旧説明板 (令和8年更新前)",
       },
       {
         url: "https://kaidotrail.github.io/img/kagaorange/2025/02-22/PXL_20250222_040824436.webp",
-        comment: "武蔵名勝図絵",
+        comment: "武蔵名勝図絵 (撤去済)",
       },
     ],
   },
