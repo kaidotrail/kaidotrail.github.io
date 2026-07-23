@@ -24,6 +24,7 @@ curl -X POST https://api.indexnow.org/IndexNow \
       \"https://kaidotrail.github.io/nakahara.html\",
       \"https://kaidotrail.github.io/kawagoe.html\",
       \"https://kaidotrail.github.io/oshu.html\",
-      \"https://kaidotrail.github.io/oshu_matsumae.html\"
+      \"https://kaidotrail.github.io/oshu_matsumae.html\",
+      \"https://kaidotrail.github.io/koshu.html\"
     ]
   }"
