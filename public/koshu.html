@@ -124,6 +124,8 @@
       routeOverlay.addTo(map);
       const fuchuOldRouteOverlay = L.layerGroup();
       fuchuOldRouteOverlay.addTo(map);
+      const manganjiRouteOverlay = L.layerGroup();
+      manganjiRouteOverlay.addTo(map);
       const nirasakiAltRouteOverlay = L.layerGroup();
       nirasakiAltRouteOverlay.addTo(map);
       const kamisuwaAltRouteOverlay = L.layerGroup();
@@ -138,7 +140,8 @@
         宿場: stationOverlay,
         見どころ: spotOverlay,
         おすすめ歩行ルート: routeOverlay,
-        府中初期ルート: fuchuOldRouteOverlay,
+        府中ハケ下ルート: fuchuOldRouteOverlay,
+        万願寺ルート: manganjiRouteOverlay,
         穴山ルート: nirasakiAltRouteOverlay,
         上諏訪宿内別ルート: kamisuwaAltRouteOverlay,
         "kagaorange の足跡": gpxOverlay,
@@ -2339,7 +2342,7 @@
       );
       L.polyline(fuchuOldRoute, { color: "lightcoral", weight: 5 }).addTo(fuchuOldRouteOverlay);
       L.polyline(aoyagiManganjiRoute, { color: "lightcoral", weight: 5 }).addTo(
-        fuchuOldRouteOverlay,
+        manganjiRouteOverlay,
       );
       L.polyline(koshuNirasakiAltRoute, { color: "lightcoral", weight: 5 }).addTo(
         nirasakiAltRouteOverlay,
