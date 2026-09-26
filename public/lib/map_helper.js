@@ -667,6 +667,9 @@ const toggleOwnGpx = () => {
  */
 const initOwnGpx = (leaflet, map) => {
   const ownGpx = document.getElementById("own-gpx");
+  if (!ownGpx) {
+    return;
+  }
   const backToMap = document.createElement("button");
   backToMap.innerHTML = "<i class='fa-solid fa-circle-arrow-left'></i> 地図に戻る";
   backToMap.style.marginTop = "10px";

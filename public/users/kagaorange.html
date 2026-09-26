@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="旧街道足跡マップ" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>kagaorange - 旧街道足跡マップ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css"
+      integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.85.1/L.Control.Locate.css"
+      integrity="sha512-GWoEoj+Zbl9JtrJd8dZkVO7nkAi1dXVuG9jOCv4rRL/LdL5ZdMuV8DZxRhKV12tPjIrmE1gNghWX5oBN8BrJUA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"
+      integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.2.0/gpx.min.js"
+      integrity="sha512-i9cfK7mcbURqnNfNFYqNhB4/Ae5xAgrrGFPgRnVB5Ws6Xac3BbYqFwtMbyf3QZW8Nq+F7gcWGsM0HUyoA/RVIw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.85.1/L.Control.Locate.min.js"
+      integrity="sha512-BxqrHRClEo8PNxiWPIppxGvOiOAPQ01392TXW55htg+Q3rpptqfaYGSGsfxuYQxVDyjYZOW6uXaomed1bCcSFw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!--suppress ES6ConvertVarToLetConst, EqualityComparisonWithCoercionJS -->
+    <!-- prettier-ignore -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
+    <link rel="stylesheet" href="../lib/app.css?v=1" />
+    <link rel="stylesheet" href="../lib/map_style.css?v=1" />
+    <script src="../lib/map_helper.js?v=8"></script>
+    <style>
+      #map {
+        position: relative;
+        width: 100%;
+        height: 450px;
+        margin: -40px 0 50px 0;
+      }
+      .scroll-container {
+        overflow-x: auto;
+        margin-bottom: 15px;
+      }
+      table {
+        margin: 0 auto;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 2px 8px 2px 8px;
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+      th {
+        background-color: lightgray;
+      }
+      tr {
+        border-top: 1px solid lightgray;
+      }
+      td:nth-of-type(1),
+      td:nth-of-type(5),
+      td:nth-of-type(6),
+      td:nth-of-type(7) {
+        font-family: monospace, serif;
+        text-align: right;
+      }
+      td:nth-of-type(3),
+      td:nth-of-type(4) {
+        text-align: center;
+      }
+      td:nth-of-type(2) > a {
+        font-weight: bold;
+        font-size: 1.1em;
+        font-family: "Yuji Syuku", serif;
+      }
+      tfoot {
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- prettier-ignore -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTM7SMZG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <a href="./" class="logo-link"><img src="../lib/logo160.png" alt="旧街道足跡マップ" /></a>
+    <h1 style="padding-top: 3px">
+      <a href="./"><span class="logo-font">旧街道足跡マップ</span></a>
+      <span class="sep">&gt;</span>
+      街道ウォーカー
+      <span class="sep">&gt;</span>
+      kagaorange
+    </h1>
+    <div class="non-map-screen" style="display: block">
+      <p>
+        本サイト (旧街道足跡マップ) の管理人をしている横浜出身、東京在住の街道ウォーカーです。
+        2022年に中山道の馬籠峠・鳥居峠をハイキングしたことをきっかけに全国の旧街道を端から端まで歩くことに目覚めました。
+        2025年8月に五街道の完歩を達成。現在は全国に散らばる脇往還を歩いています。
+      </p>
+      <h3>全 GPS 軌跡</h3>
+      <div id="map"></div>
+      <script>
+        const map = createMap(L);
+        initMap(L, map, null);
+        map.setView([38, 138], 6);
+
+        // 熊野古道中辺路
+        setGpx(L, map, "../gpx/kagaorange_2016-03-20.gpx", "blue"); // ハイ
+
+        // 中山道
+        setGpx(L, map, "../gpx/kagaorange_2022-11-03.gpx", "blue"); // ハイ
+        setGpx(L, map, "../gpx/kagaorange_2022-11-04.gpx", "blue"); // ハイ
+        setGpx(L, map, "../gpx/kagaorange_2022-12-04.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2022-12-10.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-01-21.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-01-29.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-02-11.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-03-11.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-04-30.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-05-27.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-07-15.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2024-09-14.gpx", "blue"); // 初期
+        setGpx(L, map, "../gpx/kagaorange_2025-01-18.gpx", "blue"); // 氷川
+
+        // 東海道
+        setGpx(L, map, "../gpx/kagaorange_2023-10-14.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-10-28.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-11-03.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-11-25.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-12-16.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-12-23.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2024-01-27.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2024-03-30.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2024-05-02.gpx", "blue");
+
+        // 中原街道
+        setGpx(L, map, "../gpx/kagaorange_2024-06-29.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2024-07-20.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2024-07-27.gpx", "blue");
+
+        // 日光街道
+        setGpx(L, map, "../gpx/kagaorange_2024-09-21.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2024-10-12.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2024-10-26.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2024-11-03.gpx", "blue");
+
+        // 奥州街道 (白河以南)
+        setGpx(L, map, "../gpx/kagaorange_2025-01-24.gpx", "blue");
+
+        // 甲州街道
+        setGpx(L, map, "../gpx/kagaorange_2025-02-22.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-02-24.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-03-09.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-03-22.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-05-05.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-08-02.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-07-18.gpx", "blue"); // 初期
+
+        // 川越街道
+        setGpx(L, map, "../gpx/kagaorange_2025-06-21.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-07-12.gpx", "blue");
+
+        // 奥州街道 (白河以北)
+        setGpx(L, map, "../gpx/kagaorange_2025-08-23.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-09-26.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-11-02.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-12-26.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-01-24.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-02-21.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-04-17.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-05-09.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-06-20.gpx", "blue");
+
+        // 水戸街道
+        setGpx(L, map, "../gpx/kagaorange_2025-11-22.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-03-14.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-07-10.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-07-20.gpx", "blue");
+
+        // 成田街道
+        setGpx(L, map, "../gpx/kagaorange_2026-04-12.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-08-15.gpx", "blue");
+
+        // 伊勢街道
+        setGpx(L, map, "../gpx/kagaorange_2026-09-22.gpx", "blue");
+      </script>
+      <h3>ウォーキング記録</h3>
+      <div class="scroll-container">
+        <table>
+          <thead>
+            <tr>
+              <th>日付</th>
+              <th>街道</th>
+              <th>出発</th>
+              <th>到着</th>
+              <th>距離</th>
+              <th>上り</th>
+              <th>下り</th>
+              <th>リンク</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2022/11/03</td>
+              <td><a href="../nakasendo.html">中山道</a> 1日目</td>
+              <td>日本橋</td>
+              <td>宮原</td>
+              <td>43.5km</td>
+              <td>89m</td>
+              <td>79m</td>
+              <td>
+                <a href="https://yamap.com/activities/21333741" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2022-12-04.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2022/12/10</td>
+              <td><a href="../nakasendo.html">中山道</a> 2日目</td>
+              <td>宮原</td>
+              <td>籠原</td>
+              <td>42.3km</td>
+              <td>71m</td>
+              <td>46m</td>
+              <td>
+                <a href="https://yamap.com/activities/21423128" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2022-12-10.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/01/21</td>
+              <td><a href="../nakasendo.html">中山道</a> 3日目</td>
+              <td>籠原</td>
+              <td>北高崎</td>
+              <td>42.1km</td>
+              <td>150m</td>
+              <td>91m</td>
+              <td>
+                <a href="https://yamap.com/activities/22089086" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-01-21.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/01/21</td>
+              <td>
+                <a href="../nakasendo.html">中山道</a> 4日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>碓氷峠
+              </td>
+              <td>北高崎</td>
+              <td>軽井沢</td>
+              <td>46.4km</td>
+              <td>1479m</td>
+              <td>635m</td>
+              <td>
+                <a href="https://yamap.com/activities/22217871" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-01-21.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/02/11</td>
+              <td><a href="../nakasendo.html">中山道</a> 5日目</td>
+              <td>軽井沢</td>
+              <td>芦田</td>
+              <td>40.8km</td>
+              <td>560m</td>
+              <td>785m</td>
+              <td rowspan="2">
+                <a href="https://yamap.com/activities/22464331" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-02-11.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/02/12</td>
+              <td>
+                <a href="../nakasendo.html">中山道</a> 6日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>和田峠
+              </td>
+              <td>芦田</td>
+              <td>下諏訪</td>
+              <td>40.4km</td>
+              <td>1400m</td>
+              <td>1352m</td>
+            </tr>
+            <tr>
+              <td>2023/03/11</td>
+              <td><a href="../nakasendo.html">中山道</a> 7日目</td>
+              <td>下諏訪</td>
+              <td>奈良井</td>
+              <td>38.5km</td>
+              <td>960m</td>
+              <td>761m</td>
+              <td rowspan="2">
+                <a href="https://yamap.com/activities/22974411" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-03-11.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/03/12</td>
+              <td>
+                <a href="../nakasendo.html">中山道</a> 8日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>鳥居峠
+              </td>
+              <td>奈良井</td>
+              <td>上松</td>
+              <td>32.6km</td>
+              <td>1008m</td>
+              <td>1236m</td>
+            </tr>
+            <tr>
+              <td>2023/05/01</td>
+              <td><a href="../nakasendo.html">中山道</a> 9日目</td>
+              <td>上松</td>
+              <td>大妻籠</td>
+              <td>35.5km</td>
+              <td>1025m</td>
+              <td>1261m</td>
+              <td rowspan="3">
+                <a href="https://yamap.com/activities/24006737" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-04-30.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/05/02</td>
+              <td>
+                <a href="../nakasendo.html">中山道</a> 10日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>妻籠峠
+              </td>
+              <td>大妻籠</td>
+              <td>恵那</td>
+              <td>28.2km</td>
+              <td>790m</td>
+              <td>1003m</td>
+            </tr>
+            <tr>
+              <td>2023/05/03</td>
+              <td>
+                <a href="../nakasendo.html">中山道</a> 11日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>十三峠
+              </td>
+              <td>恵那</td>
+              <td>伏見</td>
+              <td>37.7km</td>
+              <td>1068m</td>
+              <td>1243m</td>
+            </tr>
+            <tr>
+              <td>2023/05/27</td>
+              <td>
+                <a href="../nakasendo.html">中山道</a> 12日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>うとう峠
+              </td>
+              <td>伏見</td>
+              <td>美江寺</td>
+              <td>47.0km</td>
+              <td>306m</td>
+              <td>400m</td>
+              <td rowspan="2">
+                <a href="https://yamap.com/activities/24600541" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-05-27.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/05/28</td>
+              <td>
+                <a href="../nakasendo.html">中山道</a> 13日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>今須峠
+              </td>
+              <td>美江寺</td>
+              <td>醒井</td>
+              <td>38.1km</td>
+              <td>361m</td>
+              <td>256m</td>
+            </tr>
+            <tr>
+              <td>2023/07/15</td>
+              <td>
+                <a href="../nakasendo.html">中山道</a> 14日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>摺針峠
+              </td>
+              <td>醒井</td>
+              <td>武佐</td>
+              <td>34.5km</td>
+              <td>252m</td>
+              <td>267m</td>
+              <td rowspan="3">
+                <a href="https://yamap.com/activities/25511504" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-07-15.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/07/16</td>
+              <td><a href="../nakasendo.html">中山道</a> 15日目</td>
+              <td>武佐</td>
+              <td>大津</td>
+              <td>37.9km</td>
+              <td>179m</td>
+              <td>181m</td>
+            </tr>
+            <tr>
+              <td>2023/07/17</td>
+              <td><a href="../nakasendo.html">中山道</a> 16日目</td>
+              <td>大津</td>
+              <td>三条大橋</td>
+              <td>11.3km</td>
+              <td>173m</td>
+              <td>231m</td>
+            </tr>
+            <tr>
+              <td>2023/10/14</td>
+              <td><a href="../tokaido.html">東海道</a> 1日目</td>
+              <td>日本橋</td>
+              <td>横浜</td>
+              <td>34.0km</td>
+              <td>70m</td>
+              <td>66m</td>
+              <td>
+                <a href="https://yamap.com/activities/27458866" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-10-14.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/10/28</td>
+              <td><a href="../tokaido.html">東海道</a> 2日目</td>
+              <td>横浜</td>
+              <td>大磯</td>
+              <td>41.0km</td>
+              <td>354m</td>
+              <td>343m</td>
+              <td>
+                <a href="https://yamap.com/activities/27775599" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-10-28.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/11/03</td>
+              <td><a href="../tokaido.html">東海道</a> 3日目</td>
+              <td>大磯</td>
+              <td>箱根関所</td>
+              <td>37.3km</td>
+              <td>1312m</td>
+              <td>598m</td>
+              <td>
+                <a href="https://yamap.com/activities/27946024" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-11-03.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/11/25</td>
+              <td>
+                <a href="../tokaido.html">東海道</a> 4日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>箱根峠
+              </td>
+              <td>箱根関所</td>
+              <td>片浜</td>
+              <td>30.5km</td>
+              <td>482m</td>
+              <td>1209m</td>
+              <td>
+                <a href="https://yamap.com/activities/27946024" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-11-25.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/12/16</td>
+              <td>
+                <a href="../tokaido.html">東海道</a> 5日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>薩埵峠
+              </td>
+              <td>片浜</td>
+              <td>興津</td>
+              <td>39.9km</td>
+              <td>450m</td>
+              <td>454m</td>
+              <td rowspan="2">
+                <a href="https://yamap.com/activities/28796020" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-12-16.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/12/17</td>
+              <td><a href="../tokaido.html">東海道</a> 6日目</td>
+              <td>興津</td>
+              <td>静岡</td>
+              <td>21.9km</td>
+              <td>210m</td>
+              <td>191m</td>
+            </tr>
+            <tr>
+              <td>2023/12/23</td>
+              <td>
+                <a href="../tokaido.html">東海道</a> 7日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>宇津ノ谷峠
+              </td>
+              <td>興津</td>
+              <td>島田</td>
+              <td>32.7km</td>
+              <td>300m</td>
+              <td>257m</td>
+              <td rowspan="3">
+                <a href="https://yamap.com/activities/28796020" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2023-12-23.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2023/12/24</td>
+              <td><a href="../tokaido.html">東海道</a> 8日目</td>
+              <td>島田</td>
+              <td>袋井</td>
+              <td>35.9km</td>
+              <td>511m</td>
+              <td>555m</td>
+            </tr>
+            <tr>
+              <td>2023/12/25</td>
+              <td><a href="../tokaido.html">東海道</a> 9日目</td>
+              <td>袋井</td>
+              <td>舞阪</td>
+              <td>35.7km</td>
+              <td>151m</td>
+              <td>163m</td>
+            </tr>
+            <tr>
+              <td>2024/01/27</td>
+              <td><a href="../tokaido.html">東海道</a> 10日目</td>
+              <td>舞阪</td>
+              <td>豊橋</td>
+              <td>32.2km</td>
+              <td>328m</td>
+              <td>322m</td>
+              <td rowspan="3">
+                <a href="https://yamap.com/activities/29559474" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2024-01-27.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2024/01/28</td>
+              <td><a href="../tokaido.html">東海道</a> 11日目</td>
+              <td>豊橋</td>
+              <td>岡崎</td>
+              <td>36.9km</td>
+              <td>214m</td>
+              <td>207m</td>
+            </tr>
+            <tr>
+              <td>2024/01/29</td>
+              <td><a href="../tokaido.html">東海道</a> 12日目</td>
+              <td>岡崎</td>
+              <td>熱田</td>
+              <td>39.1km</td>
+              <td>143m</td>
+              <td>154m</td>
+            </tr>
+            <tr>
+              <td>2024/03/30</td>
+              <td><a href="../tokaido.html">東海道・佐屋街道</a> 13日目</td>
+              <td>熱田</td>
+              <td>桑名</td>
+              <td>32.2km</td>
+              <td>328m</td>
+              <td>322m</td>
+              <td rowspan="2">
+                <a href="https://yamap.com/activities/29559474" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2024-03-30.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2024/03/31</td>
+              <td><a href="../tokaido.html">東海道</a> 14日目</td>
+              <td>桑名</td>
+              <td>井田川</td>
+              <td>38.4km</td>
+              <td>174m</td>
+              <td>138m</td>
+            </tr>
+            <tr>
+              <td>2024/05/02</td>
+              <td><a href="../tokaido.html">東海道</a> 15日目</td>
+              <td>井田川</td>
+              <td>亀山</td>
+              <td>14.9km</td>
+              <td>163m</td>
+              <td>113m</td>
+              <td rowspan="4">
+                <a href="https://yamap.com/activities/31547559" target="_blank">YAMAP</a>
+                <a href="../gpx/kagaorange_2024-05-02.gpx">GPX</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2024/05/03</td>
+              <td>
+                <a href="../tokaido.html">東海道</a> 16日目
+                <i class="fa-solid fa-mountain" style="color: #006400"></i>鈴鹿峠
+              </td>
+              <td>亀山</td>
+              <td>水口</td>
+              <td>37.3km</td>
+              <td>667m</td>
+              <td>579m</td>
+            </tr>
+            <tr>
+              <td>2024/05/04</td>
+              <td><a href="../tokaido.html">東海道</a> 17日目</td>
+              <td>水口</td>
+              <td>大津</td>
+              <td>40.8km</td>
+              <td>181m</td>
+              <td>255m</td>
+            </tr>
+            <tr>
+              <td>2024/05/04</td>
+              <td><a href="../tokaido.html">東海道</a> 18日目</td>
+              <td>大津</td>
+              <td>京都御所</td>
+              <td>16.6km</td>
+              <td>246m</td>
+              <td>293m</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><i>Total:</i></td>
+              <td id="total-km"></td>
+              <td id="total-up"></td>
+              <td id="total-down"></td>
+              <td></td>
+            </tr>
+            <script>
+              const pf = (s, u) => parseFloat(s.endsWith(u) ? s.slice(0, -u.length) : s);
+              const ff = (n, u) => new Intl.NumberFormat().format(n) + u;
+              let km = 0,
+                up = 0,
+                down = 0;
+              for (const tr of document.getElementsByTagName("tbody")[0].children) {
+                km += pf(tr.children[4].innerText, "km");
+                up += pf(tr.children[5].innerText, "m");
+                down += pf(tr.children[6].innerText, "m");
+              }
+              document.getElementById("total-km").innerText = ff(km, "km");
+              document.getElementById("total-up").innerText = ff(up, "m");
+              document.getElementById("total-down").innerText = ff(down, "m");
+            </script>
+          </tfoot>
+        </table>
+      </div>
+      <footer>
+        <p><a href="../">旧街道足跡マップ</a></p>
+        <p>
+          This work is licensed under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">CC BY-SA 4.0</a
+          ><img
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          /><img
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          /><img
+            src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"
+            alt=""
+            style="max-width: 1em; max-height: 1em; margin-left: 0.2em"
+          />
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
