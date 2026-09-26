@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="author" content="旧街道足跡マップ" />
-    <meta name="robots" content="noindex" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>kagaorange - 個人記録 - 旧街道足跡マップ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,6 +32,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/4.0.0/Control.FullScreen.min.css"
+      integrity="sha512-Dww58CIezLb4kFGtZ8Zlr85kRDwJgyPhe3gVABsvnJruZuYn3xCTpLbE3iBT5hGbrfCytJnZ4aiI3MxN0p+NVQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"
       integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="
@@ -48,6 +54,12 @@
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.85.1/L.Control.Locate.min.js"
       integrity="sha512-BxqrHRClEo8PNxiWPIppxGvOiOAPQ01392TXW55htg+Q3rpptqfaYGSGsfxuYQxVDyjYZOW6uXaomed1bCcSFw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/4.0.0/Control.FullScreen.min.js"
+      integrity="sha512-javanlE101qSyZ7XdaJMpB/RnKP4S/8jq1we4sy50BfBgXlcVbIJ5LIOyVa2qqnD+aGiD7J6TQ4bYKnL1Yqp5g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
@@ -137,6 +149,7 @@
       <script>
         const map = createMap(L);
         initMap(L, map, null);
+        map.addControl(new L.Control.FullScreen());
         map.setView([38, 138], 6);
 
         // 熊野古道中辺路
