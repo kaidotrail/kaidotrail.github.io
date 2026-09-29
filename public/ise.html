@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>成田街道のルート・足跡 - 旧街道足跡マップ</title>
+    <title>伊勢街道のルート・足跡 - 旧街道足跡マップ</title>
     <meta
       name="description"
-      content="旧成田街道 (旧佐倉街道) のルート解説・実際に歩いたGPSログをGoogleマップや古地図等に重ねて見ることができるページです。"
+      content="旧伊勢街道のルート解説・実際に歩いたGPSログをGoogleマップや古地図等に重ねて見ることができるページです。"
     />
-    <meta property="og:title" content="成田街道のルート・足跡 - 旧街道足跡マップ" />
+    <meta property="og:title" content="伊勢街道のルート・足跡 - 旧街道足跡マップ" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="旧街道足跡マップ" />
     <meta
       property="og:description"
-      content="成田街道 (佐倉街道) のルート解説・実際に歩いたGPSログをGoogleマップや古地図等に重ねて見ることができるページです。"
+      content="伊勢街道のルート解説・実際に歩いたGPSログをGoogleマップや古地図等に重ねて見ることができるページです。"
     />
-    <meta property="og:url" content="https://kaidotrail.github.io/narita.html" />
-    <meta property="og:image" content="https://kaidotrail.github.io/routes/narita.png" />
+    <meta property="og:url" content="https://kaidotrail.github.io/ise.html" />
+    <meta property="og:image" content="https://kaidotrail.github.io/routes/ise.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary" />
@@ -94,7 +94,7 @@
     <link rel="stylesheet" href="lib/app.css?v=1" />
     <link rel="stylesheet" href="lib/map_style.css?v=4" />
     <script src="lib/map_helper.js?v=7"></script>
-    <script src="routes/narita.js?v=1"></script>
+    <script src="routes/ise.js?v=1"></script>
   </head>
   <body>
     <!-- prettier-ignore -->
@@ -104,7 +104,7 @@
     <h1>
       <a href="./"><span class="logo-font">旧街道足跡マップ</span></a>
       <span class="sep">&gt;</span>
-      <span id="route-entry">成田街道</span>
+      <span id="route-entry">伊勢街道</span>
       <span id="select-entry"></span>
     </h1>
     <div id="map"></div>
@@ -126,20 +126,21 @@
         "kagaorange の足跡": gpxOverlay,
       });
       activateJinsokuMap(L, layerControl);
-      activateKonjakuMap(L, layerControl, "kanto", "00");
-      activateKonjakuMap(L, layerControl, "kanto", "01");
+      activateKonjakuMap(L, layerControl, "chukyo", "2man");
+      activateKonjakuMap(L, layerControl, "tsu", "2man");
 
       // Stations
       const stations = [
-        { name: "新宿", coordinate: [35.760253, 139.859104] },
-        { name: "八幡宿", coordinate: [35.7218572, 139.9295568] },
-        { name: "船橋宿", coordinate: [35.69764, 139.987479] },
-        { name: "大和田宿", coordinate: [35.719297, 140.104876] },
-        { name: "臼井宿", coordinate: [35.736061, 140.1807] },
-        { name: "佐倉宿", coordinate: [35.719489, 140.231855] },
-        { name: "酒々井宿", coordinate: [35.736474, 140.271818] },
-        { name: "寺台宿", coordinate: [35.787069, 140.329368] },
-        { name: "成田山新勝寺", coordinate: [35.785788, 140.318263] },
+        { name: "日永の追分", coordinate: [34.9355656, 136.5982157] },
+        { name: "神戸", coordinate: [34.883782, 136.580275] }, // 道路元標
+        { name: "白子", coordinate: [34.832039, 136.592325] }, // 高札場跡
+        { name: "上野", coordinate: [34.791263, 136.545787] }, // 弘法井戸
+        { name: "津", coordinate: [34.719696, 136.512808] }, // 道標 (津観音入口)
+        { name: "雲出", coordinate: [34.651429, 136.515904] }, // 明治天皇島貫御小休所址
+        { name: "松阪", coordinate: [34.578514, 136.530197] }, // 本町交差点
+        { name: "櫛田", coordinate: [34.546291, 136.586439] }, // 里程標
+        { name: "外宮", coordinate: [34.487649, 136.706661] }, // 表参道入口
+        { name: "内宮", coordinate: [34.458938, 136.722884] }, // 宇治橋鳥居外側
       ];
       const stationLayer = L.featureGroup();
       setMarkers(L, stationOverlay, stationLayer, stations);
@@ -150,11 +151,10 @@
       initSpots(L, map, spotOverlay, spots);
 
       // Route
-      L.polyline(naritaRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(iseRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
 
       // GPX
-      setGpx(L, gpxOverlay, "gpx/kagaorange_2026-04-12.gpx", "blue"); // #1 亀有→勝田台
-      setGpx(L, gpxOverlay, "gpx/kagaorange_2026-08-15.gpx", "blue"); // #2 勝田台→寺台
+      setGpx(L, gpxOverlay, "gpx/kagaorange_2026-09-22.gpx", "blue");
     </script>
   </body>
 </html>
