@@ -124,6 +124,9 @@
       tfoot {
         color: gray;
       }
+      summary {
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -153,84 +156,84 @@
         map.setView([38, 138], 6);
 
         // 熊野古道中辺路
-        setGpx(L, map, "../gpx/kagaorange_2016-03-20.gpx", "blue"); // ハイ
+        setGpx(L, map, "../gpx/kagaorange_2016-03-20.gpx", "blue", "熊野古道中辺路 (2016/3/20)");
 
         // 中山道
-        setGpx(L, map, "../gpx/kagaorange_2022-11-03.gpx", "blue"); // ハイ
-        setGpx(L, map, "../gpx/kagaorange_2022-11-04.gpx", "blue"); // ハイ
-        setGpx(L, map, "../gpx/kagaorange_2022-12-04.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2022-12-10.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-01-21.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-01-29.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-02-11.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-03-11.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-04-30.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-05-27.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-07-15.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2024-09-14.gpx", "blue"); // 初期
-        setGpx(L, map, "../gpx/kagaorange_2025-01-18.gpx", "blue"); // 氷川
+        setGpx(L, map, "../gpx/kagaorange_2022-11-03.gpx", "blue", "中山道 (2022/11/3)");
+        setGpx(L, map, "../gpx/kagaorange_2022-11-04.gpx", "blue", "中山道 (2022/11/4)");
+        setGpx(L, map, "../gpx/kagaorange_2022-12-04.gpx", "blue", "中山道 (2022/12/4)");
+        setGpx(L, map, "../gpx/kagaorange_2022-12-10.gpx", "blue", "中山道 (2022/12/10)");
+        setGpx(L, map, "../gpx/kagaorange_2023-01-21.gpx", "blue", "中山道 (2023/1/21)");
+        setGpx(L, map, "../gpx/kagaorange_2023-01-29.gpx", "blue", "中山道 (2023/1/29)");
+        setGpx(L, map, "../gpx/kagaorange_2023-02-11.gpx", "blue", "中山道 (2023/2/11〜12)");
+        setGpx(L, map, "../gpx/kagaorange_2023-03-11.gpx", "blue", "中山道 (2023/3/11〜12)");
+        setGpx(L, map, "../gpx/kagaorange_2023-04-30.gpx", "blue", "中山道 (2023/5/1〜3)");
+        setGpx(L, map, "../gpx/kagaorange_2023-05-27.gpx", "blue", "中山道 (2023/5/27〜28)");
+        setGpx(L, map, "../gpx/kagaorange_2023-07-15.gpx", "blue", "中山道 (2023/7/15〜17)");
+        setGpx(L, map, "../gpx/kagaorange_2024-09-14.gpx", "blue", "初期中山道 (2024/9/14)");
+        setGpx(L, map, "../gpx/kagaorange_2025-01-18.gpx", "blue", "氷川神社 (2025/1/18)");
 
         // 東海道
-        setGpx(L, map, "../gpx/kagaorange_2023-10-14.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-10-28.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-11-03.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-11-25.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-12-16.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2023-12-23.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2024-01-27.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2024-03-30.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2024-05-02.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2023-10-14.gpx", "blue", "東海道 (2023/10/14)");
+        setGpx(L, map, "../gpx/kagaorange_2023-10-28.gpx", "blue", "東海道 (2023/10/28)");
+        setGpx(L, map, "../gpx/kagaorange_2023-11-03.gpx", "blue", "東海道 (2023/11/3)");
+        setGpx(L, map, "../gpx/kagaorange_2023-11-25.gpx", "blue", "東海道 (2023/11/25)");
+        setGpx(L, map, "../gpx/kagaorange_2023-12-16.gpx", "blue", "東海道 (2023/12/16〜17)");
+        setGpx(L, map, "../gpx/kagaorange_2023-12-23.gpx", "blue", "東海道 (2023/12/23〜25)");
+        setGpx(L, map, "../gpx/kagaorange_2024-01-27.gpx", "blue", "東海道 (2024/1/27〜29)");
+        setGpx(L, map, "../gpx/kagaorange_2024-03-30.gpx", "blue", "東海道 (2024/3/30〜31)");
+        setGpx(L, map, "../gpx/kagaorange_2024-05-02.gpx", "blue", "東海道 (2024/5/2〜5)");
 
         // 中原街道
-        setGpx(L, map, "../gpx/kagaorange_2024-06-29.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2024-07-20.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2024-07-27.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2024-06-29.gpx", "blue", "中原街道 (2024/6/29)");
+        setGpx(L, map, "../gpx/kagaorange_2024-07-20.gpx", "blue", "中原街道 (2024/7/20)");
+        setGpx(L, map, "../gpx/kagaorange_2024-07-27.gpx", "blue", "中原街道 (2024/7/27)");
 
         // 日光街道
-        setGpx(L, map, "../gpx/kagaorange_2024-09-21.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2024-10-12.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2024-10-26.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2024-11-03.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2024-09-21.gpx", "blue", "日光街道 (2024/9/21)");
+        setGpx(L, map, "../gpx/kagaorange_2024-10-12.gpx", "blue", "日光街道 (2024/10/12)");
+        setGpx(L, map, "../gpx/kagaorange_2024-10-26.gpx", "blue", "日光街道 (2024/10/26)");
+        setGpx(L, map, "../gpx/kagaorange_2024-11-03.gpx", "blue", "日光街道 (2024/11/3〜4)");
 
         // 奥州街道 (白河以南)
-        setGpx(L, map, "../gpx/kagaorange_2025-01-24.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-01-24.gpx", "blue", "奥州街道 (2025/1/24〜26)");
 
         // 甲州街道
-        setGpx(L, map, "../gpx/kagaorange_2025-02-22.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2025-02-24.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2025-03-09.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2025-03-22.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2025-05-05.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2025-08-02.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2026-07-18.gpx", "blue"); // 初期
+        setGpx(L, map, "../gpx/kagaorange_2025-02-22.gpx", "blue", "甲州街道 (2025/2/22)");
+        setGpx(L, map, "../gpx/kagaorange_2025-02-24.gpx", "blue", "甲州街道 (2025/2/24)");
+        setGpx(L, map, "../gpx/kagaorange_2025-03-09.gpx", "blue", "甲州街道 (2025/3/9)");
+        setGpx(L, map, "../gpx/kagaorange_2025-03-22.gpx", "blue", "甲州街道 (2025/3/22)");
+        setGpx(L, map, "../gpx/kagaorange_2025-05-05.gpx", "blue", "甲州街道 (2025/5/5)");
+        setGpx(L, map, "../gpx/kagaorange_2025-08-02.gpx", "blue", "甲州街道 (2025/8/2)");
+        setGpx(L, map, "../gpx/kagaorange_2026-07-18.gpx", "blue", "甲州古街道 (2026/7/18)");
 
         // 川越街道
-        setGpx(L, map, "../gpx/kagaorange_2025-06-21.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2025-07-12.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-06-21.gpx", "blue", "川越街道 (2025/6/21)");
+        setGpx(L, map, "../gpx/kagaorange_2025-07-12.gpx", "blue", "川越街道 (2025/7/12)");
 
         // 奥州街道 (白河以北)
-        setGpx(L, map, "../gpx/kagaorange_2025-08-23.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2025-09-26.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2025-11-02.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2025-12-26.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2026-01-24.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2026-02-21.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2026-04-17.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2026-05-09.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2026-06-20.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-08-23.gpx", "blue", "奥州街道 (2025/8/23)");
+        setGpx(L, map, "../gpx/kagaorange_2025-09-26.gpx", "blue", "奥州街道 (2025/9/26〜27)");
+        setGpx(L, map, "../gpx/kagaorange_2025-11-02.gpx", "blue", "奥州街道 (2025/11/2〜4)");
+        setGpx(L, map, "../gpx/kagaorange_2025-12-26.gpx", "blue", "奥州街道 (2025/12/26〜29)");
+        setGpx(L, map, "../gpx/kagaorange_2026-01-24.gpx", "blue", "奥州街道 (2026/1/24〜25)");
+        setGpx(L, map, "../gpx/kagaorange_2026-02-21.gpx", "blue", "奥州街道 (2026/2/21〜23)");
+        setGpx(L, map, "../gpx/kagaorange_2026-04-17.gpx", "blue", "奥州街道 (2026/4/17〜19)");
+        setGpx(L, map, "../gpx/kagaorange_2026-05-09.gpx", "blue", "奥州街道 (2026/5/9〜10)");
+        setGpx(L, map, "../gpx/kagaorange_2026-06-20.gpx", "blue", "奥州街道 (2026/6/20〜21)");
 
         // 水戸街道
-        setGpx(L, map, "../gpx/kagaorange_2025-11-22.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2026-03-14.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2026-07-10.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2026-07-20.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2025-11-22.gpx", "blue", "水戸街道 (2025/11/22)");
+        setGpx(L, map, "../gpx/kagaorange_2026-03-14.gpx", "blue", "水戸街道 (2026/3/14)");
+        setGpx(L, map, "../gpx/kagaorange_2026-07-10.gpx", "blue", "水戸街道 (2026/7/10)");
+        setGpx(L, map, "../gpx/kagaorange_2026-07-20.gpx", "blue", "水戸街道 (2026/7/20)");
 
         // 成田街道
-        setGpx(L, map, "../gpx/kagaorange_2026-04-12.gpx", "blue");
-        setGpx(L, map, "../gpx/kagaorange_2026-08-15.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-04-12.gpx", "blue", "成田街道 (2026/4/12)");
+        setGpx(L, map, "../gpx/kagaorange_2026-08-15.gpx", "blue", "成田街道 (2026/8/15)");
 
         // 伊勢街道
-        setGpx(L, map, "../gpx/kagaorange_2026-09-22.gpx", "blue");
+        setGpx(L, map, "../gpx/kagaorange_2026-09-22.gpx", "blue", "伊勢街道 (2026/9/22〜24)");
       </script>
       <details id="records">
         <summary>全街道ウォーキング記録</summary>

@@ -615,13 +615,19 @@ const initSpots = (leaflet, map, spotOverlay, spots) => {
  * @param {*} overlay 配置対象の地図またはオーバーレイ
  * @param {string} path GPX ファイルの URL
  * @param {string} color カラーコード
+ * @param {?string} popup ポップアップメッセージ (省略可)
  */
-const setGpx = (leaflet, overlay, path, color) => {
+const setGpx = (leaflet, overlay, path, color, popup) => {
   new leaflet.GPX(path, {
     async: true,
     polyline_options: { color: color, weight: 2 },
     markers: { startIcon: null, endIcon: null },
   })
+    .on("loaded", (e) => {
+      if (popup) {
+        e.target.bindPopup(popup);
+      }
+    })
     .on("error", (e) => console.error("GPX の読み込みに失敗しました: " + String(e)))
     .addTo(overlay);
 };
