@@ -1913,8 +1913,12 @@
       new SpotList(displaySpots, iconTypes).detectLandingPage(isbot(navigator.userAgent));
 
       // Route
-      L.polyline(nakaharaRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
-      L.polyline(nakaharaAltRoute, { color: "lightcoral", weight: 5 }).addTo(altRouteOverlay);
+      L.polyline(nakaharaRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート");
+      L.polyline(nakaharaAltRoute, { color: "lightcoral", weight: 5 })
+        .addTo(altRouteOverlay)
+        .bindPopup("宮山ルート");
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2024-06-29.gpx", "blue"); // #1 虎ノ門→中山

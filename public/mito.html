@@ -169,7 +169,9 @@
       initSpots(L, map, spotOverlay, spots);
 
       // Route
-      L.polyline(mitoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(mitoRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート");
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2025-11-22.gpx", "blue"); // #1 千住→取手

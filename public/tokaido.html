@@ -205,10 +205,18 @@
       initSpots(L, map, spotOverlay, spots);
 
       // Route
-      L.polyline(tokaidoEastRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
-      L.polyline(tokaidoWestRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
-      L.polyline(kusatsuToSanjyoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
-      L.polyline(sayaRoute, { color: "lightcoral", weight: 5 }).addTo(sayaRouteOverlay);
+      L.polyline(tokaidoEastRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート");
+      L.polyline(tokaidoWestRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート");
+      L.polyline(kusatsuToSanjyoRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート (中山道との重複区間)");
+      L.polyline(sayaRoute, { color: "lightcoral", weight: 5 })
+        .addTo(sayaRouteOverlay)
+        .bindPopup("佐屋街道");
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2023-10-14.gpx", "blue"); // #1 日本橋→横浜

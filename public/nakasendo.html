@@ -15020,15 +15020,33 @@
       new SpotList(displaySpots, iconTypes).detectLandingPage(isbot(navigator.userAgent));
 
       // Route
-      L.polyline(nihonbashiToHiraoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
-      L.polyline(nakasendoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
-      L.polyline(kusatsuToSanjyoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
-      L.polyline(shokiNakasendoRoute, { color: "lightcoral", weight: 5 }).addTo(shokiRouteOverlay);
-      L.polyline(kazunomiyaRoute, { color: "lightcoral", weight: 5 }).addTo(kazunomiyaRouteOverlay);
-      L.polyline(nagasakaAltRoute, { color: "lightcoral", weight: 5 }).addTo(usuiOldRouteOverlay);
-      L.polyline(usuiOldRoute, { color: "lightcoral", weight: 5 }).addTo(usuiOldRouteOverlay);
-      L.polyline(wadaOldRoute, { color: "lightcoral", weight: 5 }).addTo(wadaOldRouteOverlay);
-      L.polyline(dotaRoute, { color: "lightcoral", weight: 5 }).addTo(dotaOldRouteOverlay);
+      L.polyline(nihonbashiToHiraoRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート");
+      L.polyline(nakasendoRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート");
+      L.polyline(kusatsuToSanjyoRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート (東海道との重複区間)");
+      L.polyline(shokiNakasendoRoute, { color: "lightcoral", weight: 5 })
+        .addTo(shokiRouteOverlay)
+        .bindPopup("初期中山道 (下諏訪〜桜沢)");
+      L.polyline(kazunomiyaRoute, { color: "lightcoral", weight: 5 })
+        .addTo(kazunomiyaRouteOverlay)
+        .bindPopup("碓氷峠和宮ルート");
+      L.polyline(nagasakaAltRoute, { color: "lightcoral", weight: 5 })
+        .addTo(usuiOldRouteOverlay)
+        .bindPopup("碓氷峠長坂 (別ルート)");
+      L.polyline(usuiOldRoute, { color: "lightcoral", weight: 5 })
+        .addTo(usuiOldRouteOverlay)
+        .bindPopup("碓氷峠原道 (通行注意)");
+      L.polyline(wadaOldRoute, { color: "lightcoral", weight: 5 })
+        .addTo(wadaOldRouteOverlay)
+        .bindPopup("唐沢古道");
+      L.polyline(dotaRoute, { color: "lightcoral", weight: 5 })
+        .addTo(dotaOldRouteOverlay)
+        .bindPopup("土田ルート (古街道)");
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2022-11-03.gpx", "blue"); // 鳥居峠ハイキング

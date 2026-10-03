@@ -150,7 +150,9 @@
       initSpots(L, map, spotOverlay, spots);
 
       // Route
-      L.polyline(naritaRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(naritaRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート");
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2026-04-12.gpx", "blue"); // #1 亀有→勝田台

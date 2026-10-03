@@ -4888,7 +4888,9 @@
       new SpotList(displaySpots, iconTypes).detectLandingPage(isbot(navigator.userAgent));
 
       // Route
-      L.polyline(nikkoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(nikkoRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート");
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2024-09-21.gpx", "blue"); // #1 日本橋→北越谷

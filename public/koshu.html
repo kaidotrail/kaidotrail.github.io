@@ -141,7 +141,7 @@
         見どころ: spotOverlay,
         おすすめ歩行ルート: routeOverlay,
         府中ハケ下ルート: fuchuOldRouteOverlay,
-        万願寺ルート: manganjiRouteOverlay,
+        万願寺渡ルート: manganjiRouteOverlay,
         穴山ルート: nirasakiAltRouteOverlay,
         上諏訪宿内別ルート: kamisuwaAltRouteOverlay,
         "kagaorange の足跡": gpxOverlay,
@@ -3772,21 +3772,27 @@
       new SpotList(displaySpots, iconTypes).detectLandingPage(isbot(navigator.userAgent));
 
       // Route
-      L.polyline(koshuRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
-      L.polyline(tobitakyuOldRoute, { color: "lightcoral", weight: 5 }).addTo(fuchuOldRouteOverlay);
-      L.polyline(fuchuToTobitakyuRoute, { color: "lightcoral", weight: 5 }).addTo(
-        fuchuOldRouteOverlay,
-      );
-      L.polyline(fuchuOldRoute, { color: "lightcoral", weight: 5 }).addTo(fuchuOldRouteOverlay);
-      L.polyline(aoyagiManganjiRoute, { color: "lightcoral", weight: 5 }).addTo(
-        manganjiRouteOverlay,
-      );
-      L.polyline(koshuNirasakiAltRoute, { color: "lightcoral", weight: 5 }).addTo(
-        nirasakiAltRouteOverlay,
-      );
-      L.polyline(koshuKamisuwaAltRoute, { color: "lightcoral", weight: 5 }).addTo(
-        kamisuwaAltRouteOverlay,
-      );
+      L.polyline(koshuRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート");
+      L.polyline(tobitakyuOldRoute, { color: "lightcoral", weight: 5 })
+        .addTo(fuchuOldRouteOverlay)
+        .bindPopup("府中ハケ下ルート (古街道)");
+      L.polyline(fuchuToTobitakyuRoute, { color: "lightcoral", weight: 5 })
+        .addTo(fuchuOldRouteOverlay)
+        .bindPopup("府中ハケ下ルート (古街道・品川道)");
+      L.polyline(fuchuOldRoute, { color: "lightcoral", weight: 5 })
+        .addTo(fuchuOldRouteOverlay)
+        .bindPopup("府中ハケ下ルート (古街道)");
+      L.polyline(aoyagiManganjiRoute, { color: "lightcoral", weight: 5 })
+        .addTo(manganjiRouteOverlay)
+        .bindPopup("万願寺渡ルート (古街道)");
+      L.polyline(koshuNirasakiAltRoute, { color: "lightcoral", weight: 5 })
+        .addTo(nirasakiAltRouteOverlay)
+        .bindPopup("穴山ルート (古街道)");
+      L.polyline(koshuKamisuwaAltRoute, { color: "lightcoral", weight: 5 })
+        .addTo(kamisuwaAltRouteOverlay)
+        .bindPopup("上諏訪宿内別ルート");
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2025-02-22.gpx", "blue"); // #1 日本橋→日野

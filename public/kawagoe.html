@@ -1280,8 +1280,12 @@
       new SpotList(displaySpots, iconTypes).detectLandingPage(isbot(navigator.userAgent));
 
       // Route
-      L.polyline(nihonbashiToHiraoRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
-      L.polyline(kawagoeRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(nihonbashiToHiraoRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート (中山道との重複区間)");
+      L.polyline(kawagoeRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート");
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2025-05-05.gpx", "blue"); // #1 日本橋→新座

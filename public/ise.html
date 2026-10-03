@@ -151,7 +151,9 @@
       initSpots(L, map, spotOverlay, spots);
 
       // Route
-      L.polyline(iseRoute, { color: "red", weight: 5 }).addTo(routeOverlay);
+      L.polyline(iseRoute, { color: "red", weight: 5 })
+        .addTo(routeOverlay)
+        .bindPopup("おすすめ歩行ルート");
 
       // GPX
       setGpx(L, gpxOverlay, "gpx/kagaorange_2026-09-22.gpx", "blue");
