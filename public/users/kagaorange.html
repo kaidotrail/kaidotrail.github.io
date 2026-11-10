@@ -1410,7 +1410,8 @@
     <script>
       const pf = (s, u) => parseFloat(s.endsWith(u) ? s.slice(0, -u.length) : s);
       const ff = (n, u) => new Intl.NumberFormat().format(n) + u;
-      document.getElementById("records").addEventListener("toggle", (e) => {
+      const records = document.getElementById("records");
+      records.addEventListener("toggle", (e) => {
         if (e.currentTarget.open) {
           let km = 0,
             up = 0,
@@ -1425,6 +1426,10 @@
           document.getElementById("total-down").innerText = ff(down, "m");
         }
       });
+      // records=open クエリーパラメーターで全記録を初期表示
+      if (new URLSearchParams(location.search).get("records") === "open") {
+        records.open = true;
+      }
     </script>
   </body>
 </html>
