@@ -126,7 +126,7 @@ const initMap = (leaflet, map, overlays) => {
           ? `<span style="color: deepskyblue"><i class="fa-solid fa-minus"></i></span>`
           : ``) +
         `<span style="color: blue"> 足跡 (GPS ログ)</span>` +
-        `<div id="terms-link"><a href="terms.html">利用規約</a></div>`;
+        `<div id="terms-link"><a href="/terms.html">利用規約</a></div>`;
       return div;
     };
     legend.addTo(map);
@@ -134,7 +134,7 @@ const initMap = (leaflet, map, overlays) => {
     legend.onAdd = () => {
       const div = leaflet.DomUtil.create("div", "map-legend");
       // noinspection HtmlUnknownTarget
-      div.innerHTML = `<div id="terms-link"><a href="terms.html">利用規約</a></div>`;
+      div.innerHTML = `<div id="terms-link"><a href="/terms.html">利用規約</a></div>`;
       return div;
     };
     legend.addTo(map);
