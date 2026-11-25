@@ -28,9 +28,9 @@ jobs:
       - name: Create IndexNow key file
         run: echo ${{ vars.INDEXNOW_KEY }} > dist/${{ vars.INDEXNOW_KEY }}.txt
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: "dist"
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
