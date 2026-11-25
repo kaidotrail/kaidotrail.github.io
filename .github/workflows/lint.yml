@@ -6,12 +6,7 @@ jobs:
     environment: development
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v6
-        with:
-          node-version: "24"
-      - name: Corepack enable
-        run: corepack enable pnpm
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
       - run: pnpm i
       - run: pnpm format:check
       - run: pnpm lint
