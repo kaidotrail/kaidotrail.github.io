@@ -633,6 +633,44 @@ const setGpx = (leaflet, overlay, path, color, popup) => {
 };
 
 /**
+ * GeoJSON データをロードします。
+ * @param {*} leaflet Leaflet 本体
+ * @param {*} overlay 配置対象の地図またはオーバーレイ
+ * @param {string} path GeoJSON ファイルの URL
+ * @param {string} color カラーコード
+ * @param {?boolean} dash 破線にする場合 true
+ * @param {?string} popup ポップアップメッセージ (省略可)
+ */
+const setGeoJSON = (leaflet, overlay, path, color, dash, popup) => {
+  const style = { color: color, weight: 2 };
+  if (dash) {
+    style.dashArray = "10, 10";
+  }
+  fetch(path)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("GeoJSON の取得に失敗しました: " + String(path));
+      }
+      return response.json();
+    })
+    .then((data) =>
+      leaflet
+        .geoJSON(data, {
+          style: style,
+          onEachFeature: (feature, layer) => {
+            if (popup) {
+              layer.bindPopup(popup);
+            }
+          },
+        })
+        .addTo(overlay),
+    )
+    .catch((e) => {
+      console.error("GeoJSON の読み込みに失敗しました: " + String(e));
+    });
+};
+
+/**
  * GPX 地図以外の画面に切り替えます。すでに表示している場合は地図表示に戻ります。
  * @param {string} target id
  */
