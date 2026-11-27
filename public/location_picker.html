@@ -112,8 +112,8 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/app.css?v=1" />
-    <link rel="stylesheet" href="lib/map_style.css?v=1" />
-    <script src="lib/map_helper.js?v=5"></script>
+    <link rel="stylesheet" href="lib/map_style.css?v=2" />
+    <script src="lib/map_helper.js?v=6"></script>
   </head>
   <body>
     <!-- prettier-ignore -->
@@ -161,7 +161,12 @@
       const inputLocation = document.getElementById("location");
       inputLocation.addEventListener("focus", () => inputLocation.select());
       const map = createMap(L);
-      const layerControl = initMap(L, map);
+      const codhOverlay = L.layerGroup();
+      codhOverlay.addTo(map);
+      const layerControl = initMap(L, map, {
+        "江戸時代の推定ルート<div class='layer-detail'>江戸主要街道データセット<br/>(ROIS-DS人文学オープンデータ共同利用センター作成)<br/>doi:10.20676/00000452</div>":
+          codhOverlay,
+      });
       activateJinsokuMap(L, layerControl);
       activateKonjakuMap(L, layerControl, "kanto", "00");
       activateKonjakuMap(L, layerControl, "matsumoto", "00");
@@ -187,6 +192,16 @@
             .bindPopup(lat + "," + lng),
         );
       });
+
+      // CODH Edo Road Dataset
+      setGeoJSON(
+        L,
+        codhOverlay,
+        "geojson/codh/edo-road-v4.geojson",
+        "brown",
+        true,
+        "江戸主要街道データセット (ROIS-DS人文学オープンデータ共同利用センター作成) doi:10.20676/00000452",
+      );
     </script>
   </body>
 </html>

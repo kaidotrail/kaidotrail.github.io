@@ -120,12 +120,16 @@
       stationOverlay.addTo(map);
       const spotOverlay = L.layerGroup();
       spotOverlay.addTo(map);
+      const codhOverlay = L.layerGroup();
+      codhOverlay.addTo(map);
       const gpxOverlay = L.layerGroup();
       gpxOverlay.addTo(map);
       const layerControl = initMap(L, map, {
         宿場: stationOverlay,
         見どころ: spotOverlay,
         おすすめ歩行ルート: routeOverlay,
+        "江戸時代の推定ルート<div class='layer-detail'>江戸主要街道データセット<br/>(ROIS-DS人文学オープンデータ共同利用センター作成)<br/>doi:10.20676/00000452</div>":
+          codhOverlay,
         "kagaorange の足跡": gpxOverlay,
       });
       activateJinsokuMap(L, layerControl);
@@ -149,6 +153,16 @@
       L.polyline(hokkokuRoute, { color: "red", weight: 5 })
         .addTo(routeOverlay)
         .bindPopup("おすすめ歩行ルート");
+
+      // CODH Edo Road Dataset
+      setGeoJSON(
+        L,
+        codhOverlay,
+        "geojson/codh/R506_北国脇往還.geojson",
+        "brown",
+        true,
+        "江戸主要街道データセット (ROIS-DS人文学オープンデータ共同利用センター作成) doi:10.20676/00000452",
+      );
 
       // GPX
       setGpx(

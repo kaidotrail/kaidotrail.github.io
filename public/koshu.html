@@ -92,9 +92,9 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/app.css?v=1" />
-    <link rel="stylesheet" href="lib/map_style.css?v=4" />
+    <link rel="stylesheet" href="lib/map_style.css?v=5" />
     <link rel="stylesheet" href="lib/spot_list.css?v=1" />
-    <script src="lib/map_helper.js?v=8"></script>
+    <script src="lib/map_helper.js?v=9"></script>
     <script src="lib/spot_list.js?v=1"></script>
     <script src="routes/spot_nihonbashi.js?v=1"></script>
     <script src="routes/koshu.js?v=3"></script>
@@ -134,6 +134,8 @@
       stationOverlay.addTo(map);
       const spotOverlay = L.layerGroup();
       spotOverlay.addTo(map);
+      const codhOverlay = L.layerGroup();
+      codhOverlay.addTo(map);
       const gpxOverlay = L.layerGroup();
       gpxOverlay.addTo(map);
       const layerControl = initMap(L, map, {
@@ -144,6 +146,8 @@
         万願寺渡ルート: manganjiRouteOverlay,
         穴山ルート: nirasakiAltRouteOverlay,
         上諏訪宿内別ルート: kamisuwaAltRouteOverlay,
+        "江戸時代の推定ルート<div class='layer-detail'>江戸主要街道データセット<br/>(ROIS-DS人文学オープンデータ共同利用センター作成)<br/>doi:10.20676/00000452</div>":
+          codhOverlay,
         "kagaorange の足跡": gpxOverlay,
       });
       activateJinsokuMap(L, layerControl);
@@ -3827,6 +3831,16 @@
       L.polyline(koshuKamisuwaAltRoute, { color: "lightcoral", weight: 5 })
         .addTo(kamisuwaAltRouteOverlay)
         .bindPopup("上諏訪宿内別ルート");
+
+      // CODH Edo Road Dataset
+      setGeoJSON(
+        L,
+        codhOverlay,
+        "geojson/codh/R003_甲州道中.geojson",
+        "brown",
+        true,
+        "江戸主要街道データセット (ROIS-DS人文学オープンデータ共同利用センター作成) doi:10.20676/00000452",
+      );
 
       // GPX
       setGpx(
