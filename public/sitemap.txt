@@ -14,6 +14,8 @@ https://kaidotrail.github.io/kawagoe.html
 https://kaidotrail.github.io/oshu_matsumae.html
 https://kaidotrail.github.io/mito.html
 https://kaidotrail.github.io/narita.html
+https://kaidotrail.github.io/ise.html
+https://kaidotrail.github.io/onari.html
 https://kaidotrail.github.io/calc_ri.html
 https://kaidotrail.github.io/location_picker.html
 https://kaidotrail.github.io/changelog.html
