@@ -208,3 +208,9 @@ h1 a {
   font-size: 2em;
   font-family: "Yuji Syuku", serif;
 }
+
+.layer-detail {
+  font-size: 0.7em;
+  padding-left: 25px;
+  width: 130px;
+}

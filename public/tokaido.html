@@ -92,8 +92,8 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/app.css?v=1" />
-    <link rel="stylesheet" href="lib/map_style.css?v=3" />
-    <script src="lib/map_helper.js?v=9"></script>
+    <link rel="stylesheet" href="lib/map_style.css?v=4" />
+    <script src="lib/map_helper.js?v=10"></script>
     <script src="routes/tokaido.js?v=3"></script>
     <script src="routes/spot_nihonbashi.js?v=1"></script>
     <script src="routes/section_kusatsu.js?v=1"></script>
@@ -121,6 +121,8 @@
       stationOverlay.addTo(map);
       const spotOverlay = L.layerGroup();
       spotOverlay.addTo(map);
+      const codhOverlay = L.layerGroup();
+      codhOverlay.addTo(map);
       const gpxOverlay = L.layerGroup();
       gpxOverlay.addTo(map);
       const layerControl = initMap(L, map, {
@@ -128,6 +130,8 @@
         見どころ: spotOverlay,
         おすすめ歩行ルート: routeOverlay,
         佐屋街道ルート: sayaRouteOverlay,
+        "江戸時代の推定ルート<div class='layer-detail'>江戸主要街道データセット<br/>(ROIS-DS人文学オープンデータ共同利用センター作成)<br/>doi:10.20676/00000452</div>":
+          codhOverlay,
         "kagaorange の足跡": gpxOverlay,
       });
       activateJinsokuMap(L, layerControl);
@@ -217,6 +221,16 @@
       L.polyline(sayaRoute, { color: "lightcoral", weight: 5 })
         .addTo(sayaRouteOverlay)
         .bindPopup("佐屋街道");
+
+      // CODH Edo Road Dataset
+      setGeoJSON(
+        L,
+        codhOverlay,
+        "geojson/codh/R001_東海道.geojson",
+        "brown",
+        true,
+        "江戸主要街道データセット (ROIS-DS人文学オープンデータ共同利用センター作成) doi:10.20676/00000452",
+      );
 
       // GPX
       setGpx(

@@ -95,9 +95,9 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MTM7SMZG');</script>
     <link rel="stylesheet" href="lib/app.css?v=1" />
-    <link rel="stylesheet" href="lib/map_style.css?v=6" />
+    <link rel="stylesheet" href="lib/map_style.css?v=8" />
     <link rel="stylesheet" href="lib/spot_list.css?v=2" />
-    <script src="lib/map_helper.js?v=13"></script>
+    <script src="lib/map_helper.js?v=14"></script>
     <script src="lib/spot_list.js?v=3"></script>
     <script src="routes/nakasendo.js?v=6"></script>
     <script src="routes/spot_nihonbashi.js?v=1"></script>
@@ -138,6 +138,8 @@
       stationOverlay.addTo(map);
       const spotOverlay = L.layerGroup();
       spotOverlay.addTo(map);
+      const codhOverlay = L.layerGroup();
+      codhOverlay.addTo(map);
       const gpxOverlay = L.layerGroup();
       gpxOverlay.addTo(map);
       const gpxYoshichiiOverlay = L.layerGroup();
@@ -151,6 +153,8 @@
         碓氷峠原道: usuiOldRouteOverlay,
         和田峠古道ルート: wadaOldRouteOverlay,
         土田ルート: dotaOldRouteOverlay,
+        "江戸時代の推定ルート<div class='layer-detail'>江戸主要街道データセット<br/>(ROIS-DS人文学オープンデータ共同利用センター作成)<br/>doi:10.20676/00000452</div>":
+          codhOverlay,
         "kagaorange の足跡": gpxOverlay,
         よしちぃの足跡: gpxYoshichiiOverlay,
       });
@@ -15047,6 +15051,16 @@
       L.polyline(dotaRoute, { color: "lightcoral", weight: 5 })
         .addTo(dotaOldRouteOverlay)
         .bindPopup("土田ルート (古街道)");
+
+      // CODH Edo Road Dataset
+      setGeoJSON(
+        L,
+        codhOverlay,
+        "geojson/codh/R002_中山道.geojson",
+        "brown",
+        true,
+        "江戸主要街道データセット (ROIS-DS人文学オープンデータ共同利用センター作成) doi:10.20676/00000452",
+      );
 
       // GPX
       setGpx(
